@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"); /*  Importing Urbanist font from Google Fonts  */
+@import "tailwindcss"; 
+
+@theme {
+  /* Defining custom properties */
+  --font-display: "Urbanist", sans-serif; /* Defining a custom property for Urbanist font */
+}
+
+@layer base {
+  /* Extending Tailwind's base styles */
+  html {
+    font-family: var(--font-display);
+  }
+
+  body {
+    background-color: #000000;
+    overflow-x: hidden;
+  }
+}
