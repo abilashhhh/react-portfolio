@@ -51,8 +51,8 @@ const AboutSection = () => {
               viewport={{ once: true, amount: 0.3 }}
               className={`p-8 rounded-2xl mb-12 transition-all duration-500 ease-in-out hover:-translate-y-1 ${
                 isDarkMode
-                  ? "bg-gradient-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
-                  : "bg-gradient-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
+                  ? "bg-linear-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
+                  : "bg-linear-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
               }`}
             >
               <motion.h3
@@ -115,8 +115,8 @@ const AboutSection = () => {
                     viewport={{ once: true }}
                     className={`p-6 rounded-xl transition-all duration-500 ease-in-out hover:-translate-y-2 ${
                       isDarkMode
-                        ? "bg-gradient-to-b from-[#101a2f] to-[#0d1528] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
-                        : "bg-gradient-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
+                        ? "bg-linear-to-b from-[#101a2f] to-[#0d1528] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
+                        : "bg-linear-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
                     }`}
                   >
                     <div className="flex items-center">
@@ -229,59 +229,7 @@ const AboutSection = () => {
           </motion.div>
         </div>
 
-        {/* Bottom CTA + Signature */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 pt-16 border-t border-gray-700/20"
-        >
-          <motion.div
-            variants={itemVariants}
-            className="text-center sm:text-right"
-          >
-            <p
-              className={`text-base mb-2 ${
-                isDarkMode ? "text-gray-300" : "text-gray-700"
-              }`}
-            >
-              Ready to bring your ideas to life?
-            </p>
-            <a
-              href="#contact"
-              className="inline-block px-8 py-3 rounded-full text-white font-medium bg-blue-600 hover:bg-blue-700 transition-all duration-300"
-            >
-              LET'S WORK TOGETHER
-            </a>
-          </motion.div>
-
-          <div
-            className={`hidden sm:block h-10 w-px ${
-              isDarkMode ? "bg-gray-700" : "bg-gray-300"
-            }`}
-          />
-
-          <motion.div
-            variants={itemVariants}
-            className="text-center sm:text-left"
-          >
-            <p
-              className={`text-sm mb-1 ${
-                isDarkMode ? "text-gray-500" : "text-gray-600"
-              }`}
-            >
-              Crafted with passion by
-            </p>
-            <h3
-              className={`text-xl font-semibold ${
-                isDarkMode ? "text-blue-400" : "text-blue-600"
-              }`}
-            >
-              Abilash Narayanan
-            </h3>
-          </motion.div>
-        </motion.div>
+       
       </div>
 
       {/* Background */}
