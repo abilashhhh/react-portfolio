@@ -33,7 +33,7 @@ const Navbar = () => {
               isDarkMode ? "text-white" : "text-gray-900"
             }`}
           >
-            Abilash N
+            Abilash Narayanan
           </span>{" "}
         </motion.div>
 
