@@ -236,6 +236,79 @@ export const PROJECTS = [
     featured: true,
     category: "Full Stack",
   },
+  // Minor Projects (not featured)
+  {
+    id: 7,
+    title: "Smart Task Manager",
+    description:
+      "A feature-rich todo application with drag-and-drop functionality, task categories, due dates, and progress tracking. Built with React and local storage persistence.",
+    image: PROJECT_IMG_1,
+    tags: ["React", "JavaScript", "CSS3", "Local Storage", "UI/UX"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    category: "Frontend",
+  },
+  {
+    id: 8,
+    title: "OLX Clone UI",
+    description:
+      "A pixel-perfect UI clone of OLX marketplace with responsive design, product listings, search functionality, and user authentication screens.",
+    image: PROJECT_IMG_2,
+    tags: ["React", "CSS3", "Responsive Design", "UI Clone", "Frontend"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    category: "Frontend",
+  },
+  {
+    id: 9,
+    title: "Netflix UI Clone",
+    description:
+      "A responsive Netflix interface clone with movie banners, category rows, hover effects, and modal components for movie details.",
+    image: PROJECT_IMG_3,
+    tags: ["React", "CSS3", "API Integration", "UI Clone", "Entertainment"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    category: "Frontend",
+  },
+  {
+    id: 10,
+    title: "Weather Dashboard",
+    description:
+      "A real-time weather application with location detection, 5-day forecast, interactive charts, and weather alerts using OpenWeather API.",
+    image: PROJECT_IMG_4,
+    tags: ["JavaScript", "API", "Chart.js", "Geolocation", "CSS3"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    category: "Frontend",
+  },
+  {
+    id: 11,
+    title: "Expense Tracker",
+    description:
+      "A personal finance management app with expense categorization, monthly budgets, spending analytics, and export functionality.",
+    image: PROJECT_IMG_5,
+    tags: ["React", "Chart.js", "Local Storage", "JavaScript", "Finance"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    category: "Frontend",
+  },
+  {
+    id: 12,
+    title: "Portfolio Website",
+    description:
+      "A responsive personal portfolio website with dark mode toggle, smooth animations, project showcase, and contact form.",
+    image: PROJECT_IMG_1,
+    tags: ["React", "Framer Motion", "Tailwind CSS", "Responsive", "Portfolio"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    category: "Frontend",
+  }
 ];
 
 // Journey Timeline

@@ -43,13 +43,12 @@ const SkillSection = () => {
     <section
       ref={sectionRef}
       id="skills"
-      className={`py-15 px-6 relative overflow-hidden transition-colors duration-500 ${
+      className={`py-20 px-6 relative overflow-hidden transition-colors duration-500 ${
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
         <motion.div
           animate={{
             scale: [1, 1.3, 1],
@@ -65,7 +64,6 @@ const SkillSection = () => {
           }`}
         />
       </div>
-
 
       {/* Animated Background */}
       <motion.div style={{ y }} className="absolute inset-0 overflow-hidden">
@@ -100,7 +98,7 @@ const SkillSection = () => {
 
           <motion.h2
             variants={itemVariants}
-            className="text-4xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6"
           >
             Skills & <span className="text-blue-500">Technologies</span>
           </motion.h2>
@@ -120,7 +118,7 @@ const SkillSection = () => {
 
         {/* Skill Cards */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
@@ -129,25 +127,47 @@ const SkillSection = () => {
             <motion.div
               key={category.id}
               variants={itemVariants}
-              className={`p-6 rounded-xl shadow-lg transition-all duration-300 ${
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+                transition: { duration: 0.3, ease: "easeOut" },
+              }}
+              className={`p-6 rounded-xl border-2 transition-all duration-300 group relative overflow-hidden ${
                 isDarkMode
-                  ? "bg-gray-900 hover:bg-gray-800"
-                  : "bg-white hover:bg-gray-100"
+                  ? "bg-gray-900 border-gray-800 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
+                  : "bg-white border-gray-200 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-400/20"
               }`}
             >
+              {/* Gradient Overlay on Hover */}
+              <div
+                className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${
+                  isDarkMode
+                    ? "from-blue-500/5 to-purple-500/5"
+                    : "from-blue-400/5 to-purple-400/5"
+                }`}
+              />
+
               {/* Category Header */}
-              <div className="flex items-center gap-3 mb-4">
-                <category.icon
-                  size={28}
-                  className={`${
-                    isDarkMode ? "text-blue-400" : "text-blue-600"
+              <div className="flex items-center gap-3 mb-4 relative z-10">
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className={`p-2 rounded-lg ${
+                    isDarkMode ? "bg-blue-500/20" : "bg-blue-100"
                   }`}
-                />
+                >
+                  <category.icon
+                    size={24}
+                    className={`${
+                      isDarkMode ? "text-blue-400" : "text-blue-600"
+                    }`}
+                  />
+                </motion.div>
                 <h3 className="text-xl font-semibold">{category.title}</h3>
               </div>
 
               <p
-                className={`text-sm mb-6 ${
+                className={`text-sm mb-6 relative z-10 ${
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 }`}
               >
@@ -155,11 +175,11 @@ const SkillSection = () => {
               </p>
 
               {/* Skills with progress bars */}
-              <div className="space-y-4">
+              <div className="space-y-4 relative z-10">
                 {category.skills.map((skill, i) => (
                   <div key={i}>
-                    <div className="flex justify-between mb-1">
-                      <span className="font-medium">{skill.name}</span>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-sm">{skill.name}</span>
                       <span
                         className={`text-xs ${
                           isDarkMode ? "text-gray-400" : "text-gray-500"
@@ -174,14 +194,29 @@ const SkillSection = () => {
                       }`}
                     >
                       <motion.div
-                        className={`h-full rounded-full ${
-                          skill.color || "bg-blue-500"
+                        className={`h-full rounded-full relative ${
+                          skill.color ||
+                          "bg-gradient-to-r from-blue-500 to-purple-500"
                         }`}
                         custom={getLevelWidth(skill.level)}
                         variants={skillBarVariants}
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
-                      />
+                      >
+                        {/* Animated shine effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                          animate={{
+                            x: ["0%", "100%"],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            repeatDelay: 3,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      </motion.div>
                     </div>
                   </div>
                 ))}
@@ -201,21 +236,25 @@ const SkillSection = () => {
             variants={itemVariants}
             className="text-2xl font-semibold mb-8 text-blue-500"
           >
-            also familiar with
+            Also Familiar With
           </motion.h3>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto"
+            className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
           >
             {TECH_STACK.map((tech, index) => (
               <motion.span
                 key={index}
-                whileHover={{ scale: 1.1 }}
-                className={`px-4 py-2 rounded-full text-sm font-medium shadow-sm cursor-default transition-all ${
+                whileHover={{
+                  scale: 1.1,
+                  y: -2,
+                }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-4 py-3 rounded-full text-sm font-medium cursor-default transition-all duration-300 border ${
                   isDarkMode
-                    ? "bg-gray-800 text-gray-200 hover:bg-gray-700"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
+                    ? "bg-gray-800 border-gray-700 text-gray-200 hover:bg-blue-500 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/25"
+                    : "bg-white border-gray-200 text-gray-700 hover:bg-blue-500 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-400/25"
                 }`}
               >
                 {tech}
@@ -229,13 +268,18 @@ const SkillSection = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
         >
           {STATS.map((stat, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="flex flex-col items-center"
+              whileHover={{ scale: 1.05 }}
+              className={`p-6 rounded-xl border transition-all duration-300 ${
+                isDarkMode
+                  ? "bg-gray-900 border-gray-800 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
+                  : "bg-white border-gray-200 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-400/20"
+              }`}
             >
               <motion.h4
                 initial={{ scale: 0 }}
@@ -243,14 +287,14 @@ const SkillSection = () => {
                 transition={{
                   type: "spring",
                   stiffness: 120,
-                  delay: index * 0.2,
+                  delay: index * 0.1,
                 }}
                 className="text-3xl md:text-4xl font-bold text-blue-500 mb-2"
               >
                 {stat.number}
               </motion.h4>
               <p
-                className={`text-sm ${
+                className={`text-sm font-medium ${
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 }`}
               >
