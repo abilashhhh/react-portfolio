@@ -157,7 +157,7 @@ export const TECH_STACK = [
 // Statistics
 export const STATS = [
   { number: "6+", label: "Major Projects" },
-  { number: "1.5+", label: "Years Experience" },
+  { number: "2+", label: "Years Experience" },
   { number: "20+", label: "Technologies" },
   { number: "100%", label: "Code Quality" },
 ];
@@ -380,7 +380,7 @@ export const CONTACT_INFO = [
     icon: Mail,
     label: "Email",
     value: "mailto:abilashncty@gmail.com",
-    // value: "abilashnarayanan2001@gmail.com",
+    value2: "abilashncty@gmail.com",
   },
   {
     icon: Phone,

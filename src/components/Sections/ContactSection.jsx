@@ -159,7 +159,9 @@ const ContactSection = () => {
                           isDarkMode ? "text-gray-400" : "text-gray-600"
                         }`}
                       >
-                        {contact.value}
+                        {contact.label === "Email"
+                          ? contact.value2
+                          : contact.value}
                       </p>
                     </div>
                   </div>
