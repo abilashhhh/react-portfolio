@@ -89,37 +89,38 @@ const Footer = () => {
             ease: "linear",
           }}
           className={`absolute -bottom-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
-            isDarkMode ? "bg-purple-500" : "bg-purple-300"
+            isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
       </div>
-      <div className="relative max-w-7xl mx-auto px-6 py-16">
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         {/* CTA Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 mb-4"
+            className="inline-flex items-center gap-2 mb-4 px-2"
           >
-            <Sparkles className="text-blue-500" size={20} />
+            <Sparkles className="text-blue-500 flex-shrink-0" size={18} />
             <span
-              className={`text-sm uppercase tracking-wider ${
+              className={`text-xs sm:text-sm uppercase tracking-wider ${
                 isDarkMode ? "text-blue-400" : "text-blue-600"
               }`}
             >
               Let's Create Something Amazing
             </span>
-            <Sparkles className="text-blue-500" size={20} />
+            <Sparkles className="text-blue-500 flex-shrink-0" size={18} />
           </motion.div>
 
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-4xl font-bold mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 px-4"
           >
             Ready to bring your{" "}
             <span className="text-blue-500">ideas to life?</span>
@@ -130,9 +131,9 @@ const Footer = () => {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white text-sm sm:text-base font-semibold bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            <Mail size={20} />
+            <Mail size={18} className="sm:w-5 sm:h-5" />
             Let's Work Together
           </motion.a>
         </motion.div>
@@ -317,37 +318,16 @@ const Footer = () => {
               >
                 <Heart className="text-red-500 fill-red-500" size={16} />
               </motion.div>
-              <span className={isDarkMode ? "text-gray-500" : "text-gray-600"}>
-                and
-              </span>
-              <Code className="text-blue-500" size={16} />
+             
             </div>
 
-            <div className="flex gap-6 text-sm">
-              <a
-                href="#privacy"
-                className={`transition-colors duration-300 hover:text-blue-500 ${
-                  isDarkMode ? "text-gray-500" : "text-gray-600"
-                }`}
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#terms"
-                className={`transition-colors duration-300 hover:text-blue-500 ${
-                  isDarkMode ? "text-gray-500" : "text-gray-600"
-                }`}
-              >
-                Terms of Service
-              </a>
-            </div>
+            
           </div>
         </motion.div>
       </div>
-      
+
       {/* Scroll to Top Button */}
-      {/* 
-      <motion.button
+      {/* <motion.button
         onClick={scrollToTop}
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}

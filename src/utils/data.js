@@ -38,7 +38,6 @@ import PROJECT_IMG_3 from "../assets/images/luffy2.jpg";
 import PROJECT_IMG_4 from "../assets/images/panda.jpg";
 import PROJECT_IMG_5 from "../assets/images/racecar.jpg";
 import PROJECT_IMG_6 from "../assets/images/racecar1.jpg";
-
 // Skills Categories
 export const SKILLS_CATEGORY = [
   {
@@ -48,11 +47,11 @@ export const SKILLS_CATEGORY = [
     description:
       "Skills related to the client-side development of web applications.",
     skills: [
-      { name: "HTML", level: "Advanced", color: "bg-blue-500" },
-      { name: "CSS", level: "Advanced", color: "bg-purple-500" },
-      { name: "JavaScript", level: "Intermediate", color: "bg-yellow-500" },
-      { name: "React", level: "Intermediate", color: "bg-cyan-500" },
-      { name: "Tailwind CSS", level: "Advanced", color: "bg-teal-500" },
+      { name: "HTML", level: "Advanced", color: "bg-blue-700" },
+      { name: "CSS", level: "Advanced", color: "bg-blue-700" },
+      { name: "JavaScript", level: "Intermediate", color: "bg-blue-500" },
+      { name: "React", level: "Intermediate", color: "bg-blue-500" },
+      { name: "Tailwind CSS", level: "Advanced", color: "bg-blue-700" },
     ],
   },
   {
@@ -62,10 +61,10 @@ export const SKILLS_CATEGORY = [
     description:
       "Skills related to the server-side development of web applications.",
     skills: [
-      { name: "Node.js", level: "Intermediate", color: "bg-green-500" },
-      { name: "Express", level: "Intermediate", color: "bg-lime-500" },
-      { name: "MongoDB", level: "Intermediate", color: "bg-emerald-500" },
-      { name: "REST APIs", level: "Advanced", color: "bg-indigo-500" },
+      { name: "Node.js", level: "Intermediate", color: "bg-blue-500" },
+      { name: "Express", level: "Intermediate", color: "bg-blue-500" },
+      { name: "MongoDB", level: "Intermediate", color: "bg-blue-500" },
+      { name: "REST APIs", level: "Advanced", color: "bg-blue-700" },
     ],
   },
   {
@@ -75,9 +74,9 @@ export const SKILLS_CATEGORY = [
     description:
       "Skills related to the management and manipulation of databases.",
     skills: [
-      { name: "MySQL", level: "Intermediate", color: "bg-orange-500" },
-      { name: "PostgreSQL", level: "Beginner", color: "bg-pink-500" },
-      { name: "MongoDB", level: "Advanced", color: "bg-green-600" },
+      { name: "MySQL", level: "Intermediate", color: "bg-blue-500" },
+      { name: "PostgreSQL", level: "Beginner", color: "bg-blue-300" },
+      { name: "MongoDB", level: "Advanced", color: "bg-blue-700" },
     ],
   },
   {
@@ -87,9 +86,9 @@ export const SKILLS_CATEGORY = [
     description:
       "Skills related to designing user interfaces and enhancing user experience.",
     skills: [
-      { name: "Figma", level: "Intermediate", color: "bg-purple-400" },
-      { name: "Canva", level: "Advanced", color: "bg-blue-400" },
-      { name: "Adobe XD", level: "Beginner", color: "bg-pink-400" },
+      { name: "Figma", level: "Intermediate", color: "bg-blue-500" },
+      { name: "Canva", level: "Advanced", color: "bg-blue-700" },
+      { name: "Adobe XD", level: "Beginner", color: "bg-blue-300" },
     ],
   },
   {
@@ -99,10 +98,10 @@ export const SKILLS_CATEGORY = [
     description:
       "Skills related to development operations and essential tools.",
     skills: [
-      { name: "Git / GitHub", level: "Advanced", color: "bg-gray-700" },
-      { name: "Docker", level: "Beginner", color: "bg-sky-500" },
-      { name: "Vite", level: "Intermediate", color: "bg-violet-500" },
-      { name: "VS Code", level: "Advanced", color: "bg-blue-600" },
+      { name: "Git / GitHub", level: "Advanced", color: "bg-blue-700" },
+      { name: "Docker", level: "Beginner", color: "bg-blue-300" },
+      { name: "Vite", level: "Intermediate", color: "bg-blue-500" },
+      { name: "VS Code", level: "Advanced", color: "bg-blue-700" },
     ],
   },
   {
@@ -112,13 +111,13 @@ export const SKILLS_CATEGORY = [
     description:
       "Essential interpersonal skills for effective collaboration and productivity.",
     skills: [
-      { name: "Problem Solving", level: "Advanced", color: "bg-yellow-400" },
-      { name: "Teamwork", level: "Advanced", color: "bg-green-400" },
-      { name: "Communication", level: "Advanced", color: "bg-indigo-400" },
+      { name: "Problem Solving", level: "Advanced", color: "bg-blue-700" },
+      { name: "Teamwork", level: "Advanced", color: "bg-blue-700" },
+      { name: "Communication", level: "Advanced", color: "bg-blue-700" },
       {
         name: "Time Management",
         level: "Intermediate",
-        color: "bg-orange-400",
+        color: "bg-blue-500",
       },
     ],
   },

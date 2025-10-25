@@ -56,7 +56,7 @@ const SkillSection = () => {
         />
         <div
           className={`absolute bottom-40 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-30 ${
-            isDarkMode ? "bg-purple-500" : "bg-purple-400"
+            isDarkMode ? "bg-blue-500" : "bg-blue-400"
           }`}
         />
       </motion.div>

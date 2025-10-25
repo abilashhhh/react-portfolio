@@ -61,7 +61,7 @@ const HeroSection = () => {
             animate={{ scale: [1, 1.1, 1], rotate: [360, 180, 0] }}
             transition={{ duration: 25, ease: "linear", repeat: Infinity }}
             className={`absolute bottom-20 left-20 w-48 h-48 rounded-full blur-3xl opacity-10 ${
-              isDarkMode ? "bg-purple-500" : "bg-purple-400"
+              isDarkMode ? "bg-blue-500" : "bg-blue-400"
             }`}
           ></motion.div>
         </div>
@@ -540,7 +540,7 @@ export default HeroSection;
 //             }}
 //             transition={{ duration: 30, ease: "linear", repeat: Infinity }}
 //             className={`absolute bottom-20 left-10 sm:left-20 w-64 h-64 sm:w-80 sm:h-80 rounded-full blur-3xl opacity-20 ${
-//               isDarkMode ? "bg-purple-500" : "bg-purple-400"
+//               isDarkMode ? "bg-blue-500" : "bg-blue-400"
 //             }`}
 //           />
 
@@ -610,7 +610,7 @@ export default HeroSection;
 //                       isDarkMode ? "border-gray-800 shadow-2xl shadow-blue-500/20" : "border-gray-300 shadow-xl shadow-gray-400/30"
 //                     } relative group`}
 //                   >
-//                     <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+//                     <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
 //                       <Code2 size={48} className="text-white" />
 //                     </div>
 
@@ -636,7 +636,7 @@ export default HeroSection;
 //                       repeat: Infinity,
 //                       ease: "linear",
 //                     }}
-//                     className="absolute -inset-3 rounded-2xl border border-purple-500/20"
+//                     className="absolute -inset-3 rounded-2xl border border-blue-500/20"
 //                   />
 
 //                   {/* Sparkle effect */}
@@ -687,7 +687,7 @@ export default HeroSection;
 //                 <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
 //                   Building{" "}
 //                 </span>
-//                 <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient">
+//                 <span className="bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 bg-clip-text text-transparent animate-gradient">
 //                   digital
 //                 </span>
 //                 <br />
@@ -747,7 +747,7 @@ export default HeroSection;
 //                       : "border-gray-300 hover:border-blue-400 text-gray-700 hover:text-gray-900"
 //                   } rounded-full px-10 py-4 text-sm uppercase tracking-wider font-medium transition-all duration-300 group overflow-hidden`}
 //                 >
-//                   <span className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-blue-500/10 to-purple-500/10' : 'bg-gradient-to-r from-blue-50 to-purple-50'} translate-y-full group-hover:translate-y-0 transition-transform duration-300`} />
+//                   <span className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-blue-500/10 to-blue-500/10' : 'bg-gradient-to-r from-blue-50 to-blue-50'} translate-y-full group-hover:translate-y-0 transition-transform duration-300`} />
 //                   <span className="relative z-10 flex items-center gap-2">
 //                     Get in Touch
 //                     <Mail size={16} />
@@ -761,7 +761,7 @@ export default HeroSection;
 //                 className="flex gap-4 justify-center items-center mb-12"
 //               >
 //                 {[
-//                   { icon: FiGithub, href: "#", color: "hover:text-purple-500", bg: "hover:bg-purple-500/10" },
+//                   { icon: FiGithub, href: "#", color: "hover:text-blue-500", bg: "hover:bg-blue-500/10" },
 //                   { icon: FiLinkedin, href: "#", color: "hover:text-blue-500", bg: "hover:bg-blue-500/10" },
 //                   { icon: Mail, href: "#", color: "hover:text-cyan-500", bg: "hover:bg-cyan-500/10" },
 //                 ].map((social, index) => (
@@ -848,7 +848,7 @@ export default HeroSection;
 //                   Building
 //                 </span>
 //                 <br />
-//                 <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+//                 <span className="bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 bg-clip-text text-transparent">
 //                   digital
 //                 </span>
 //                 <br />
@@ -906,7 +906,7 @@ export default HeroSection;
 //                       : "border-gray-300 hover:border-blue-400 text-gray-700 hover:text-gray-900"
 //                   } rounded-full px-10 py-5 text-sm uppercase tracking-wider font-medium transition-all duration-300 group overflow-hidden backdrop-blur-sm`}
 //                 >
-//                   <span className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-blue-500/10 to-purple-500/10' : 'bg-gradient-to-r from-blue-50 to-purple-50'} translate-y-full group-hover:translate-y-0 transition-transform duration-300`} />
+//                   <span className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-blue-500/10 to-blue-500/10' : 'bg-gradient-to-r from-blue-50 to-blue-50'} translate-y-full group-hover:translate-y-0 transition-transform duration-300`} />
 //                   <span className="relative z-10 flex items-center gap-2">
 //                     Get in Touch
 //                     <Mail size={18} />
@@ -920,7 +920,7 @@ export default HeroSection;
 //                 className="flex gap-4 items-center pt-6"
 //               >
 //                 {[
-//                   { icon: FiGithub, href: "#", color: "hover:text-purple-500", bg: "hover:bg-purple-500/10" },
+//                   { icon: FiGithub, href: "#", color: "hover:text-blue-500", bg: "hover:bg-blue-500/10" },
 //                   { icon: FiLinkedin, href: "#", color: "hover:text-blue-500", bg: "hover:bg-blue-500/10" },
 //                   { icon: Mail, href: "#", color: "hover:text-cyan-500", bg: "hover:bg-cyan-500/10" },
 //                 ].map((social, index) => (
@@ -981,12 +981,12 @@ export default HeroSection;
 //                     isDarkMode ? "border-gray-800 shadow-2xl shadow-blue-500/20" : "border-gray-300 shadow-2xl shadow-gray-400/30"
 //                   } relative group`}
 //                 >
-//                   <div className="w-full h-full bg-gradient-to-br from-blue-500 via-purple-600 to-cyan-500 flex items-center justify-center">
+//                   <div className="w-full h-full bg-gradient-to-br from-blue-500 via-blue-600 to-cyan-500 flex items-center justify-center">
 //                     <Code2 size={120} className="text-white opacity-80" />
 //                   </div>
 
 //                   {/* Animated overlay on hover */}
-//                   <div className={`absolute inset-0 bg-gradient-to-br ${isDarkMode ? 'from-blue-500/20 to-purple-500/20' : 'from-blue-400/20 to-purple-400/20'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+//                   <div className={`absolute inset-0 bg-gradient-to-br ${isDarkMode ? 'from-blue-500/20 to-blue-500/20' : 'from-blue-400/20 to-blue-400/20'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 //                 </motion.div>
 
 //                 {/* Multiple decorative rings */}
@@ -1007,7 +1007,7 @@ export default HeroSection;
 //                     repeat: Infinity,
 //                     ease: "linear",
 //                   }}
-//                   className="absolute -inset-6 rounded-3xl border border-purple-500/20"
+//                   className="absolute -inset-6 rounded-3xl border border-blue-500/20"
 //                 />
 
 //                 {/* Enhanced floating badge */}
