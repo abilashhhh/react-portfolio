@@ -240,7 +240,7 @@ const Footer = () => {
                       isDarkMode ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
-                    abilash@example.com
+                    abilashncty@gmail.com
                   </p>
                 </div>
               </div>
@@ -257,7 +257,7 @@ const Footer = () => {
                       isDarkMode ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
-                    +91 123 456 7890
+                    +91 7902253958
                   </p>
                 </div>
               </div>

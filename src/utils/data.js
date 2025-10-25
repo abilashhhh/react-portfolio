@@ -20,6 +20,7 @@ import {
   Users,
   Palette,
   Calendar,
+  Package,
 } from "lucide-react";
 
 // React Icons
@@ -38,6 +39,7 @@ import PROJECT_IMG_3 from "../assets/images/luffy2.jpg";
 import PROJECT_IMG_4 from "../assets/images/panda.jpg";
 import PROJECT_IMG_5 from "../assets/images/racecar.jpg";
 import PROJECT_IMG_6 from "../assets/images/racecar1.jpg";
+
 // Skills Categories
 export const SKILLS_CATEGORY = [
   {
@@ -45,13 +47,15 @@ export const SKILLS_CATEGORY = [
     title: "Frontend Development",
     icon: Code2,
     description:
-      "Skills related to the client-side development of web applications.",
+      "Building sophisticated and responsive user interfaces with modern frameworks.",
     skills: [
+      { name: "React", level: "Advanced", color: "bg-blue-700" },
+      { name: "Redux", level: "Advanced", color: "bg-blue-700" },
+      { name: "TypeScript", level: "Advanced", color: "bg-blue-700" },
       { name: "HTML", level: "Advanced", color: "bg-blue-700" },
       { name: "CSS", level: "Advanced", color: "bg-blue-700" },
-      { name: "JavaScript", level: "Intermediate", color: "bg-blue-500" },
-      { name: "React", level: "Intermediate", color: "bg-blue-500" },
       { name: "Tailwind CSS", level: "Advanced", color: "bg-blue-700" },
+      { name: "Bootstrap", level: "Advanced", color: "bg-blue-700" },
     ],
   },
   {
@@ -59,12 +63,15 @@ export const SKILLS_CATEGORY = [
     title: "Backend Development",
     icon: Server,
     description:
-      "Skills related to the server-side development of web applications.",
+      "Architecting scalable and resilient server-side infrastructures.",
     skills: [
-      { name: "Node.js", level: "Intermediate", color: "bg-blue-500" },
-      { name: "Express", level: "Intermediate", color: "bg-blue-500" },
-      { name: "MongoDB", level: "Intermediate", color: "bg-blue-500" },
-      { name: "REST APIs", level: "Advanced", color: "bg-blue-700" },
+      { name: "Node.js", level: "Advanced", color: "bg-blue-700" },
+      { name: "Express.js", level: "Advanced", color: "bg-blue-700" },
+      { name: "JavaScript", level: "Advanced", color: "bg-blue-700" },
+      { name: "REST API", level: "Advanced", color: "bg-blue-700" },
+      { name: "JWT", level: "Advanced", color: "bg-blue-700" },
+      { name: "Mongoose", level: "Advanced", color: "bg-blue-700" },
+      { name: "EJS", level: "Intermediate", color: "bg-blue-500" },
     ],
   },
   {
@@ -72,91 +79,98 @@ export const SKILLS_CATEGORY = [
     title: "Database Management",
     icon: Database,
     description:
-      "Skills related to the management and manipulation of databases.",
+      "Designing and managing efficient database solutions for various applications.",
     skills: [
-      { name: "MySQL", level: "Intermediate", color: "bg-blue-500" },
-      { name: "PostgreSQL", level: "Beginner", color: "bg-blue-300" },
       { name: "MongoDB", level: "Advanced", color: "bg-blue-700" },
+      { name: "MySQL", level: "Intermediate", color: "bg-blue-500" },
+      { name: "Firebase", level: "Intermediate", color: "bg-blue-500" },
     ],
   },
   {
     id: 4,
-    title: "UI / UX Design",
+    title: "Architecture & Design",
     icon: Award,
     description:
-      "Skills related to designing user interfaces and enhancing user experience.",
+      "Implementing robust architectural patterns and design principles.",
     skills: [
+      { name: "MVC Architecture", level: "Advanced", color: "bg-blue-700" },
+      { name: "Clean Architecture", level: "Advanced", color: "bg-blue-700" },
+      { name: "Multi-tenant Design", level: "Advanced", color: "bg-blue-700" },
       { name: "Figma", level: "Intermediate", color: "bg-blue-500" },
-      { name: "Canva", level: "Advanced", color: "bg-blue-700" },
-      { name: "Adobe XD", level: "Beginner", color: "bg-blue-300" },
     ],
   },
   {
     id: 5,
-    title: "DevOps & Tools",
+    title: "DevOps & Deployment",
     icon: Cloud,
     description:
-      "Skills related to development operations and essential tools.",
+      "Deploying and managing applications with modern DevOps practices.",
     skills: [
-      { name: "Git / GitHub", level: "Advanced", color: "bg-blue-700" },
-      { name: "Docker", level: "Beginner", color: "bg-blue-300" },
-      { name: "Vite", level: "Intermediate", color: "bg-blue-500" },
+      { name: "AWS EC2", level: "Advanced", color: "bg-blue-700" },
+      { name: "Route 53", level: "Intermediate", color: "bg-blue-500" },
+      { name: "NGINX", level: "Advanced", color: "bg-blue-700" },
+      { name: "PM2", level: "Intermediate", color: "bg-blue-500" },
+      { name: "Git", level: "Advanced", color: "bg-blue-700" },
+      { name: "Postman", level: "Advanced", color: "bg-blue-700" },
       { name: "VS Code", level: "Advanced", color: "bg-blue-700" },
     ],
   },
   {
     id: 6,
-    title: "Soft Skills",
-    icon: Heart,
+    title: "Algorithms & Problem Solving",
+    icon: Lightbulb,
     description:
-      "Essential interpersonal skills for effective collaboration and productivity.",
+      "Strong foundation in data structures and algorithmic thinking.",
     skills: [
+      { name: "Data Structures", level: "Intermediate", color: "bg-blue-500" },
+      { name: "Algorithms", level: "Intermediate", color: "bg-blue-500" },
       { name: "Problem Solving", level: "Advanced", color: "bg-blue-700" },
-      { name: "Teamwork", level: "Advanced", color: "bg-blue-700" },
-      { name: "Communication", level: "Advanced", color: "bg-blue-700" },
-      {
-        name: "Time Management",
-        level: "Intermediate",
-        color: "bg-blue-500",
-      },
+      { name: "SQL", level: "Intermediate", color: "bg-blue-500" },
     ],
   },
 ];
 
 // Tech Stack
 export const TECH_STACK = [
+  "React",
+  "Redux",
+  "TypeScript",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "JavaScript",
   "HTML",
   "CSS",
-  "JavaScript",
-  "React",
   "Tailwind CSS",
-  "Node.js",
-  "Express",
-  "MongoDB",
+  "Bootstrap",
+  "AWS",
+  "NGINX",
   "Git",
-  "GitHub",
+  "JWT",
+  "Firebase",
   "Figma",
-  "Canva",
-  "VS Code",
+  "Socket.io",
+  "Razorpay",
+  "REST API",
 ];
 
 // Statistics
 export const STATS = [
-  { number: "50+", label: "Projects Completed" },
-  { number: "3+", label: "Years Experience" },
+  { number: "6+", label: "Major Projects" },
+  { number: "1.5+", label: "Years Experience" },
   { number: "20+", label: "Technologies" },
-  { number: "100%", label: "Client Satisfaction" },
+  { number: "100%", label: "Code Quality" },
 ];
 
 // Projects
 export const PROJECTS = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Trend Trove",
     description:
-      "A full-stack e-commerce solution with advanced filtering, payment integration, and real-time inventory management.",
+      "A comprehensive social media and news feed platform built with Clean Architecture, featuring high-quality video/audio calls, instant messaging, ephemeral stories, and AI-powered image captioning using Clarifai.",
     image: PROJECT_IMG_1,
-    tags: ["React", "Tailwind", "Framer motion"],
+    tags: ["TypeScript", "React", "Node.js", "MongoDB", "Socket.io"],
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
@@ -164,62 +178,62 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Zigma Watches",
     description:
-      "Collaborative task management tool with real-time updates, team workspaces, and progress tracking features.",
+      "An e-commerce web application for selling smartwatches built using MVC architecture, featuring coupon support, referral systems, order tracking, and secure payments via Razorpay integration.",
     image: PROJECT_IMG_2,
-    tags: ["React", "Node.js", "MongoDB"],
-    liveUrl: "#",
+    tags: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap"],
+    liveUrl: "https://www.zigmawatches.shop",
     githubUrl: "#",
-    featured: false,
+    featured: true,
     category: "Full Stack",
   },
   {
     id: 3,
-    title: "Weather Dashboard",
+    title: "Checkpoint Systems",
     description:
-      "Interactive weather application with location-based forecasts, historical data visualization, and severe weather alerts.",
+      "A robust multi-tenant architecture application with isolated customer data through separate MongoDB databases, featuring dynamic database switching, connection pooling, and tenant-specific UI customizations.",
     image: PROJECT_IMG_3,
-    tags: ["React", "API Integration", "Chart.js"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    category: "Frontend",
-  },
-  {
-    id: 4,
-    title: "Social Media Analytics",
-    description:
-      "Analytics platform for tracking social media engagement, audience insights, and content performance metrics.",
-    image: PROJECT_IMG_4,
-    tags: ["React", "D3.js", "Express"],
+    tags: ["React", "AG Grid", "MongoDB", "Node.js", "TypeScript"],
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
     category: "Full Stack",
   },
   {
-    id: 5,
-    title: "Fitness Tracker",
+    id: 4,
+    title: "ART HEALTH",
     description:
-      "Personal fitness application with workout logging, calorie tracking, progress charts, and goal setting features.",
-    image: PROJECT_IMG_5,
-    tags: ["React Native", "Firebase", "Redux"],
+      "A healthcare platform with dynamic and responsive UI screens, featuring automated workflows for generating dynamic emails and PDFs, and implementing subscription-based dynamic tables for users.",
+    image: PROJECT_IMG_4,
+    tags: ["React", "Node.js", "MongoDB", "PDF Generation", "Email Automation"],
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
-    category: "Mobile",
+    category: "Full Stack",
+  },
+  {
+    id: 5,
+    title: "db-connections-util",
+    description:
+      "A security-first NPM package for parsing, encrypting, and reconstructing database connection strings. Supports MongoDB, PostgreSQL, MySQL, Redis, SQL Server, and Azure CosmosDB with AES-256 encryption.",
+    image: PROJECT_IMG_5,
+    tags: ["Node.js", "TypeScript", "Security", "NPM", "Database"],
+    liveUrl: "https://www.npmjs.com/package/db-connections-util",
+    githubUrl: "#",
+    featured: true,
+    category: "Backend",
   },
   {
     id: 6,
-    title: "Portfolio CMS",
+    title: "Hospital Management System",
     description:
-      "Content management system for creative professionals with drag-and-drop portfolio builder and client gallery.",
+      "A streamlined application for managing hospital operations with modules for receptionists and doctors, featuring automated token generation, appointment management, and prescription handling with 10-day SLA.",
     image: PROJECT_IMG_6,
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
+    tags: ["React", "Node.js", "MongoDB", "Neutrinos Studio"],
     liveUrl: "#",
     githubUrl: "#",
-    featured: true,
+    featured: false,
     category: "Full Stack",
   },
 ];
@@ -227,72 +241,72 @@ export const PROJECTS = [
 // Journey Timeline
 export const JOURNEY_STEPS = [
   {
-    year: "2021",
-    title: "Started Coding Journey",
-    company: "Self-taught",
+    year: "2019-23",
+    title: "B.Tech - Computer Science",
+    company: "Nehru College of Engineering, KTU",
     description:
-      "Began learning web development with HTML, CSS, and JavaScript. Built my first website and fell in love with creating digital experiences.",
-    icon: Code2,
-    color: "bg-blue-500",
-  },
-  {
-    year: "2022",
-    title: "First Internship",
-    company: "TechStart Inc.",
-    description:
-      "Joined as a frontend intern, working with React and learning modern development practices. Contributed to 3 major projects.",
-    icon: Briefcase,
-    color: "bg-green-500",
-  },
-  {
-    year: "2022",
-    title: "Computer Science Degree",
-    company: "University",
-    description:
-      "Completed Bachelor's degree in Computer Science, focusing on algorithms, data structures, and software engineering principles.",
+      "Began my journey in Computer Science and Engineering at APJ Abdul Kalam Technological University, for building a strong foundation in programming and software development.",
     icon: GraduationCap,
     color: "bg-purple-500",
   },
+  // {
+  //   year: "2023",
+  //   title: "Completed B.Tech",
+  //   company: "KTU, Thrissur",
+  //   description:
+  //     "Graduated with a Bachelor's degree in Computer Science and Engineering, specializing in web technologies and full-stack development.",
+  //   icon: Award,
+  //   color: "bg-blue-500",
+  // },
   {
-    year: "2023",
-    title: "Junior Developer",
-    company: "WebCraft Solutions",
+    year: "2023-24",
+    title: "MERN Stack Training",
+    company: "Brototype Institute",
     description:
-      "Joined as a junior full-stack developer. Built scalable web applications and collaborated with cross-functional teams.",
+      "Intensive training in MERN stack technologies, learning modern web development practices, Clean Architecture, and building production-ready applications.",
     icon: Code,
+    color: "bg-green-500",
+  },
+  {
+    year: "2024 - Present",
+    title: "Software Engineer",
+    company: "AFC Digital Pvt Ltd",
+    description:
+      "Joined as a Software Engineer, working on enterprise applications with multi-tenant architecture, dynamic UI components, and automated workflows for healthcare and checkpoint systems.",
+    icon: Briefcase,
     color: "bg-orange-500",
   },
   {
     year: "2024",
-    title: "Freelance & Open Source",
-    company: "Independent",
+    title: "Published NPM Package : db-connections-util",
+    company: "Open Source",
     description:
-      "Started freelancing and contributing to open source projects. Launched 3 successful web applications for various clients.",
-    icon: Award,
+      "Released db-connections-util, a secure database connection utility supporting multiple database types with AES-256 encryption, available on NPM for the developer community.",
+    icon: Package,
     color: "bg-pink-500",
   },
-  {
-    year: "2025",
-    title: "Senior Developer",
-    company: "Present",
-    description:
-      "Currently building innovative solutions and exploring new technologies like AI integration and advanced web animations.",
-    icon: Zap,
-    color: "bg-cyan-500",
-  },
+  // {
+  //   year: "2025",
+  //   title: "Full Stack Innovation",
+  //   company: "Present",
+  //   description:
+  //     "Currently building cutting-edge solutions with Clean Architecture, integrating AI capabilities, real-time communications, and exploring advanced web technologies to push the boundaries of innovation.",
+  //   icon: Rocket,
+  //   color: "bg-cyan-500",
+  // },
 ];
 
 // Passions
 export const PASSIONS = [
   {
-    icon: Heart,
-    title: "User Experience",
-    description: "Crafting intuitive interfaces that users love",
+    icon: Code2,
+    title: "Clean Architecture",
+    description: "Building scalable and maintainable codebases",
   },
   {
-    icon: Coffee,
-    title: "Problem Solving",
-    description: "Turning complex challenges into elegant solutions",
+    icon: Zap,
+    title: "Performance",
+    description: "Optimizing applications for speed and efficiency",
   },
   {
     icon: Lightbulb,
@@ -300,19 +314,19 @@ export const PASSIONS = [
     description: "Staying ahead with cutting-edge technologies",
   },
   {
-    icon: Users,
-    title: "Collaboration",
-    description: "Building amazing products with talented teams",
+    icon: Database,
+    title: "Data Architecture",
+    description: "Designing robust multi-tenant database solutions",
   },
   {
     icon: Rocket,
-    title: "Performance",
-    description: "Optimizing for speed and efficiency",
+    title: "Problem Solving",
+    description: "Turning complex challenges into elegant solutions",
   },
   {
-    icon: Palette,
-    title: "Design",
-    description: "Creating beautiful and functional interfaces",
+    icon: Heart,
+    title: "User Experience",
+    description: "Creating intuitive and responsive interfaces",
   },
 ];
 
@@ -321,38 +335,38 @@ export const SOCIAL_LINKS = [
   {
     name: "GitHub",
     icon: FiGithub,
-    url: "https://github.com",
+    url: "https://github.com/abilashhhh",
     color: "hover:text-gray-400",
     bgColor: "hover:bg-gray-800",
   },
   {
     name: "LinkedIn",
     icon: FiLinkedin,
-    url: "https://linkedin.com",
+    url: "https://linkedin.com/in/abilash2001",
     color: "hover:text-blue-400",
     bgColor: "hover:bg-blue-900",
   },
   {
-    name: "Twitter",
-    icon: FiTwitter,
-    url: "https://twitter.com",
-    color: "hover:text-sky-400",
-    bgColor: "hover:bg-sky-900",
+    name: "LeetCode",
+    icon: FiCode,
+    url: "https://leetcode.com/u/abilashn2001/",
+    color: "hover:text-orange-400",
+    bgColor: "hover:bg-orange-900",
   },
   {
     name: "Instagram",
     icon: FiInstagram,
-    url: "https://instagram.com",
+    url: "https://instagram.com/abilash_._",
     color: "hover:text-pink-400",
     bgColor: "hover:bg-pink-900",
   },
-  {
-    name: "Dev.to",
-    icon: FiCode,
-    url: "https://dev.to",
-    color: "hover:text-purple-400",
-    bgColor: "hover:bg-purple-900",
-  },
+  // {
+  //   name: "Twitter",
+  //   icon: FiTwitter,
+  //   url: "https://twitter.com",
+  //   color: "hover:text-sky-400",
+  //   bgColor: "hover:bg-sky-900",
+  // },
 ];
 
 // Contact Information
@@ -360,17 +374,18 @@ export const CONTACT_INFO = [
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Bengaluru, Karnataka",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "alex@timetoprogram.com",
+    value: "mailto:abilashncty@gmail.com",
+    // value: "abilashnarayanan2001@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
+    value: "+91 79022 53958",
   },
   {
     icon: Calendar,

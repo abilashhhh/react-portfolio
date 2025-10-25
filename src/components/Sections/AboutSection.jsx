@@ -222,9 +222,37 @@ const AboutSection = () => {
                         : "bg-white shadow-md hover:shadow-lg"
                     }`}
                   >
-                    <h4 className="text-lg font-semibold">{step.title}</h4>
+                    <div className="flex items-center justify-between mb-2">
+                      <span
+                        className={`text-xs font-medium px-2 py-1 rounded ${
+                          isDarkMode
+                            ? "bg-gray-700/50 text-gray-300"
+                            : "bg-gray-100 text-gray-600"
+                        }`}
+                      >
+                        {step.company}
+                      </span>
+                      <span
+                        className={`text-sm font-bold px-3 py-1 rounded-full ${
+                          isDarkMode
+                            ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                            : "bg-blue-100 text-blue-600"
+                        }`}
+                      >
+                        {step.year}
+                      </span>
+                    </div>
+
+                    <h4
+                      className={`text-lg font-semibold mb-2 ${
+                        isDarkMode ? "text-white" : "text-gray-900"
+                      }`}
+                    >
+                      {step.title}
+                    </h4>
+
                     <p
-                      className={`text-sm leading-relaxed mt-2 ${
+                      className={`text-sm leading-relaxed ${
                         isDarkMode ? "text-gray-300" : "text-gray-700"
                       }`}
                     >

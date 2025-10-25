@@ -29,6 +29,7 @@ const Navbar = () => {
         >
           <Code2 size={24} className="text-blue-500" />{" "}
           <span
+            onClick={() => scrollToSection("home")}
             className={`text-lg ml-1 ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}

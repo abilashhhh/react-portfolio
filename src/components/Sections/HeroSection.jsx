@@ -184,7 +184,7 @@ const HeroSection = () => {
                   onClick={() => scrollToSection("work")}
                   className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-3 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
-                  View work
+                  View works
                 </motion.button>
 
                 <motion.button
@@ -305,7 +305,7 @@ const HeroSection = () => {
                   onClick={() => scrollToSection("work")}
                   className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-4 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
-                  View work
+                  View works
                 </motion.button>
 
                 <motion.button
@@ -328,9 +328,12 @@ const HeroSection = () => {
                 className="flex gap-4 items-center pt-4"
               >
                 {[
-                  { icon: FiGithub, href: "#" },
-                  { icon: FiLinkedin, href: "#" },
-                  { icon: Mail, href: "#" },
+                  { icon: FiGithub, href: "https://github.com/abilashhhh" },
+                  {
+                    icon: FiLinkedin,
+                    href: "https://linkedin.com/in/abilash2001",
+                  },
+                  { icon: Mail, href: "mailto:abilashnarayanan2001@gmail.com" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
