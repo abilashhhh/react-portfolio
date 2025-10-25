@@ -150,6 +150,30 @@ const AboutSection = () => {
         </motion.div>
       </div>
 
+      {/* Digital Signature Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={itemVariants}
+        className="text-center pt-24"
+      >
+        <p
+          className={`text-sm mb-2 ${
+            isDarkMode ? "text-gray-500" : "text-gray-600"
+          }`}
+        >
+          Crafted with passion by
+        </p>
+        <h3
+          className={`text-2xl font-semibold ${
+            isDarkMode ? "text-blue-400" : "text-blue-600"
+          }`}
+        >
+          Abilash Narayanan
+        </h3>
+      </motion.div>
+
       {/* Soft gradient background overlay */}
       <div
         className={`absolute inset-0 -z-10 transition-colors duration-700 ease-in-out ${
