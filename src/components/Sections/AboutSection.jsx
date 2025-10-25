@@ -119,29 +119,35 @@ const AboutSection = () => {
                         : "bg-gradient-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
                     }`}
                   >
-                    <div
-                      className={`mx-auto mb-4 w-12 h-12 rounded-full flex items-center justify-center shadow-sm transition-transform duration-300 ease-in-out hover:scale-110 ${
-                        isDarkMode ? "bg-blue-500/20" : "bg-blue-100"
-                      }`}
-                    >
-                      <passion.icon
-                        size={22}
-                        className={`${
-                          isDarkMode ? "text-blue-400" : "text-blue-600"
+                    <div className="flex items-center">
+                      {/* Icon on the left */}
+                      <div
+                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-sm transition-transform duration-300 ease-in-out hover:scale-110 ${
+                          isDarkMode ? "bg-blue-500/20" : "bg-blue-100"
                         }`}
-                      />
-                    </div>
+                      >
+                        <passion.icon
+                          size={22}
+                          className={`${
+                            isDarkMode ? "text-blue-400" : "text-blue-600"
+                          }`}
+                        />
+                      </div>
 
-                    <h4 className="text-base font-semibold mb-2">
-                      {passion.title}
-                    </h4>
-                    <p
-                      className={`text-sm leading-relaxed ${
-                        isDarkMode ? "text-gray-400" : "text-gray-600"
-                      }`}
-                    >
-                      {passion.description}
-                    </p>
+                      {/* Content on the right */}
+                      <div className="ml-4">
+                        <h4 className="text-base font-semibold mb-2">
+                          {passion.title}
+                        </h4>
+                        <p
+                          className={`text-sm leading-relaxed ${
+                            isDarkMode ? "text-gray-400" : "text-gray-600"
+                          }`}
+                        >
+                          {passion.description}
+                        </p>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -184,27 +190,30 @@ const AboutSection = () => {
                         : "bg-white shadow-md hover:shadow-lg"
                     }`}
                   >
-                    <div
-                      className={`absolute top-5 right-5 px-3 py-1 rounded-full text-sm font-medium ${
-                        isDarkMode
-                          ? "bg-gray-800 text-gray-300"
-                          : "bg-gray-100 text-gray-700"
-                      }`}
-                    >
-                      {step.year}
+                    {/* Year and Company in same line on mobile */}
+                    <div className="flex items-center justify-between mb-2">
+                      <div
+                        className={`absolute top-5 right-5 px-3 py-1 rounded-full text-sm font-medium ${
+                          isDarkMode
+                            ? "bg-gray-800 text-gray-300"
+                            : "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {step.year}
+                      </div>
+
+                      {step.company && (
+                        <p
+                          className={`text-sm font-medium mb-2 ${
+                            isDarkMode ? "text-blue-400" : "text-blue-600"
+                          }`}
+                        >
+                          {step.company}
+                        </p>
+                      )}
                     </div>
 
                     <h4 className="text-lg font-semibold mb-1">{step.title}</h4>
-
-                    {step.company && (
-                      <p
-                        className={`text-sm font-medium mb-2 ${
-                          isDarkMode ? "text-blue-400" : "text-blue-600"
-                        }`}
-                      >
-                        {step.company}
-                      </p>
-                    )}
 
                     <p
                       className={`text-sm leading-relaxed ${
