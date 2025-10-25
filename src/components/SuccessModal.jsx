@@ -26,8 +26,8 @@ const SuccessModal = ({ isDarkMode, message, onClose, name }) => {
           }}
           className={`relative p-8 rounded-2xl max-w-md w-full shadow-2xl transition-all duration-300 ${
             isDarkMode
-              ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white border border-gray-700/50"
-              : "bg-gradient-to-br from-white via-gray-50 to-white text-gray-900 border border-gray-200"
+              ? "bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white border border-gray-700/50"
+              : "bg-linear-to-br from-white via-gray-50 to-white text-gray-900 border border-gray-200"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
@@ -94,8 +94,8 @@ const SuccessModal = ({ isDarkMode, message, onClose, name }) => {
                 transition={{ duration: 0.6 }}
                 className={`relative w-20 h-20 rounded-full flex items-center justify-center shadow-lg ${
                   isDarkMode
-                    ? "bg-gradient-to-br from-blue-500 to-emerald-600"
-                    : "bg-gradient-to-br from-blue-400 to-emerald-500"
+                    ? "bg-linear-to-br from-blue-500 to-emerald-600"
+                    : "bg-linear-to-br from-blue-400 to-emerald-500"
                 }`}
               >
                 <motion.div
@@ -162,7 +162,7 @@ const SuccessModal = ({ isDarkMode, message, onClose, name }) => {
           </motion.div>
 
           {/* Decorative particles */}
-          {[...Array(3 )].map((_, index) => (
+          {[...Array(3)].map((_, index) => (
             <motion.div
               key={index}
               className={`absolute w-2 h-2 rounded-full ${

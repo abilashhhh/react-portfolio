@@ -107,7 +107,7 @@ const Footer = () => {
             variants={itemVariants}
             className="inline-flex items-center gap-2 mb-4 px-2"
           >
-            <Sparkles className="text-blue-500 flex-shrink-0" size={18} />
+            <Sparkles className="text-blue-500 shrink-0" size={18} />
             <span
               className={`text-xs sm:text-sm uppercase tracking-wider ${
                 isDarkMode ? "text-blue-400" : "text-blue-600"
@@ -115,7 +115,7 @@ const Footer = () => {
             >
               Let's Create Something Amazing
             </span>
-            <Sparkles className="text-blue-500 flex-shrink-0" size={18} />
+            <Sparkles className="text-blue-500 shrink-0" size={18} />
           </motion.div>
 
           <motion.h2
@@ -131,7 +131,7 @@ const Footer = () => {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white text-sm sm:text-base font-semibold bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white text-sm sm:text-base font-semibold bg-linear-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <Mail size={18} className="sm:w-5 sm:h-5" />
             Let's Work Together

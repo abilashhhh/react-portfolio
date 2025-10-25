@@ -15,10 +15,43 @@ const ProjectsSection = () => {
     <section
       ref={sectionRef}
       id="work"
-      className={`py-24 px-6 relative overflow-hidden transition-colors duration-500 ${
+      className={`py-5 px-6 relative overflow-hidden transition-colors duration-500 ${
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={`absolute -top-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
+            isDarkMode ? "bg-blue-500" : "bg-blue-300"
+          }`}
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={`absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
+            isDarkMode ? "bg-blue-500" : "bg-blue-300"
+          }`}
+        />
+      </div>
+
+
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <motion.div

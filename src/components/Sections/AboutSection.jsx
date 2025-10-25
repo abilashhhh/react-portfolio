@@ -13,6 +13,38 @@ const AboutSection = () => {
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={`absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
+            isDarkMode ? "bg-blue-500" : "bg-blue-300"
+          }`}
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={`absolute -bottom-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
+            isDarkMode ? "bg-blue-500" : "bg-blue-300"
+          }`}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
@@ -190,33 +222,9 @@ const AboutSection = () => {
                         : "bg-white shadow-md hover:shadow-lg"
                     }`}
                   >
-                    {/* Year and Company in same line on mobile */}
-                    <div className="flex items-center justify-between mb-2">
-                      <div
-                        className={`absolute top-5 right-5 px-3 py-1 rounded-full text-sm font-medium ${
-                          isDarkMode
-                            ? "bg-gray-800 text-gray-300"
-                            : "bg-gray-100 text-gray-700"
-                        }`}
-                      >
-                        {step.year}
-                      </div>
-
-                      {step.company && (
-                        <p
-                          className={`text-sm font-medium mb-2 ${
-                            isDarkMode ? "text-blue-400" : "text-blue-600"
-                          }`}
-                        >
-                          {step.company}
-                        </p>
-                      )}
-                    </div>
-
-                    <h4 className="text-lg font-semibold mb-1">{step.title}</h4>
-
+                    <h4 className="text-lg font-semibold">{step.title}</h4>
                     <p
-                      className={`text-sm leading-relaxed ${
+                      className={`text-sm leading-relaxed mt-2 ${
                         isDarkMode ? "text-gray-300" : "text-gray-700"
                       }`}
                     >
@@ -228,18 +236,7 @@ const AboutSection = () => {
             </motion.div>
           </motion.div>
         </div>
-
-       
       </div>
-
-      {/* Background */}
-      <div
-        className={`absolute inset-0 -z-10 transition-colors duration-700 ease-in-out ${
-          isDarkMode
-            ? "bg-linear-to-b from-gray-950 via-gray-900 to-gray-950"
-            : "bg-linear-to-b from-gray-50 via-white to-gray-50"
-        }`}
-      />
     </section>
   );
 };
