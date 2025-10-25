@@ -150,7 +150,7 @@ const HeroSection = () => {
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollToSection("work")}
-                  className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-3 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
+                  className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-3 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
                   View work
                 </motion.button>
@@ -271,7 +271,7 @@ const HeroSection = () => {
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollToSection("work")}
-                  className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-4 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
+                  className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-4 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
                   View work
                 </motion.button>
@@ -518,8 +518,8 @@ export default HeroSection;
 //         <div className="absolute inset-0 overflow-hidden pointer-events-none">
 //           {/* Primary gradient orb */}
 //           <motion.div
-//             animate={{ 
-//               scale: [1, 1.2, 1], 
+//             animate={{
+//               scale: [1, 1.2, 1],
 //               rotate: [0, 180, 360],
 //               x: [0, 50, 0],
 //               y: [0, -30, 0]
@@ -532,8 +532,8 @@ export default HeroSection;
 
 //           {/* Secondary gradient orb */}
 //           <motion.div
-//             animate={{ 
-//               scale: [1, 1.3, 1], 
+//             animate={{
+//               scale: [1, 1.3, 1],
 //               rotate: [360, 180, 0],
 //               x: [0, -40, 0],
 //               y: [0, 40, 0]
@@ -546,7 +546,7 @@ export default HeroSection;
 
 //           {/* Accent orb */}
 //           <motion.div
-//             animate={{ 
+//             animate={{
 //               scale: [1, 1.1, 1],
 //               opacity: [0.1, 0.15, 0.1]
 //             }}
@@ -582,10 +582,10 @@ export default HeroSection;
 //           ))}
 
 //           {/* Grid pattern overlay */}
-//           <div 
+//           <div
 //             className={`absolute inset-0 ${
-//               isDarkMode 
-//                 ? "bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)]" 
+//               isDarkMode
+//                 ? "bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)]"
 //                 : "bg-[linear-gradient(rgba(0,0,0,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,.02)_1px,transparent_1px)]"
 //             } bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000,transparent)]`}
 //           />
@@ -613,7 +613,7 @@ export default HeroSection;
 //                     <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
 //                       <Code2 size={48} className="text-white" />
 //                     </div>
-                    
+
 //                     {/* Hover overlay */}
 //                     <div className={`absolute inset-0 ${isDarkMode ? 'bg-blue-500' : 'bg-blue-400'} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
 //                   </motion.div>
@@ -628,7 +628,7 @@ export default HeroSection;
 //                     }}
 //                     className="absolute -inset-2 rounded-2xl border-2 border-blue-500/30"
 //                   />
-                  
+
 //                   <motion.div
 //                     animate={{ rotate: -360 }}
 //                     transition={{
@@ -641,7 +641,7 @@ export default HeroSection;
 
 //                   {/* Sparkle effect */}
 //                   <motion.div
-//                     animate={{ 
+//                     animate={{
 //                       scale: [1, 1.2, 1],
 //                       opacity: [0.5, 1, 0.5]
 //                     }}
@@ -661,8 +661,8 @@ export default HeroSection;
 //               <motion.div
 //                 variants={itemVariants}
 //                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 ${
-//                   isDarkMode 
-//                     ? "bg-blue-500/10 border border-blue-500/20" 
+//                   isDarkMode
+//                     ? "bg-blue-500/10 border border-blue-500/20"
 //                     : "bg-blue-100 border border-blue-200"
 //                 }`}
 //               >
@@ -821,8 +821,8 @@ export default HeroSection;
 //               <motion.div
 //                 variants={textVariants}
 //                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
-//                   isDarkMode 
-//                     ? "bg-blue-500/10 border border-blue-500/20" 
+//                   isDarkMode
+//                     ? "bg-blue-500/10 border border-blue-500/20"
 //                     : "bg-blue-100 border border-blue-200"
 //                 }`}
 //               >
@@ -984,7 +984,7 @@ export default HeroSection;
 //                   <div className="w-full h-full bg-gradient-to-br from-blue-500 via-purple-600 to-cyan-500 flex items-center justify-center">
 //                     <Code2 size={120} className="text-white opacity-80" />
 //                   </div>
-                  
+
 //                   {/* Animated overlay on hover */}
 //                   <div className={`absolute inset-0 bg-gradient-to-br ${isDarkMode ? 'from-blue-500/20 to-purple-500/20' : 'from-blue-400/20 to-purple-400/20'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 //                 </motion.div>
@@ -999,7 +999,7 @@ export default HeroSection;
 //                   }}
 //                   className="absolute -inset-4 rounded-3xl border-2 border-blue-500/30"
 //                 />
-                
+
 //                 <motion.div
 //                   animate={{ rotate: -360 }}
 //                   transition={{
@@ -1076,7 +1076,7 @@ export default HeroSection;
 //                 {[...Array(3)].map((_, i) => (
 //                   <motion.div
 //                     key={i}
-//                     animate={{ 
+//                     animate={{
 //                       scale: [1, 1.5, 1],
 //                       opacity: [0.3, 1, 0.3],
 //                       rotate: [0, 180, 360]
@@ -1132,8 +1132,8 @@ export default HeroSection;
 //           whileTap={{ scale: 0.9 }}
 //           onClick={() => setIsDarkMode(!isDarkMode)}
 //           className={`fixed top-6 right-6 z-50 p-4 rounded-full ${
-//             isDarkMode 
-//               ? "bg-gray-800 text-yellow-400 border border-gray-700 hover:bg-gray-700" 
+//             isDarkMode
+//               ? "bg-gray-800 text-yellow-400 border border-gray-700 hover:bg-gray-700"
 //               : "bg-white text-gray-800 border border-gray-200 hover:bg-gray-50"
 //           } shadow-lg transition-all duration-300`}
 //         >
