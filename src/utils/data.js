@@ -209,7 +209,7 @@ export const PROJECTS = [
     tags: ["React", "Node.js", "MongoDB", "PDF Generation", "Email Automation"],
     liveUrl: "#",
     githubUrl: "#",
-    featured: false,
+    featured: true,
     category: "Full Stack",
   },
   {
@@ -233,7 +233,7 @@ export const PROJECTS = [
     tags: ["React", "Node.js", "MongoDB", "Neutrinos Studio"],
     liveUrl: "#",
     githubUrl: "#",
-    featured: false,
+    featured: true,
     category: "Full Stack",
   },
 ];
