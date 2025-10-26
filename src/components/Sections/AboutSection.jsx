@@ -216,10 +216,10 @@ const AboutSection = () => {
                   </div>
 
                   <div
-                    className={`ml-10 relative p-5 rounded-xl transition-all duration-500 hover:-translate-y-1 ${
+                    className={`ml-10 relative p-5 rounded-xl transition-all duration-500 cursor-pointer hover:-translate-y-1 ${
                       isDarkMode
-                        ? "bg-linear-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
-                        : "bg-white shadow-md hover:shadow-lg"
+                        ? "bg-linear-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
+                        : "bg-white shadow-md  hover:border-blue-400 hover:shadow-lg hover:shadow-blue-400/20"
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">

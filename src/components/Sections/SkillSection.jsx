@@ -134,8 +134,8 @@ const SkillSection = () => {
               }}
               className={`p-6 rounded-xl border-2 transition-all duration-300 group relative overflow-hidden ${
                 isDarkMode
-                  ? "bg-gray-900 border-gray-800 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
-                  : "bg-white border-gray-200 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-400/20"
+                  ? "bg-gray-900 border-gray-800  hover:shadow-2xl hover:shadow-blue-500/20"
+                  : "bg-white border-gray-200  hover:shadow-2xl hover:shadow-blue-400/20"
               }`}
             >
               {/* Gradient Overlay on Hover */}
@@ -253,8 +253,8 @@ const SkillSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`px-4 py-3 rounded-full text-sm font-medium cursor-default transition-all duration-300 border ${
                   isDarkMode
-                    ? "bg-gray-800 border-gray-700 text-gray-200 hover:bg-blue-500 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/25"
-                    : "bg-white border-gray-200 text-gray-700 hover:bg-blue-500 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-400/25"
+                    ? "bg-gray-800 border-gray-700 text-gray-200 hover:bg-blue-500  hover:text-white hover:shadow-lg hover:shadow-blue-500/25"
+                    : "bg-white border-gray-200 text-gray-700 hover:bg-blue-500  hover:text-white hover:shadow-lg hover:shadow-blue-400/25"
                 }`}
               >
                 {tech}
@@ -277,8 +277,8 @@ const SkillSection = () => {
               whileHover={{ scale: 1.05 }}
               className={`p-6 rounded-xl border transition-all duration-300 ${
                 isDarkMode
-                  ? "bg-gray-900 border-gray-800 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
-                  : "bg-white border-gray-200 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-400/20"
+                  ? "bg-gray-900 border-gray-800  hover:shadow-2xl hover:shadow-blue-500/20"
+                  : "bg-white border-gray-200  hover:shadow-2xl hover:shadow-blue-400/20"
               }`}
             >
               <motion.h4
