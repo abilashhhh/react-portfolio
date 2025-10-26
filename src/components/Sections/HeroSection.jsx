@@ -4,6 +4,7 @@ import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { useTheme } from "../../context/ThemeContext";
 import abi from "../../assets/images/abi.jpeg";
 import { containerVariants, itemVariants } from "../../utils/helper";
+import RESUME1 from "../../assets/resume/abilash_resume2.pdf";
 
 const HeroSection = () => {
   const { isDarkMode } = useTheme();
@@ -15,6 +16,13 @@ const HeroSection = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = RESUME1;
+    link.download = "Abilash_Resume.pdf";
+    link.click();
   };
 
   const textVariants = {
@@ -57,23 +65,9 @@ const HeroSection = () => {
             isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
-        {/* <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className={`absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            isDarkMode ? "bg-blue-500" : "bg-blue-300"
-          }`}
-        /> */}
       </div>
 
-      {/* Hero Section  */}
+      {/* Hero Section */}
       <motion.section
         id="home"
         style={{ y: heroY }}
@@ -99,7 +93,7 @@ const HeroSection = () => {
         </div>
 
         <div className="max-w-7xl mx-auto w-full z-10">
-          {/* Mobile layout - Centered */}
+          {/* Mobile layout */}
           <div className="block lg:hidden">
             <motion.div
               initial="hidden"
@@ -136,7 +130,6 @@ const HeroSection = () => {
                 </div>
               </motion.div>
 
-              {/* Content - Mobile view */}
               <motion.div
                 variants={textVariants}
                 className={`text-sm uppercase tracking-widest ${
@@ -178,13 +171,14 @@ const HeroSection = () => {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
               >
+                {/* ✅ Download Resume Button */}
                 <motion.button
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => scrollToSection("work")}
+                  onClick={handleDownload}
                   className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-3 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
-                  View works
+                  Download Resume
                 </motion.button>
 
                 <motion.button
@@ -207,13 +201,18 @@ const HeroSection = () => {
                 className="flex gap-4 justify-center items-center mb-12"
               >
                 {[
-                  { icon: FiGithub, href: "#" },
-                  { icon: FiLinkedin, href: "#" },
-                  { icon: Mail, href: "#" },
+                  { icon: FiGithub, href: "https://github.com/abilashhhh" },
+                  {
+                    icon: FiLinkedin,
+                    href: "https://linkedin.com/in/abilash2001",
+                  },
+                  { icon: Mail, href: "mailto:abilashnarayanan2001@gmail.com" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -3, scale: 1.1 }}
                     className={`p-3 rounded-full transition-all duration-300 ${
                       isDarkMode
@@ -247,7 +246,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Desktop layout - Split screen */}
+          {/* Desktop layout */}
           <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
             <motion.div
               initial="hidden"
@@ -255,7 +254,6 @@ const HeroSection = () => {
               variants={containerVariants}
               className="space-y-8"
             >
-              {/* Content - Desktop view */}
               <motion.div
                 variants={textVariants}
                 className={`text-sm uppercase tracking-widest ${
@@ -294,7 +292,7 @@ const HeroSection = () => {
                 something amazing together.
               </motion.p>
 
-              {/* CTA Buttons - Desktop view */}
+              {/* ✅ Download Resume Button - Desktop */}
               <motion.div
                 variants={itemVariants}
                 className="flex gap-4 items-center"
@@ -302,10 +300,10 @@ const HeroSection = () => {
                 <motion.button
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => scrollToSection("work")}
+                  onClick={handleDownload}
                   className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-4 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
-                  View works
+                  Download Resume
                 </motion.button>
 
                 <motion.button
@@ -322,7 +320,7 @@ const HeroSection = () => {
                 </motion.button>
               </motion.div>
 
-              {/* Social Links - Desktop view */}
+              {/* Social Links */}
               <motion.div
                 variants={itemVariants}
                 className="flex gap-4 items-center pt-4"
@@ -338,6 +336,8 @@ const HeroSection = () => {
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -3, scale: 1.1 }}
                     className={`p-3 rounded-full transition-all duration-300 ${
                       isDarkMode
@@ -350,7 +350,7 @@ const HeroSection = () => {
                 ))}
               </motion.div>
 
-              {/* Tech stack - Desktop view */}
+              {/* Tech stack */}
               <motion.div
                 variants={itemVariants}
                 className="flex flex-wrap gap-3 items-center text-sm pt-8"
@@ -370,7 +370,7 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Profile image - Desktop view */}
+            {/* Profile image - Desktop */}
             <motion.div
               variants={imageVariants}
               className="flex justify-center lg:justify-end"
@@ -402,7 +402,7 @@ const HeroSection = () => {
                   className="absolute -inset-4 rounded-3xl border-2 border-blue-500/20"
                 ></motion.div>
 
-                {/* Floating badge */}
+                {/* Floating badges */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{
@@ -430,7 +430,6 @@ const HeroSection = () => {
                   </div>
                 </motion.div>
 
-                {/* Stats badge */}
                 <motion.div
                   animate={{ y: [0, 10, 0] }}
                   transition={{
