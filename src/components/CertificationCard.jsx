@@ -14,7 +14,7 @@ const CertificationCard = ({ certification, isDarkMode }) => {
       }`}
     >
       {/* Certification Image */}
-      <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+      <div className="relative w-full h-48 overflow-hidden shrink-0">
         <img
           src={certification.image}
           alt={certification.title}

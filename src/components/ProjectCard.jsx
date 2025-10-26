@@ -14,7 +14,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
       }`}
     >
       {/* Project Image */}
-      <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+      <div className="relative w-full h-48 overflow-hidden shrink-0">
         <img
           src={project.image}
           alt={project.title}

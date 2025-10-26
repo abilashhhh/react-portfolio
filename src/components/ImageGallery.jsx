@@ -255,7 +255,7 @@ const ImageGallery = ({ images = [], title = "", isDarkMode }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            className="fixed inset-0 z-9999 flex items-center justify-center p-4"
             onClick={handleBackdropClick}
           >
             {/* Enhanced Backdrop */}
@@ -269,7 +269,7 @@ const ImageGallery = ({ images = [], title = "", isDarkMode }) => {
             />
 
             {/* Top Controls Bar */}
-            <div className="absolute top-4 left-4 right-4 z-[10000] flex justify-between items-center">
+            <div className="absolute top-4 left-4 right-4 z-10000 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <span
                   className={`px-3 py-2 rounded-lg text-sm font-medium ${
@@ -314,13 +314,13 @@ const ImageGallery = ({ images = [], title = "", isDarkMode }) => {
               <>
                 <button
                   onClick={handlePrev}
-                  className="absolute left-4 z-[10000] p-4 text-white/90 hover:text-white transition-all bg-black/50 rounded-xl hover:bg-black/70 backdrop-blur-sm transform hover:scale-110"
+                  className="absolute left-4 z-10000 p-4 text-white/90 hover:text-white transition-all bg-black/50 rounded-xl hover:bg-black/70 backdrop-blur-sm transform hover:scale-110"
                 >
                   <ChevronLeft size={28} />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-4 z-[10000] p-4 text-white/90 hover:text-white transition-all bg-black/50 rounded-xl hover:bg-black/70 backdrop-blur-sm transform hover:scale-110"
+                  className="absolute right-4 z-10000 p-4 text-white/90 hover:text-white transition-all bg-black/50 rounded-xl hover:bg-black/70 backdrop-blur-sm transform hover:scale-110"
                 >
                   <ChevronRight size={28} />
                 </button>
@@ -328,7 +328,7 @@ const ImageGallery = ({ images = [], title = "", isDarkMode }) => {
             )}
 
             {/* Zoom Controls */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-[10000] flex items-center gap-2 bg-black/70 backdrop-blur-sm rounded-xl p-2">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10000 flex items-center gap-2 bg-black/70 backdrop-blur-sm rounded-xl p-2">
               <button
                 onClick={handleZoomOut}
                 disabled={zoomLevel <= 1}
@@ -375,7 +375,7 @@ const ImageGallery = ({ images = [], title = "", isDarkMode }) => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="relative z-[9999] max-h-[85vh] max-w-[90vw] flex items-center justify-center cursor-move"
+              className="relative z-9999 max-h-[85vh] max-w-[90vw] flex items-center justify-center cursor-move"
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
@@ -405,7 +405,7 @@ const ImageGallery = ({ images = [], title = "", isDarkMode }) => {
 
             {/* Thumbnail Strip */}
             {images.length > 1 && (
-              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-[10000]">
+              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10000">
                 <div className="flex gap-2 p-2 bg-black/50 backdrop-blur-sm rounded-xl max-w-[80vw] overflow-x-auto">
                   {images.map((img, index) => (
                     <img

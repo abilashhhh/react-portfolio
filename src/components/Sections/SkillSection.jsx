@@ -62,7 +62,6 @@ const SkillSection = () => {
             isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
-        
       </div>
 
       {/* Animated Background Elements */}
@@ -158,7 +157,7 @@ const SkillSection = () => {
             >
               {/* Gradient Overlay on Hover */}
               <div
-                className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${
+                className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-br ${
                   isDarkMode
                     ? "from-blue-500/5 to-purple-500/5"
                     : "from-blue-400/5 to-purple-400/5"

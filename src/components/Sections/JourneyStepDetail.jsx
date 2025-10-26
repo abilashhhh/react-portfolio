@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { JOURNEY_STEPS } from "../../utils/data";
-import {PROJECT_SLUG_MAPPING} from "../../utils/data"
+import { PROJECT_SLUG_MAPPING } from "../../utils/data";
 import {
   ArrowLeft,
   MapPin,
@@ -87,8 +87,8 @@ const JourneyStepDetail = () => {
       transition={{ duration: 0.8 }}
       className={`min-h-screen transition-colors duration-500 ${
         isDarkMode
-          ? "bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 text-white"
-          : "bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-900"
+          ? "bg-linear-to-br from-gray-900 via-gray-950 to-gray-900 text-white"
+          : "bg-linear-to-br from-blue-50 via-white to-purple-50 text-gray-900"
       }`}
     >
       {/* Animated Background Elements */}
@@ -490,7 +490,6 @@ const renderQuickStats = (step, isDarkMode) => {
   ));
 };
 
-
 // Helper function to get step-specific stats
 const getStepStats = (step) => {
   const baseStats = [
@@ -600,7 +599,6 @@ const getStepStats = (step) => {
   }
 };
 
-
 // Enhanced helper function to render different content based on step type
 const renderDetailedContent = (step, isDarkMode, navigate) => {
   const { detailedInfo } = step;
@@ -635,10 +633,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
             isDarkMode ? "bg-gray-700/30" : "bg-blue-50"
           }`}
         >
-          <CheckCircle
-            size={16}
-            className="text-green-500 mt-0.5 flex-shrink-0"
-          />
+          <CheckCircle size={16} className="text-green-500 mt-0.5 shrink-0" />
           <span className="text-sm leading-relaxed">{highlight}</span>
         </motion.div>
       ))}
@@ -648,7 +643,12 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
   const renderTechGrid = (technologies) => (
     <div className="flex flex-wrap gap-2">
       {technologies.map((tech, index) => (
-        <TechBadge key={index} tech={tech} index={index} isDarkMode={isDarkMode} />
+        <TechBadge
+          key={index}
+          tech={tech}
+          index={index}
+          isDarkMode={isDarkMode}
+        />
       ))}
     </div>
   );
@@ -680,13 +680,26 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Degree Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem  isDarkMode={isDarkMode} label="Degree" value={detailedInfo.degree} />
-              <InfoItem  isDarkMode={isDarkMode}
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Degree"
+                value={detailedInfo.degree}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
                 label="Specialization"
                 value={detailedInfo.specialization}
               />
-              <InfoItem  isDarkMode={isDarkMode} label="University" value={detailedInfo.university} />
-              <InfoItem  isDarkMode={isDarkMode} label="Duration" value={detailedInfo.duration} />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="University"
+                value={detailedInfo.university}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Duration"
+                value={detailedInfo.duration}
+              />
             </div>
           </motion.section>
 
@@ -741,7 +754,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                     variants={itemVariants}
                     className="flex items-center gap-3 p-3 rounded-lg bg-green-500/10 border border-green-500/20"
                   >
-                    <Award size={14} className="text-green-500 flex-shrink-0" />
+                    <Award size={14} className="text-green-500 shrink-0" />
                     <span className="text-sm">{achievement}</span>
                   </motion.div>
                 ))}
@@ -761,9 +774,21 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Program Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem  isDarkMode={isDarkMode} label="Program" value={detailedInfo.program} />
-              <InfoItem  isDarkMode={isDarkMode} label="Duration" value={detailedInfo.duration} />
-              <InfoItem  isDarkMode={isDarkMode} label="Type" value={detailedInfo.type} />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Program"
+                value={detailedInfo.program}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Duration"
+                value={detailedInfo.duration}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Type"
+                value={detailedInfo.type}
+              />
             </div>
           </motion.section>
 
@@ -820,7 +845,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                   >
                     <CheckCircle
                       size={14}
-                      className="text-blue-500 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mt-0.5 shrink-0"
                     />
                     <span className="text-sm">{learning}</span>
                   </motion.div>
@@ -841,10 +866,26 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Role Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem  isDarkMode={isDarkMode} label="Role" value={detailedInfo.role} />
-              <InfoItem  isDarkMode={isDarkMode} label="Department" value={detailedInfo.department} />
-              <InfoItem  isDarkMode={isDarkMode} label="Type" value={detailedInfo.type} />
-              <InfoItem  isDarkMode={isDarkMode} label="Duration" value={detailedInfo.duration} />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Role"
+                value={detailedInfo.role}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Department"
+                value={detailedInfo.department}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Type"
+                value={detailedInfo.type}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Duration"
+                value={detailedInfo.duration}
+              />
             </div>
           </motion.section>
 
@@ -872,7 +913,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                     isDarkMode ? "bg-gray-700/30" : "bg-green-50"
                   }`}
                 >
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 shrink-0" />
                   <span className="text-sm leading-relaxed">
                     {responsibility}
                   </span>
@@ -905,7 +946,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                   >
                     <Award
                       size={14}
-                      className="text-purple-500 mt-0.5 flex-shrink-0"
+                      className="text-purple-500 mt-0.5 shrink-0"
                     />
                     <span className="text-sm">{achievement}</span>
                   </motion.div>
@@ -946,10 +987,26 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Package Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem  isDarkMode={isDarkMode} label="Package Name" value={detailedInfo.packageName} />
-              <InfoItem  isDarkMode={isDarkMode} label="Type" value={detailedInfo.type} />
-              <InfoItem  isDarkMode={isDarkMode} label="Version" value={detailedInfo.version} />
-              <InfoItem  isDarkMode={isDarkMode} label="Downloads" value={detailedInfo.downloads} />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Package Name"
+                value={detailedInfo.packageName}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Type"
+                value={detailedInfo.type}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Version"
+                value={detailedInfo.version}
+              />
+              <InfoItem
+                isDarkMode={isDarkMode}
+                label="Downloads"
+                value={detailedInfo.downloads}
+              />
             </div>
           </motion.section>
 
@@ -979,7 +1036,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                 >
                   <CheckCircle
                     size={16}
-                    className="text-green-500 mt-0.5 flex-shrink-0"
+                    className="text-green-500 mt-0.5 shrink-0"
                   />
                   <span className="text-sm">{feature}</span>
                 </motion.div>
@@ -1011,7 +1068,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                   >
                     <TrendingUp
                       size={14}
-                      className="text-orange-500 mt-0.5 flex-shrink-0"
+                      className="text-orange-500 mt-0.5 shrink-0"
                     />
                     <span className="text-sm">{impact}</span>
                   </motion.div>
@@ -1034,7 +1091,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                     variants={itemVariants}
                     className="flex items-start gap-3 p-3 rounded-lg bg-purple-500/10 border border-purple-500/20"
                   >
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 shrink-0" />
                     <span className="text-sm">{useCase}</span>
                   </motion.div>
                 ))}
@@ -1055,7 +1112,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
                   >
                     <Target
                       size={14}
-                      className="text-cyan-500 mt-0.5 flex-shrink-0"
+                      className="text-cyan-500 mt-0.5 shrink-0"
                     />
                     <span className="text-sm">{enhancement}</span>
                   </motion.div>
@@ -1101,7 +1158,6 @@ const InfoItem = ({ label, value, isDarkMode }) => (
   </motion.div>
 );
 
-
 const ProjectCard = ({
   project,
   index,
@@ -1122,7 +1178,7 @@ const ProjectCard = ({
   >
     <div className="flex items-start gap-3">
       <div
-        className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+        className={`w-2 h-2 rounded-full mt-2 shrink-0 ${
           isClickable ? "bg-blue-500" : "bg-gray-400"
         }`}
       />
@@ -1139,7 +1195,7 @@ const ProjectCard = ({
   </motion.div>
 );
 
-const TechBadge = ({ tech, index , isDarkMode}) => (
+const TechBadge = ({ tech, index, isDarkMode }) => (
   <motion.span
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
