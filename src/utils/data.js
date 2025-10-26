@@ -394,7 +394,7 @@ export const JOURNEY_STEPS = [
     ],
     detailedInfo: {
       program: "Full Stack Development - MERN",
-      duration: "12 Months (Intensive Bootcamp)",
+      duration: "12 Months",
       type: "Hands-on Professional Training",
       highlights: [
         "Mastered MongoDB, Express.js, React.js, and Node.js ecosystem",

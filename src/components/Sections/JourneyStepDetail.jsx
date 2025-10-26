@@ -215,8 +215,8 @@ const JourneyStepDetail = () => {
                   to="/projects"
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isDarkMode
-                      ? "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70"
-                      : "bg-white/70 text-gray-600 hover:bg-white"
+                      ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
+                      : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
                   }`}
                 >
                   View All Projects
@@ -230,8 +230,8 @@ const JourneyStepDetail = () => {
                   to="/"
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isDarkMode
-                      ? "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70"
-                      : "bg-white/70 text-gray-600 hover:bg-white"
+                      ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
+                      : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
                   }`}
                 >
                   Home
@@ -269,7 +269,7 @@ const JourneyStepDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-2xl font-semibold mb-6 text-gray-600 dark:text-gray-300"
+              className={`text-xl md:text-2xl font-semibold mb-6  ${isDarkMode} ? "text-gray-600" : "text-gray-300"`}
             >
               {step.company}
             </motion.p>
@@ -282,7 +282,11 @@ const JourneyStepDetail = () => {
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm"
+                className={`flex items-center gap-3 px-4 py-2 rounded-xl backdrop-blur-sm ${
+                  isDarkMode
+                    ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
+                    : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
+                }`}
               >
                 <Calendar size={18} className="text-blue-500" />
                 <span className="font-medium">{step.year}</span>
@@ -290,7 +294,11 @@ const JourneyStepDetail = () => {
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm"
+                className={`flex items-center gap-3 px-4 py-2 rounded-xl backdrop-blur-sm ${
+                  isDarkMode
+                    ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
+                    : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
+                }`}
               >
                 <MapPin size={18} className="text-green-500" />
                 <span className="font-medium">{step.location}</span>
@@ -302,7 +310,11 @@ const JourneyStepDetail = () => {
                   href={step.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm text-blue-500 hover:text-blue-400 transition-colors group"
+                  className={`flex items-center gap-3 px-4 py-2 rounded-xl backdrop-blur-sm text-blue-500 hover:text-blue-400 transition-colors group  ${
+                    isDarkMode
+                      ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
+                      : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
+                  }`}
                 >
                   <Globe size={18} />
                   <span className="font-medium">Visit Website</span>
@@ -344,7 +356,9 @@ const JourneyStepDetail = () => {
                   <BookOpen size={20} className="text-blue-500" />
                   <h3 className="text-xl font-bold">Overview</h3>
                 </div>
-                <p className="leading-relaxed text-gray-600 dark:text-gray-300">
+                <p
+                  className={`leading-relaxed ${isDarkMode} ? "text-gray-600" : "text-gray-300"`}
+                >
                   {step.description}
                 </p>
               </motion.div>
@@ -449,7 +463,6 @@ const JourneyStepDetail = () => {
     </motion.div>
   );
 };
-
 // Helper function to render quick stats
 const renderQuickStats = (step, isDarkMode) => {
   const stats = getStepStats(step);
@@ -460,7 +473,11 @@ const renderQuickStats = (step, isDarkMode) => {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 1.1 + index * 0.1 }}
-      className="flex items-center justify-between p-3 rounded-lg bg-white/50 dark:bg-gray-700/30 backdrop-blur-sm"
+      className={`flex items-center justify-between p-3 rounded-lg backdrop-blur-sm ${
+        isDarkMode
+          ? "bg-gray-700/30 border border-gray-600/50 text-gray-200 hover:bg-gray-600/40"
+          : "bg-white/50 border border-gray-200 text-gray-700 hover:bg-white/60 shadow-md"
+      }`}
     >
       <div className="flex items-center gap-3">
         <div className={`p-2 rounded-lg ${stat.color}`}>
@@ -472,6 +489,7 @@ const renderQuickStats = (step, isDarkMode) => {
     </motion.div>
   ));
 };
+
 
 // Helper function to get step-specific stats
 const getStepStats = (step) => {
@@ -630,7 +648,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
   const renderTechGrid = (technologies) => (
     <div className="flex flex-wrap gap-2">
       {technologies.map((tech, index) => (
-        <TechBadge key={index} tech={tech} index={index} />
+        <TechBadge key={index} tech={tech} index={index} isDarkMode={isDarkMode} />
       ))}
     </div>
   );
@@ -662,13 +680,13 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Degree Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem label="Degree" value={detailedInfo.degree} />
-              <InfoItem
+              <InfoItem  isDarkMode={isDarkMode} label="Degree" value={detailedInfo.degree} />
+              <InfoItem  isDarkMode={isDarkMode}
                 label="Specialization"
                 value={detailedInfo.specialization}
               />
-              <InfoItem label="University" value={detailedInfo.university} />
-              <InfoItem label="Duration" value={detailedInfo.duration} />
+              <InfoItem  isDarkMode={isDarkMode} label="University" value={detailedInfo.university} />
+              <InfoItem  isDarkMode={isDarkMode} label="Duration" value={detailedInfo.duration} />
             </div>
           </motion.section>
 
@@ -743,9 +761,9 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Program Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem label="Program" value={detailedInfo.program} />
-              <InfoItem label="Duration" value={detailedInfo.duration} />
-              <InfoItem label="Type" value={detailedInfo.type} />
+              <InfoItem  isDarkMode={isDarkMode} label="Program" value={detailedInfo.program} />
+              <InfoItem  isDarkMode={isDarkMode} label="Duration" value={detailedInfo.duration} />
+              <InfoItem  isDarkMode={isDarkMode} label="Type" value={detailedInfo.type} />
             </div>
           </motion.section>
 
@@ -823,10 +841,10 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Role Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem label="Role" value={detailedInfo.role} />
-              <InfoItem label="Department" value={detailedInfo.department} />
-              <InfoItem label="Type" value={detailedInfo.type} />
-              <InfoItem label="Duration" value={detailedInfo.duration} />
+              <InfoItem  isDarkMode={isDarkMode} label="Role" value={detailedInfo.role} />
+              <InfoItem  isDarkMode={isDarkMode} label="Department" value={detailedInfo.department} />
+              <InfoItem  isDarkMode={isDarkMode} label="Type" value={detailedInfo.type} />
+              <InfoItem  isDarkMode={isDarkMode} label="Duration" value={detailedInfo.duration} />
             </div>
           </motion.section>
 
@@ -928,10 +946,10 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
               "Package Information"
             )}
             <div className="grid md:grid-cols-2 gap-4">
-              <InfoItem label="Package Name" value={detailedInfo.packageName} />
-              <InfoItem label="Type" value={detailedInfo.type} />
-              <InfoItem label="Version" value={detailedInfo.version} />
-              <InfoItem label="Downloads" value={detailedInfo.downloads} />
+              <InfoItem  isDarkMode={isDarkMode} label="Package Name" value={detailedInfo.packageName} />
+              <InfoItem  isDarkMode={isDarkMode} label="Type" value={detailedInfo.type} />
+              <InfoItem  isDarkMode={isDarkMode} label="Version" value={detailedInfo.version} />
+              <InfoItem  isDarkMode={isDarkMode} label="Downloads" value={detailedInfo.downloads} />
             </div>
           </motion.section>
 
@@ -1063,19 +1081,26 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
       );
   }
 };
-
-// Reusable Components
-const InfoItem = ({ label, value }) => (
+const InfoItem = ({ label, value, isDarkMode }) => (
   <motion.div
-    className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-700/30"
+    className={`flex items-center justify-between p-3 rounded-lg border transition-all duration-300 ${
+      isDarkMode
+        ? "bg-gray-800/40 border-gray-700/50 text-gray-100"
+        : "bg-gray-50 border-gray-200/50 text-gray-800"
+    }`}
     whileHover={{ scale: 1.02 }}
   >
-    <span className="font-medium text-sm text-gray-600 dark:text-gray-400">
+    <span
+      className={`font-medium text-sm ${
+        isDarkMode ? "text-gray-400" : "text-gray-600"
+      }`}
+    >
       {label}:
     </span>
     <span className="font-semibold text-sm">{value}</span>
   </motion.div>
 );
+
 
 const ProjectCard = ({
   project,
@@ -1114,12 +1139,16 @@ const ProjectCard = ({
   </motion.div>
 );
 
-const TechBadge = ({ tech, index }) => (
+const TechBadge = ({ tech, index , isDarkMode}) => (
   <motion.span
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.3, delay: index * 0.05 }}
-    className="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full text-xs font-medium shadow-lg"
+    className={`px-4 py-2 ${
+      isDarkMode
+        ? "bg-gray-700 text-gray-100 hover:bg-gray-600"
+        : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+    } rounded-full text-sm font-semibold shadow-sm transition-colors duration-200`}
   >
     {tech}
   </motion.span>
