@@ -32,6 +32,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import ImageGallery from "../ImageGallery";
 
 const JourneyStepDetail = () => {
   const { slug } = useParams();
@@ -348,6 +349,28 @@ const JourneyStepDetail = () => {
                 </p>
               </motion.div>
 
+              <div className="lg:col-span-2">
+                {/* Image */}
+                {step.image && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.1 }}
+                    className={`rounded-2xl overflow-hidden backdrop-blur-sm border ${
+                      isDarkMode
+                        ? "bg-gray-800/50 border-gray-700/50 shadow-2xl"
+                        : "bg-white/80 border-gray-200/50 shadow-xl"
+                    }`}
+                  >
+                    <img
+                      src={step.image[0]}
+                      alt={step.title}
+                      className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </motion.div>
+                )}
+              </div>
+
               {/* Quick Stats */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -367,30 +390,10 @@ const JourneyStepDetail = () => {
                   {renderQuickStats(step, isDarkMode)}
                 </div>
               </motion.div>
-
-              {/* Image */}
-              {step.image && (
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 1.1 }}
-                  className={`rounded-2xl overflow-hidden backdrop-blur-sm border ${
-                    isDarkMode
-                      ? "bg-gray-800/50 border-gray-700/50 shadow-2xl"
-                      : "bg-white/80 border-gray-200/50 shadow-xl"
-                  }`}
-                >
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </motion.div>
-              )}
             </div>
 
             {/* Right Column - Detailed Information */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -403,6 +406,21 @@ const JourneyStepDetail = () => {
               >
                 {renderDetailedContent(step, isDarkMode, navigate)}
               </motion.div>
+
+              {/* Image Gallery */}
+              {step.image && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.1 }}
+                >
+                  <ImageGallery
+                    images={step.image}
+                    title={step.title}
+                    isDarkMode={isDarkMode}
+                  />
+                </motion.div>
+              )}
             </div>
           </div>
         </div>

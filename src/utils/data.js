@@ -326,11 +326,15 @@ export const JOURNEY_STEPS = [
       "Began my journey in Computer Science and Engineering at APJ Abdul Kalam Technological University, building a strong foundation in programming and software development.",
     icon: GraduationCap,
     color: "bg-purple-500",
-    image: PROJECT_IMG_1,
+    image: [
+      PROJECT_IMG_1,
+      PROJECT_IMG_2,
+      
+    ],
     detailedInfo: {
       degree: "Bachelor of Technology (B.Tech)",
       specialization: "Computer Science and Engineering",
-      university: "APJ Abdul Kalam Technological University (KTU)",
+      university: "Kerala Technological University (KTU)",
       duration: "4 Years",
       highlights: [
         "Graduated with strong fundamentals in Data Structures and Algorithms",
@@ -380,7 +384,14 @@ export const JOURNEY_STEPS = [
       "Intensive training in MERN stack technologies, learning modern web development practices, Clean Architecture, and building production-ready applications.",
     icon: Code,
     color: "bg-green-500",
-    image: PROJECT_IMG_2,
+    image: [
+      PROJECT_IMG_1,
+      PROJECT_IMG_2,
+      PROJECT_IMG_3,
+      PROJECT_IMG_4,
+      PROJECT_IMG_5,
+      PROJECT_IMG_6,
+    ],
     detailedInfo: {
       program: "Full Stack Development - MERN",
       duration: "12 Months (Intensive Bootcamp)",
@@ -442,7 +453,14 @@ export const JOURNEY_STEPS = [
       "Working as a Software Engineer on enterprise applications with multi-tenant architecture, dynamic UI components, and automated workflows for healthcare and checkpoint systems.",
     icon: Briefcase,
     color: "bg-orange-500",
-    image: PROJECT_IMG_3,
+    image: [
+      PROJECT_IMG_1,
+      PROJECT_IMG_2,
+      PROJECT_IMG_3,
+      PROJECT_IMG_4,
+      PROJECT_IMG_5,
+      PROJECT_IMG_6,
+    ],
     detailedInfo: {
       role: "Software Engineer",
       department: "Product Development",
@@ -512,7 +530,14 @@ export const JOURNEY_STEPS = [
       "Released db-connections-util, a secure database connection utility supporting multiple database types with AES-256 encryption, available on NPM for the developer community.",
     icon: Package,
     color: "bg-pink-500",
-    image: PROJECT_IMG_4,
+    image: [
+      PROJECT_IMG_1,
+      PROJECT_IMG_2,
+      PROJECT_IMG_3,
+      PROJECT_IMG_4,
+      PROJECT_IMG_5,
+      PROJECT_IMG_6,
+    ],
     detailedInfo: {
       packageName: "db-connections-util",
       type: "Open Source NPM Package",
