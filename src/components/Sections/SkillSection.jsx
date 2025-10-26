@@ -47,6 +47,24 @@ const SkillSection = () => {
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={`absolute -top-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
+            isDarkMode ? "bg-blue-500" : "bg-blue-300"
+          }`}
+        />
+        
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -68,12 +86,12 @@ const SkillSection = () => {
       {/* Animated Background */}
       <motion.div style={{ y }} className="absolute inset-0 overflow-hidden">
         <div
-          className={`absolute top-40 right-1/4 w-72 h-72 rounded-full blur-3xl opacity-30 ${
+          className={`absolute top-40 right-1/4 w-72 h-72 rounded-full blur-3xl opacity-20 ${
             isDarkMode ? "bg-blue-500" : "bg-blue-400"
           }`}
         />
         <div
-          className={`absolute bottom-40 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-30 ${
+          className={`absolute bottom-40 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-20 ${
             isDarkMode ? "bg-blue-500" : "bg-blue-400"
           }`}
         />

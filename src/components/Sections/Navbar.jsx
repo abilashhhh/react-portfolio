@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { Code2, Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
+import {MdOutlineDeveloperMode} from "react-icons/md"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -34,10 +35,10 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", path: "/", section: "home" },
-    { name: "Skills", path: "/", section: "skills" },
-    { name: "Work", path: "/", section: "work" },
-    // { name: "Projects", path: "/projects" },
+    { name: "Works", path: "/", section: "work" },
     { name: "About", path: "/", section: "about" },
+    { name: "Skills", path: "/", section: "skills" },
+    // { name: "Projects", path: "/projects" },
     { name: "Certifications", path: "/", section: "certifications" },
     { name: "Contact", path: "/", section: "contact" },
   ];
@@ -70,7 +71,7 @@ const Navbar = () => {
           whileTap={{ scale: 0.95 }}
           className="flex items-center space-x-2 cursor-pointer"
         >
-          <Code2 size={24} className="text-blue-500" />
+          <MdOutlineDeveloperMode size={24} className="text-blue-500" />
           <Link
             to="/"
             onClick={() => {
