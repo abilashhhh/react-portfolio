@@ -11,24 +11,24 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
+    setIsMenuOpen(false);
+
     // Only scroll if we're on the home page
     if (location.pathname === "/") {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        setIsMenuOpen(false);
-      }
-    } else {
-      // If not on home page, navigate to home and then scroll after a small delay
-      navigate("/");
-      // Use setTimeout to ensure the home page has loaded before scrolling
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-        setIsMenuOpen(false);
-      }, 100);
+      }, 300);
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 400);
     }
   };
 
@@ -38,6 +38,7 @@ const Navbar = () => {
     { name: "Work", path: "/", section: "work" },
     // { name: "Projects", path: "/projects" },
     { name: "About", path: "/", section: "about" },
+    { name: "Certifications", path: "/", section: "certifications" },
     { name: "Contact", path: "/", section: "contact" },
   ];
 

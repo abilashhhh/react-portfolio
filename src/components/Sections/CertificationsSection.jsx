@@ -1,31 +1,33 @@
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { useTheme } from "../../context/ThemeContext";
-import { PROJECTS } from "../../utils/data";
-import ProjectCard from "../ProjectCard";
-import { containerVariants, itemVariants } from "../../utils/helper";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
+import { CERTIFICATIONS } from "../../utils/data";
+import { containerVariants, itemVariants } from "../../utils/helper";
+import CertificationCard from "../CertificationCard";
 
-const ProjectsSection = () => {
+const slugify = (text = "") =>
+  text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
+
+const CertificationsSection = () => {
   const { isDarkMode } = useTheme();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  const slugify = (text = "") =>
-    text
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w-]+/g, "");
-
-  const featuredProjects = PROJECTS.filter((project) => project.featured);
+  const featuredCertifications = CERTIFICATIONS.filter(
+    (cert) => cert.featured
+  ).slice(0, 6);
 
   return (
     <section
       ref={sectionRef}
-      id="work"
+      id="certifications"
       className={`py-20 px-6 relative overflow-hidden transition-colors duration-500 ${
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
@@ -56,7 +58,7 @@ const ProjectsSection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className={`absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
+          className={`absolute -bottom-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
             isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
@@ -76,14 +78,14 @@ const ProjectsSection = () => {
               isDarkMode ? "text-gray-500" : "text-gray-600"
             } mb-4`}
           >
-            My Work
+            Achievements
           </motion.div>
 
           <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            My <span className="text-blue-500">Projects</span>
+            My <span className="text-blue-500">Certifications</span>
           </motion.h2>
 
           <motion.p
@@ -92,25 +94,28 @@ const ProjectsSection = () => {
               isDarkMode ? "text-gray-400" : "text-gray-600"
             } max-w-2xl mx-auto font-light`}
           >
-            Here are some of my favorite projects that showcase my skills,
-            creativity, and ability to build functional, high-quality web
-            applications.
+            A collection of certifications that showcase my continuous learning
+            journey and expertise in full-stack development and modern
+            technologies.
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Certifications Grid */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
         >
-          {featuredProjects.map((project, index) => {
-            const slug = slugify(project.title);
+          {featuredCertifications.map((cert) => {
+            const slug = slugify(cert.title);
             return (
-              <motion.div key={project.id} variants={itemVariants}>
-                <Link to={`/projects/${slug}`} className="block">
-                  <ProjectCard project={project} isDarkMode={isDarkMode} />
+              <motion.div key={cert.id} variants={itemVariants}>
+                <Link to={`/certifications/${slug}`} className="block">
+                  <CertificationCard
+                    certification={cert}
+                    isDarkMode={isDarkMode}
+                  />
                 </Link>
               </motion.div>
             );
@@ -126,14 +131,14 @@ const ProjectsSection = () => {
         >
           <motion.div variants={itemVariants}>
             <Link
-              to="/projects"
+              to="/certifications"
               className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
                 isDarkMode
                   ? "bg-blue-600 hover:bg-blue-700 text-white"
                   : "bg-blue-500 hover:bg-blue-600 text-white"
               }`}
             >
-              <span>View All Projects</span>
+              <span>View All Certifications</span>
               <ArrowUpRight size={18} />
             </Link>
           </motion.div>
@@ -143,4 +148,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default CertificationsSection;

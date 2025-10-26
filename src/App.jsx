@@ -3,6 +3,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Sections/Navbar";
 import ProjectDetail from "./components/Sections/ProjectDetail";
 import ProjectsPage from "./components/Sections/ProjectsPage";
+import CertificationDetail from "./components/Sections/CertificationDetail";
+import CertificationsPage from "./components/Sections/CertificationsPage";
 import Home from "./Home";
 
 const App = () => {
@@ -15,6 +17,11 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:slug" element={<ProjectDetail />} />
+            <Route path="/certifications" element={<CertificationsPage />} />
+            <Route
+              path="/certifications/:slug"
+              element={<CertificationDetail />}
+            />
           </Routes>
         </div>
       </BrowserRouter>
