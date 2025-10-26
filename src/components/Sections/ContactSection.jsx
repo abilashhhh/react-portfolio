@@ -4,11 +4,11 @@ import { containerVariants, itemVariants } from "../../utils/helper";
 import { useTheme } from "../../context/ThemeContext";
 import { useState } from "react";
 import SuccessModal from "../SuccessModal";
+import emailjs from "emailjs-com";
 
 const ContactSection = () => {
   const { isDarkMode } = useTheme();
 
-  // State for the contact form
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,7 +18,14 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [submittedName, setSubmittedName] = useState(""); // Store the submitted name
+  const [submittedName, setSubmittedName] = useState("");
+
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: "service_70bdw8d",
+    TEMPLATE_ID: "template_prxlm88",
+    PUBLIC_KEY: "nv4-aUVaB09bnuTpP",
+    AUTO_REPLY_TEMPLATE_ID: "template_ixgqjhu",
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,26 +35,56 @@ const ContactSection = () => {
     });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic form validation
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus("Please fill in all fields.");
       return;
     }
 
     setIsSubmitting(true);
-    // Store the name before clearing the form
-    setSubmittedName(formData.name);
+    setFormStatus(null);
 
-    // Simulate form submission process
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Send notification to yourself
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      // Send auto-reply to the user - Using exact field names from your working template
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.AUTO_REPLY_TEMPLATE_ID,
+        {
+          from_email: formData.email, // User's email
+          name: formData.name, // User's name
+          message: formData.message, // Full message
+          email: "abilashnarayanan2001@gmail.com", // Your email (for reference)
+          title: "New Contact Form Submission", // Title for the email
+          thanks: "Thank you for reaching out!", // Thank you message
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      // Success
+      setSubmittedName(formData.name);
       setFormStatus("Your message has been sent successfully!");
       setFormData({ name: "", email: "", message: "" });
       setShowModal(true);
-    }, 2000);
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setFormStatus("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -287,6 +324,8 @@ const ContactSection = () => {
                   className={`text-center text-sm font-semibold ${
                     formStatus.includes("successfully")
                       ? "text-green-500"
+                      : formStatus.includes("Please fill")
+                      ? "text-yellow-500"
                       : "text-red-500"
                   }`}
                 >
