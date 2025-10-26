@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { JOURNEY_STEPS, PASSIONS } from "../../utils/data";
 import { containerVariants, itemVariants } from "../../utils/helper";
+import { Link } from "react-router-dom"; 
 
 const AboutSection = () => {
   const { isDarkMode } = useTheme();
@@ -215,50 +216,69 @@ const AboutSection = () => {
                     <step.icon size={18} className="text-white" />
                   </div>
 
-                  <div
-                    className={`ml-10 relative p-5 rounded-xl transition-all duration-500 cursor-pointer hover:-translate-y-1 ${
-                      isDarkMode
-                        ? "bg-linear-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
-                        : "bg-white shadow-md  hover:border-blue-400 hover:shadow-lg hover:shadow-blue-400/20"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span
-                        className={`text-xs font-medium px-2 py-1 rounded ${
-                          isDarkMode
-                            ? "bg-gray-700/50 text-gray-300"
-                            : "bg-gray-100 text-gray-600"
+                  <Link to={`/journey/${step.slug}`}>
+                    <div
+                      className={`ml-10 relative p-5 rounded-xl transition-all duration-500 cursor-pointer hover:-translate-y-1 ${
+                        isDarkMode
+                          ? "bg-linear-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
+                          : "bg-white shadow-md hover:border-blue-400 hover:shadow-lg hover:shadow-blue-400/20"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span
+                          className={`text-xs font-medium px-2 py-1 rounded ${
+                            isDarkMode
+                              ? "bg-gray-700/50 text-gray-300"
+                              : "bg-gray-100 text-gray-600"
+                          }`}
+                        >
+                          {step.company}
+                        </span>
+                        <span
+                          className={`text-sm font-bold px-3 py-1 rounded-full ${
+                            isDarkMode
+                              ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                              : "bg-blue-100 text-blue-600"
+                          }`}
+                        >
+                          {step.year}
+                        </span>
+                      </div>
+
+                      <h4
+                        className={`text-lg font-semibold mb-2 ${
+                          isDarkMode ? "text-white" : "text-gray-900"
                         }`}
                       >
-                        {step.company}
-                      </span>
-                      <span
-                        className={`text-sm font-bold px-3 py-1 rounded-full ${
-                          isDarkMode
-                            ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
-                            : "bg-blue-100 text-blue-600"
+                        {step.title}
+                      </h4>
+
+                      <p
+                        className={`text-sm leading-relaxed ${
+                          isDarkMode ? "text-gray-300" : "text-gray-700"
                         }`}
                       >
-                        {step.year}
-                      </span>
+                        {step.description}
+                      </p>
+
+                      <div className="mt-3 flex items-center text-xs text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>Click to learn more</span>
+                        <svg
+                          className="w-3 h-3 ml-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
                     </div>
-
-                    <h4
-                      className={`text-lg font-semibold mb-2 ${
-                        isDarkMode ? "text-white" : "text-gray-900"
-                      }`}
-                    >
-                      {step.title}
-                    </h4>
-
-                    <p
-                      className={`text-sm leading-relaxed ${
-                        isDarkMode ? "text-gray-300" : "text-gray-700"
-                      }`}
-                    >
-                      {step.description}
-                    </p>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>

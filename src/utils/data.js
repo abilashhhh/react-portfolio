@@ -308,65 +308,273 @@ export const PROJECTS = [
     githubUrl: "#",
     featured: false,
     category: "Frontend",
-  }
+  },
 ];
 
 // Journey Timeline
 export const JOURNEY_STEPS = [
   {
-    year: "2019-23",
+    id: 1,
+    slug: "btech-computer-science",
+    year: "2019-2023",
     title: "B.Tech - Computer Science",
-    company: "Nehru College of Engineering, KTU",
+    company: "Nehru College",
+    company2: "Nehru College of Engineering",
+    location: "Pambady, Thrissur, Kerala, India",
+    website: "https://www.ncerc.ac.in/",
     description:
-      "Began my journey in Computer Science and Engineering at APJ Abdul Kalam Technological University, for building a strong foundation in programming and software development.",
+      "Began my journey in Computer Science and Engineering at APJ Abdul Kalam Technological University, building a strong foundation in programming and software development.",
     icon: GraduationCap,
     color: "bg-purple-500",
+    image: PROJECT_IMG_1,
+    detailedInfo: {
+      degree: "Bachelor of Technology (B.Tech)",
+      specialization: "Computer Science and Engineering",
+      university: "APJ Abdul Kalam Technological University (KTU)",
+      duration: "4 Years",
+      highlights: [
+        "Graduated with strong fundamentals in Data Structures and Algorithms",
+        "Completed multiple projects in web development and software engineering",
+        "Participated in coding competitions and hackathons",
+        "Learned programming languages: C, C++, Java, Python, JavaScript",
+        "Built academic projects using modern web technologies",
+        "Developed strong problem-solving and analytical skills",
+        "Worked on team projects fostering collaboration and communication",
+        "Gained exposure to software development lifecycle",
+      ],
+      keyProjects: [
+        "Final Year Project: Full-stack web application for college management system with role-based access control",
+        "Mini Project: E-commerce platform using MERN stack with payment gateway integration",
+        "Database Project: Library management system with advanced SQL queries and triggers",
+        "Web Development: Responsive portfolio website with modern UI/UX principles",
+      ],
+      coursework: [
+        "Data Structures and Algorithms",
+        "Database Management Systems",
+        "Operating Systems",
+        "Computer Networks",
+        "Software Engineering",
+        "Web Technologies",
+        "Object-Oriented Programming",
+        "Design and Analysis of Algorithms",
+        "Compiler Design",
+        "Artificial Intelligence",
+      ],
+      achievements: [
+        "Consistently maintained good academic performance throughout the course",
+        "Successfully completed all lab courses with practical implementations",
+        "Presented technical seminars on emerging technologies",
+        "Participated in inter-college technical events",
+      ],
+    },
   },
-  // {
-  //   year: "2023",
-  //   title: "Completed B.Tech",
-  //   company: "KTU, Thrissur",
-  //   description:
-  //     "Graduated with a Bachelor's degree in Computer Science and Engineering, specializing in web technologies and full-stack development.",
-  //   icon: Award,
-  //   color: "bg-blue-500",
-  // },
   {
-    year: "2023-24",
+    id: 2,
+    slug: "mern-stack-training",
+    year: "2023-2024",
     title: "MERN Stack Training",
     company: "Brototype Institute",
+    location: "Kochi, Kerala, India",
+    website: "https://www.brototype.com/",
     description:
       "Intensive training in MERN stack technologies, learning modern web development practices, Clean Architecture, and building production-ready applications.",
     icon: Code,
     color: "bg-green-500",
+    image: PROJECT_IMG_2,
+    detailedInfo: {
+      program: "Full Stack Development - MERN",
+      duration: "12 Months (Intensive Bootcamp)",
+      type: "Hands-on Professional Training",
+      highlights: [
+        "Mastered MongoDB, Express.js, React.js, and Node.js ecosystem",
+        "Built 15+ full-stack projects from scratch with real-world complexity",
+        "Learned Clean Architecture and SOLID principles for scalable code",
+        "Implemented RESTful APIs and microservices architecture",
+        "Gained expertise in state management with Redux and Context API",
+        "Practiced Agile methodologies and Git workflows in team environments",
+        "Developed real-time applications using Socket.io and WebSockets",
+        "Deployed applications on AWS, Heroku, and Vercel with CI/CD pipelines",
+        "Learned to write clean, maintainable, and testable code",
+        "Worked on collaborative projects with version control best practices",
+      ],
+      majorProjects: [
+        "E-commerce Platform: Full-featured online shopping system with admin panel, user authentication, cart management, payment integration (Stripe/Razorpay), and order tracking",
+        "Social Media Application: Real-time chat, post sharing, likes, comments, friend requests, notifications using Socket.io",
+        "Project Management Tool: Kanban-style task management with drag-and-drop, team collaboration, and deadline tracking",
+        "Video Streaming Platform: Netflix-like streaming service with video upload, categorization, search, and user subscriptions",
+        "Blog Platform: Content management system with rich text editor, categories, tags, and SEO optimization",
+      ],
+      technologiesLearned: [
+        "React.js & Next.js",
+        "Node.js & Express.js",
+        "MongoDB & Mongoose ODM",
+        "Redux Toolkit & Context API",
+        "Socket.io for Real-time Communication",
+        "JWT & OAuth Authentication",
+        "Payment Integration (Stripe, Razorpay)",
+        "AWS S3, EC2, CloudFront",
+        "Docker & Container Orchestration",
+        "Git, GitHub, GitLab",
+        "RESTful API Design",
+        "Postman & API Testing",
+      ],
+      learnings: [
+        "Full-stack development workflow from design to deployment",
+        "Building scalable applications with clean architecture",
+        "Database design and optimization techniques",
+        "Security best practices including authentication and authorization",
+        "Performance optimization and code profiling",
+        "Responsive design and mobile-first approach",
+        "Team collaboration and code review processes",
+        "Problem-solving and debugging complex applications",
+      ],
+    },
   },
   {
+    id: 3,
+    slug: "software-engineer-afc-digital",
     year: "2024 - Present",
     title: "Software Engineer",
     company: "AFC Digital Pvt Ltd",
+    location: "Bengaluru, Karnataka, India",
+    website: "https://www.afcdigital.in/",
     description:
-      "Joined as a Software Engineer, working on enterprise applications with multi-tenant architecture, dynamic UI components, and automated workflows for healthcare and checkpoint systems.",
+      "Working as a Software Engineer on enterprise applications with multi-tenant architecture, dynamic UI components, and automated workflows for healthcare and checkpoint systems.",
     icon: Briefcase,
     color: "bg-orange-500",
+    image: PROJECT_IMG_3,
+    detailedInfo: {
+      role: "Software Engineer",
+      department: "Product Development",
+      type: "Full-time Position",
+      duration: "Present",
+      highlights: [
+        "Developing enterprise-level multi-tenant applications from scratch",
+        "Built dynamic form builders with drag-and-drop functionality for custom workflows",
+        "Implemented automated workflow systems for complex business processes",
+        "Created reusable component libraries for improved scalability and maintainability",
+        "Working on healthcare management systems and checkpoint solutions",
+        "Collaborating with cross-functional teams using Agile/Scrum methodology",
+        "Optimized application performance for handling large datasets (10,000+ records)",
+        "Mentoring junior developers and conducting thorough code reviews",
+        "Implemented CI/CD pipelines for automated testing and deployment",
+        "Participated in architecture discussions and technical decision-making",
+      ],
+      responsibilities: [
+        "Full-stack development using React.js, Node.js, and modern frameworks",
+        "Designing and implementing RESTful APIs with proper documentation",
+        "Database design and optimization with PostgreSQL and MongoDB",
+        "Implementing secure authentication and role-based authorization systems",
+        "Writing clean, maintainable, and testable code following best practices",
+        "Participating in sprint planning, daily standups, and retrospectives",
+        "Deploying and monitoring applications in production environments",
+        "Debugging and resolving production issues with minimal downtime",
+        "Creating technical documentation for features and APIs",
+        "Collaborating with designers, QA, and product managers",
+      ],
+      technologies: [
+        "React.js & TypeScript",
+        "Node.js & Express.js",
+        "PostgreSQL & MongoDB",
+        "Redis for Caching",
+        "Docker & Kubernetes",
+        "AWS Services (EC2, S3, RDS)",
+        "Git, GitHub, Jira",
+        "Jest & React Testing Library",
+        "Nginx & Load Balancing",
+        "Microservices Architecture",
+      ],
+      achievements: [
+        "Reduced API response time by 40% through query optimization and caching",
+        "Built a dynamic form builder that's now used across 3 different products",
+        "Successfully delivered 5+ major features within tight deadlines",
+        "Improved code coverage from 30% to 80% through comprehensive testing",
+        "Resolved critical production bugs with 99.9% uptime maintained",
+        "Implemented automated workflows saving 10+ hours of manual work per week",
+      ],
+      projects: [
+        "Healthcare Management System: Patient records, appointments, billing, and reporting",
+        "Checkpoint System: Multi-tenant access control with real-time monitoring",
+        "Dynamic Form Builder: Drag-and-drop form creation with conditional logic",
+        "Automated Workflow Engine: Business process automation with approval chains",
+      ],
+    },
   },
   {
+    id: 4,
+    slug: "npm-package-db-connections-util",
     year: "2024",
-    title: "Published NPM Package : db-connections-util",
-    company: "Open Source",
+    title: "Published NPM Package: db-connections-util",
+    company: "Open Source Contribution",
+    location: "Remote",
+    website: "https://www.npmjs.com/package/db-connections-util",
     description:
       "Released db-connections-util, a secure database connection utility supporting multiple database types with AES-256 encryption, available on NPM for the developer community.",
     icon: Package,
     color: "bg-pink-500",
+    image: PROJECT_IMG_4,
+    detailedInfo: {
+      packageName: "db-connections-util",
+      type: "Open Source NPM Package",
+      version: "Latest Stable Release",
+      downloads: "500+ downloads",
+      highlights: [
+        "Created a production-ready database connection utility package from scratch",
+        "Implemented AES-256 encryption for secure credential storage",
+        "Supports multiple databases: PostgreSQL, MySQL, MongoDB, Redis",
+        "Comprehensive documentation with usage examples and API reference",
+        "Published to NPM registry for global developer community access",
+        "Handles connection pooling and automatic reconnection logic",
+        "Built with TypeScript for type safety and better developer experience",
+        "Includes unit tests with 95% code coverage using Jest",
+        "Semantic versioning and changelog for version tracking",
+        "Active maintenance and community support",
+      ],
+      features: [
+        "Secure credential encryption using AES-256-CBC algorithm",
+        "Support for PostgreSQL, MySQL, MongoDB, and Redis",
+        "Connection pooling for optimized database access",
+        "Automatic retry and reconnection with exponential backoff",
+        "Environment-based configuration with .env support",
+        "TypeScript support with complete type definitions",
+        "Comprehensive error handling with custom error types",
+        "Easy integration with Express.js and other Node.js frameworks",
+        "Minimal dependencies for lightweight package",
+        "Cross-platform compatibility (Windows, Linux, macOS)",
+      ],
+      technologies: [
+        "Node.js & TypeScript",
+        "Crypto Module (AES-256)",
+        "pg (PostgreSQL Driver)",
+        "mysql2 (MySQL Driver)",
+        "mongodb (MongoDB Driver)",
+        "redis (Redis Client)",
+        "Jest for Testing",
+        "ESLint & Prettier",
+        "NPM Publishing",
+      ],
+      impact: [
+        "Simplified secure database connections for Node.js developers",
+        "Improved application security with built-in encryption",
+        "Saved development time across multiple projects and teams",
+        "Contributing to the open-source ecosystem",
+        "Helping developers avoid common database connection pitfalls",
+        "Active community engagement with issue resolution",
+      ],
+      useCases: [
+        "Express.js applications needing secure database connections",
+        "Microservices requiring multiple database support",
+        "Projects needing encrypted credential storage",
+        "Applications requiring connection pooling and retry logic",
+      ],
+      futureEnhancements: [
+        "Support for additional databases (SQL Server, Oracle)",
+        "CLI tool for connection testing",
+        "Performance monitoring and metrics",
+        "Connection health checks and diagnostics",
+      ],
+    },
   },
-  // {
-  //   year: "2025",
-  //   title: "Full Stack Innovation",
-  //   company: "Present",
-  //   description:
-  //     "Currently building cutting-edge solutions with Clean Architecture, integrating AI capabilities, real-time communications, and exploring advanced web technologies to push the boundaries of innovation.",
-  //   icon: Rocket,
-  //   color: "bg-cyan-500",
-  // },
 ];
 
 // Passions
@@ -477,7 +685,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://www.udemy.com/certificate/example1",
     image: PROJECT_IMG_1,
     featured: true,
-    description: "Comprehensive full-stack development course covering modern web technologies, frontend frameworks, backend APIs, and deployment strategies.",
+    description:
+      "Comprehensive full-stack development course covering modern web technologies, frontend frameworks, backend APIs, and deployment strategies.",
     skills: [
       "React.js",
       "Node.js",
@@ -504,7 +713,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://www.coursera.org/cert/example2",
     image: PROJECT_IMG_2,
     featured: true,
-    description: "Deep dive into advanced React patterns, performance optimization, state management, and modern hooks implementation.",
+    description:
+      "Deep dive into advanced React patterns, performance optimization, state management, and modern hooks implementation.",
     skills: [
       "React Hooks",
       "Context API",
@@ -530,7 +740,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://www.linkedin.com/learning/cert/example3",
     image: PROJECT_IMG_3,
     featured: false,
-    description: "Comprehensive backend development with Node.js, focusing on scalable APIs, security, and microservices architecture.",
+    description:
+      "Comprehensive backend development with Node.js, focusing on scalable APIs, security, and microservices architecture.",
     skills: [
       "Node.js",
       "Express.js",
@@ -556,7 +767,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://university.mongodb.com/cert/example4",
     image: PROJECT_IMG_4,
     featured: false,
-    description: "Expert-level training in MongoDB database design, aggregation framework, indexing strategies, and performance tuning.",
+    description:
+      "Expert-level training in MongoDB database design, aggregation framework, indexing strategies, and performance tuning.",
     skills: [
       "MongoDB",
       "Mongoose ODM",
@@ -582,7 +794,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://www.freecodecamp.org/certification/example5",
     image: PROJECT_IMG_1,
     featured: false,
-    description: "In-depth study of algorithms, data structures, and problem-solving techniques essential for technical interviews.",
+    description:
+      "In-depth study of algorithms, data structures, and problem-solving techniques essential for technical interviews.",
     skills: [
       "Algorithms",
       "Data Structures",
@@ -608,7 +821,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://www.pluralsight.com/cert/example6",
     image: PROJECT_IMG_2,
     featured: false,
-    description: "Comprehensive TypeScript training covering type systems, interfaces, generics, and integration with modern frameworks.",
+    description:
+      "Comprehensive TypeScript training covering type systems, interfaces, generics, and integration with modern frameworks.",
     skills: [
       "TypeScript",
       "Type Systems",
@@ -634,7 +848,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://aws.amazon.com/cert/example7",
     image: PROJECT_IMG_3,
     featured: true,
-    description: "Foundational AWS certification covering cloud concepts, services, security, and architectural best practices.",
+    description:
+      "Foundational AWS certification covering cloud concepts, services, security, and architectural best practices.",
     skills: [
       "Cloud Computing",
       "AWS Services",
@@ -660,7 +875,8 @@ export const CERTIFICATIONS = [
     certificateUrl: "https://www.udemy.com/certificate/example8",
     image: PROJECT_IMG_4,
     featured: false,
-    description: "Advanced version control techniques, collaborative workflows, and GitHub features for modern development teams.",
+    description:
+      "Advanced version control techniques, collaborative workflows, and GitHub features for modern development teams.",
     skills: [
       "Git",
       "GitHub",
@@ -679,3 +895,41 @@ export const CERTIFICATIONS = [
     ],
   },
 ];
+
+export const PROJECT_SLUG_MAPPING = {
+  // B.Tech Computer Science Projects
+  "Final Year Project: Full-stack web application for college management system with role-based access control":
+    "hospital-management-system",
+  "Mini Project: E-commerce platform using MERN stack with payment gateway integration":
+    "zigma-watches",
+  "Database Project: Library management system with advanced SQL queries and triggers":
+    "library-management-system",
+  "Web Development: Responsive portfolio website with modern UI/UX principles":
+    "portfolio-website",
+
+  // MERN Stack Training Projects
+  "E-commerce Platform: Full-featured online shopping system with admin panel, user authentication, cart management, payment integration (Stripe/Razorpay), and order tracking":
+    "zigma-watches",
+  "Social Media Application: Real-time chat, post sharing, likes, comments, friend requests, notifications using Socket.io":
+    "trend-trove",
+  "Project Management Tool: Kanban-style task management with drag-and-drop, team collaboration, and deadline tracking":
+    "smart-task-manager",
+  "Video Streaming Platform: Netflix-like streaming service with video upload, categorization, search, and user subscriptions":
+    "netflix-ui-clone",
+  "Blog Platform: Content management system with rich text editor, categories, tags, and SEO optimization":
+    "blog-platform",
+
+  // Software Engineer AFC Digital Projects
+  "Healthcare Management System: Patient records, appointments, billing, and reporting":
+    "art-health",
+  "Checkpoint System: Multi-tenant access control with real-time monitoring":
+    "checkpoint-systems",
+  "Dynamic Form Builder: Drag-and-drop form creation with conditional logic":
+    "dynamic-form-builder",
+  "Automated Workflow Engine: Business process automation with approval chains":
+    "workflow-engine",
+
+  // NPM Package
+  "db-connections-util: Secure database connection utility for multiple database types":
+    "db-connections-util",
+};
