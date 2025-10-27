@@ -67,7 +67,7 @@ const ContactSection = () => {
           from_email: formData.email, // User's email
           name: formData.name, // User's name
           message: formData.message, // Full message
-          email: "abilashnarayanan2001@gmail.com", // Your email (for reference)
+          email: formData.email, 
           title: "New Contact Form Submission", // Title for the email
           thanks: "Thank you for reaching out!", // Thank you message
         },
