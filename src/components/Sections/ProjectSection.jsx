@@ -106,7 +106,7 @@ const ProjectsSection = () => {
           variants={containerVariants}
         >
           {featuredProjects.map((project, index) => {
-            const slug = slugify(project.title);
+            const slug = slugify(project.slug);
             return (
               <motion.div key={project.id} variants={itemVariants}>
                 <Link to={`/projects/${slug}`} className="block">

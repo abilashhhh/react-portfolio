@@ -7,6 +7,10 @@ import {
   Award,
   Calendar,
   Building,
+  Clock,
+  IdCard,
+  GraduationCap,
+  Star,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { CERTIFICATIONS } from "../../utils/data";
@@ -100,13 +104,27 @@ const CertificationDetail = () => {
             </span>
             {certification.featured && (
               <span
-                className={`px-3 py-1 rounded-full text-sm font-medium ${
+                className={`px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 ${
                   isDarkMode
                     ? "bg-yellow-900 text-yellow-200"
                     : "bg-yellow-100 text-yellow-800"
                 }`}
               >
+                <Star size={14} />
                 Featured
+              </span>
+            )}
+            {/* Degree Badge for Education */}
+            {certification.cgpa && (
+              <span
+                className={`px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 ${
+                  isDarkMode
+                    ? "bg-green-900 text-green-200"
+                    : "bg-green-100 text-green-800"
+                }`}
+              >
+                <GraduationCap size={14} />
+                Degree
               </span>
             )}
           </div>
@@ -120,8 +138,7 @@ const CertificationDetail = () => {
               isDarkMode ? "text-gray-300" : "text-gray-700"
             } mb-8`}
           >
-            {certification.description ||
-              `Professional certification demonstrating expertise in ${certification.title}.`}
+            {certification.description}
           </p>
 
           {/* Action Button */}
@@ -194,7 +211,7 @@ const CertificationDetail = () => {
               isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
             }`}
           >
-            <h3 className="text-lg font-bold mb-4">Certification Info</h3>
+            <h3 className="text-lg font-bold mb-4">Certification Details</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Building
@@ -215,7 +232,7 @@ const CertificationDetail = () => {
                 <span
                   className={isDarkMode ? "text-gray-300" : "text-gray-700"}
                 >
-                  {certification.year}
+                  {certification.date}
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -226,11 +243,69 @@ const CertificationDetail = () => {
                 <span
                   className={isDarkMode ? "text-gray-300" : "text-gray-700"}
                 >
-                  {certification.featured
-                    ? "Featured Certification"
-                    : "Certification"}
+                  {certification.year}
                 </span>
               </div>
+
+              {/* Valid Through */}
+              {certification.validThrough && (
+                <div className="flex items-center gap-3">
+                  <Clock
+                    size={16}
+                    className={isDarkMode ? "text-gray-400" : "text-gray-600"}
+                  />
+                  <span
+                    className={isDarkMode ? "text-gray-300" : "text-gray-700"}
+                  >
+                    Valid: {certification.validThrough}
+                  </span>
+                </div>
+              )}
+
+              {/* Credential ID */}
+              {certification.credentialId && (
+                <div className="flex items-center gap-3">
+                  <IdCard
+                    size={16}
+                    className={isDarkMode ? "text-gray-400" : "text-gray-600"}
+                  />
+                  <span
+                    className={isDarkMode ? "text-gray-300" : "text-gray-700"}
+                  >
+                    ID: {certification.credentialId}
+                  </span>
+                </div>
+              )}
+
+              {/* CGPA for Degree */}
+              {certification.cgpa && (
+                <div className="flex items-center gap-3">
+                  <GraduationCap
+                    size={16}
+                    className={isDarkMode ? "text-gray-400" : "text-gray-600"}
+                  />
+                  <span
+                    className={isDarkMode ? "text-gray-300" : "text-gray-700"}
+                  >
+                    CGPA: {certification.cgpa}
+                  </span>
+                </div>
+              )}
+
+              {/* Classification for Degree */}
+              {certification.classification && (
+                <div className="flex items-center gap-3">
+                  <Award
+                    size={16}
+                    className={isDarkMode ? "text-gray-400" : "text-gray-600"}
+                  />
+                  <span
+                    className={isDarkMode ? "text-gray-300" : "text-gray-700"}
+                  >
+                    {certification.classification}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
@@ -243,7 +318,7 @@ const CertificationDetail = () => {
             transition={{ delay: 0.5 }}
             className="mb-12"
           >
-            <h2 className="text-2xl font-bold mb-6">My Learning</h2>
+            <h2 className="text-2xl font-bold mb-6">Key Learnings</h2>
             <div
               className={`p-8 rounded-2xl ${
                 isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
@@ -282,16 +357,30 @@ const CertificationDetail = () => {
             }`}
           >
             <p>
-              This certification demonstrates a commitment to professional
-              development and mastery of essential skills in the field. The
-              comprehensive curriculum and hands-on projects have significantly
-              enhanced my technical expertise.
+              This {certification.cgpa ? "academic degree" : "certification"}{" "}
+              demonstrates a commitment to professional development and mastery
+              of essential skills in the field. The comprehensive curriculum and{" "}
+              {certification.cgpa ? "academic rigor" : "hands-on projects"}
+              have significantly enhanced my technical expertise.
             </p>
             <ul>
-              <li>Industry-recognized credential</li>
-              <li>Hands-on practical experience</li>
+              <li>
+                {certification.cgpa
+                  ? "University-accredited degree"
+                  : "Industry-recognized credential"}
+              </li>
+              <li>
+                {certification.cgpa
+                  ? "Comprehensive academic foundation"
+                  : "Hands-on practical experience"}
+              </li>
               <li>Up-to-date with current industry standards</li>
               <li>Applicable real-world knowledge</li>
+              {certification.featured && (
+                <li>
+                  Featured certification demonstrating exceptional achievement
+                </li>
+              )}
             </ul>
           </div>
         </motion.div>

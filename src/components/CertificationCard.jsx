@@ -23,12 +23,10 @@ const CertificationCard = ({ certification, isDarkMode }) => {
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300" />
       </div>
-
-      {/* Content */}
-      <div className="p-5 flex flex-col flex-1 min-h-0">
+       <div className="p-5 flex flex-col flex-1 min-h-64">
         {/* Title and Issuer */}
-        <div className="flex-1 mb-4">
-          <h3 className="text-xl font-semibold mb-2 line-clamp-2">
+        <div className="flex-1 min-h-0 mb-4">
+          <h3 className="text-xl font-semibold mb-2 line-clamp-2 h-14 overflow-hidden">
             {certification.title}
           </h3>
           <p
@@ -42,7 +40,7 @@ const CertificationCard = ({ certification, isDarkMode }) => {
 
         {/* Skills Tags */}
         {certification.skills && certification.skills.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mb-4 min-h-[32px]">
             {certification.skills.slice(0, 3).map((skill, i) => (
               <span
                 key={i}

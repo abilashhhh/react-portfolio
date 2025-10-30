@@ -268,7 +268,7 @@ const ProjectsPage = () => {
             key={`${selectedCategory}-${searchQuery}`}
           >
             {filteredProjects.map((project) => {
-              const slug = slugify(project.title);
+              const slug = slugify(project.slug);
               return (
                 <motion.div
                   key={project.id}

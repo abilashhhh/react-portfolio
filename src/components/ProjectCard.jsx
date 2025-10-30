@@ -25,7 +25,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-1 min-h-0">
+      <div className="p-5 flex flex-col flex-1 min-h-80">
         {" "}
         {/* Added flex-1 and min-h-0 */}
         {/* Title and Description */}
@@ -36,7 +36,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
             {project.title}
           </h3>
           <p
-            className={`text-sm line-clamp-3 ${
+            className={`text-sm line-clamp ${
               isDarkMode ? "text-gray-400" : "text-gray-600"
             }`}
           >
