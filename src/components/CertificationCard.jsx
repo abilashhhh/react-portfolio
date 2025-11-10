@@ -1,8 +1,12 @@
-import React from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
 
 const CertificationCard = ({ certification, isDarkMode }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.div
       whileHover={{ y: -5 }}
@@ -14,11 +18,11 @@ const CertificationCard = ({ certification, isDarkMode }) => {
       }`}
     >
       {/* Certification Image */}
-      <div className="relative w-full h-48 overflow-hidden shrink-0">
+      <div className="relative w-full h-48 overflow-hidden shrink-0 mt-8">
         <img
           src={certification.image}
           alt={certification.title}
-          className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+          className="object-contain w-full h-full transition-transform duration-500 hover:scale-110"
         />
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300" />

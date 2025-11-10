@@ -24,10 +24,19 @@ const slugify = (text = "") =>
 const CertificationsPage = () => {
   const { isDarkMode } = useTheme();
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const gridRef = useRef(null);
+  const statsRef = useRef(null);
+
+  const headerInView = useInView(sectionRef, { once: true, margin: "-50px" });
+  const gridInView = useInView(gridRef, { once: true, margin: "-50px" });
+  const statsInView = useInView(statsRef, { once: true, margin: "-50px" });
 
   const [selectedIssuer, setSelectedIssuer] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Get unique issuers
   const issuers = useMemo(
@@ -86,10 +95,6 @@ const CertificationsPage = () => {
     return { total, featured, issuersCount };
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const clearFilters = useCallback(() => {
     setSelectedIssuer("All");
     setSearchQuery("");
@@ -118,7 +123,7 @@ const CertificationsPage = () => {
         <motion.header
           ref={sectionRef}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={headerInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="text-center mb-16"
         >
@@ -259,9 +264,10 @@ const CertificationsPage = () => {
         {/* Certifications Grid */}
         {filteredCerts.length > 0 ? (
           <motion.section
+            ref={gridRef}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={gridInView ? "visible" : "hidden"}
             variants={containerVariants}
             key={`${selectedIssuer}-${searchQuery}`}
           >
@@ -330,8 +336,9 @@ const CertificationsPage = () => {
 
         {/* Stats - Always show total certification stats */}
         <motion.div
+          ref={statsRef}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={statsInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="text-center mt-20"
         >

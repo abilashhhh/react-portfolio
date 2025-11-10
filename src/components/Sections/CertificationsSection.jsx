@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef , useEffect} from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
@@ -23,6 +23,10 @@ const CertificationsSection = () => {
   const featuredCertifications = CERTIFICATIONS.filter(
     (cert) => cert.featured
   ).slice(0, 6);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section

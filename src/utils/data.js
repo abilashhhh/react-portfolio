@@ -1016,12 +1016,11 @@ import CERT_IMG_13 from "../assets/certificates/zohocrm.jpg";
 import CERT_IMG_14 from "../assets/certificates/gittraining.png";
 import CERT_IMG_15 from "../assets/certificates/typescript.png";
 
-
 export const CERTIFICATIONS = [
   {
     id: 1,
     title: "Webinar on 5G Wireless Communications",
-    issuer: "IEEE SB NCERC",
+    issuer: "NCERC",
     year: "2021",
     date: "May 17, 2021",
     certificateUrl: "#",
@@ -1073,7 +1072,7 @@ export const CERTIFICATIONS = [
   {
     id: 3,
     title: "Campus Industrial Visit",
-    issuer: "Fortune Institute of Computer Education",
+    issuer: "Fortune Institute",
     year: "2022",
     date: "Jun 23, 2022",
     certificateUrl: "#",
@@ -1099,7 +1098,7 @@ export const CERTIFICATIONS = [
   {
     id: 4,
     title: "Webinar on J-Gate Platform",
-    issuer: "Nehru College of Engineering and Informatics Publishing",
+    issuer: "NCERC",
     year: "2021",
     date: "Apr 27, 2021",
     certificateUrl: "#",
@@ -1155,7 +1154,7 @@ export const CERTIFICATIONS = [
   {
     id: 6,
     title: "National Workshop on IoT, Cloud Technologies and AI",
-    issuer: "Department of Mechatronics, NCERC",
+    issuer: "NCERC",
     year: "2020",
     date: "Nov 25, 2020",
     certificateUrl: "#",
@@ -1235,7 +1234,7 @@ export const CERTIFICATIONS = [
   {
     id: 9,
     title: "Webinar on Electrical Power Generation in Kerala",
-    issuer: "NCERC Electronics & Communication Engineering",
+    issuer: "NCERC",
     year: "2020",
     date: "Oct 31, 2020",
     certificateUrl: "#",
