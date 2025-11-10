@@ -24,10 +24,21 @@ const slugify = (text = "") =>
 const ProjectsPage = () => {
   const { isDarkMode } = useTheme();
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const gridRef = useRef(null);
+  const statsRef = useRef(null);
+
+  // Use separate inView hooks for different sections
+  const headerInView = useInView(sectionRef, { once: true, margin: "-50px" });
+  const gridInView = useInView(gridRef, { once: true, margin: "-50px" });
+  const statsInView = useInView(statsRef, { once: true, margin: "-50px" });
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Get unique categories
   const categories = useMemo(
@@ -88,10 +99,6 @@ const ProjectsPage = () => {
     return { total, featured, categoriesCount };
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const clearFilters = useCallback(() => {
     setSelectedCategory("All");
     setSearchQuery("");
@@ -120,7 +127,7 @@ const ProjectsPage = () => {
         <motion.header
           ref={sectionRef}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={headerInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="text-center mb-16"
         >
@@ -261,9 +268,10 @@ const ProjectsPage = () => {
         {/* Projects Grid */}
         {filteredProjects.length > 0 ? (
           <motion.section
+            ref={gridRef}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={gridInView ? "visible" : "hidden"}
             variants={containerVariants}
             key={`${selectedCategory}-${searchQuery}`}
           >
@@ -329,8 +337,9 @@ const ProjectsPage = () => {
 
         {/* Stats - Always show total project stats */}
         <motion.div
+          ref={statsRef}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={statsInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="text-center mt-20"
         >

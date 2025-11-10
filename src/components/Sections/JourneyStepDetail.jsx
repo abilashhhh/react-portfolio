@@ -30,9 +30,9 @@ import {
   CheckCircle,
   TrendingUp,
   ArrowUpRight,
+  X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import ImageGallery from "../ImageGallery";
 
 const JourneyStepDetail = () => {
   const { slug } = useParams();
@@ -40,6 +40,9 @@ const JourneyStepDetail = () => {
   const { isDarkMode } = useTheme();
   const contentRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const step = JOURNEY_STEPS.find((item) => item.slug === slug);
 
@@ -49,6 +52,31 @@ const JourneyStepDetail = () => {
     const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, [slug]);
+
+  // Handle image click
+  const handleImageClick = (image, index = 0) => {
+    setSelectedImage(image);
+    setSelectedImageIndex(index);
+    setIsImageModalOpen(true);
+  };
+
+  // Handle next/previous image in modal
+  const handleNextImage = () => {
+    if (step.image && step.image.length > 1) {
+      const nextIndex = (selectedImageIndex + 1) % step.image.length;
+      setSelectedImage(step.image[nextIndex]);
+      setSelectedImageIndex(nextIndex);
+    }
+  };
+
+  const handlePrevImage = () => {
+    if (step.image && step.image.length > 1) {
+      const prevIndex =
+        (selectedImageIndex - 1 + step.image.length) % step.image.length;
+      setSelectedImage(step.image[prevIndex]);
+      setSelectedImageIndex(prevIndex);
+    }
+  };
 
   if (!step) {
     return (
@@ -269,7 +297,9 @@ const JourneyStepDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className={`text-xl md:text-2xl font-semibold mb-6  ${isDarkMode} ? "text-gray-600" : "text-gray-300"`}
+              className={`text-xl md:text-2xl font-semibold mb-6 ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               {step.company}
             </motion.p>
@@ -310,10 +340,10 @@ const JourneyStepDetail = () => {
                   href={step.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 px-4 py-2 rounded-xl backdrop-blur-sm text-blue-500 hover:text-blue-400 transition-colors group  ${
+                  className={`flex items-center gap-3 px-4 py-2 rounded-xl backdrop-blur-sm text-blue-500 hover:text-blue-400 transition-colors group ${
                     isDarkMode
-                      ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
-                      : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
+                      ? "bg-gray-800/80 hover:bg-gray-700/90 backdrop-blur-sm border border-gray-700/50"
+                      : "bg-white/80 hover:bg-white backdrop-blur-sm border border-gray-200/50 shadow-lg"
                   }`}
                 >
                   <Globe size={18} />
@@ -357,33 +387,73 @@ const JourneyStepDetail = () => {
                   <h3 className="text-xl font-bold">Overview</h3>
                 </div>
                 <p
-                  className={`leading-relaxed ${isDarkMode} ? "text-gray-600" : "text-gray-300"`}
+                  className={`leading-relaxed ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
                   {step.description}
                 </p>
               </motion.div>
 
-              <div className="lg:col-span-2">
-                {/* Image */}
-                {step.image && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 1.1 }}
-                    className={`rounded-2xl overflow-hidden backdrop-blur-sm border ${
+              {/* Image Gallery */}
+              {step.image && (
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 1.1 }}
+                  className="space-y-4"
+                >
+                  {/* Main Image */}
+                  <div
+                    className={`rounded-2xl overflow-hidden backdrop-blur-sm border cursor-pointer group ${
                       isDarkMode
                         ? "bg-gray-800/50 border-gray-700/50 shadow-2xl"
                         : "bg-white/80 border-gray-200/50 shadow-xl"
                     }`}
+                    onClick={() => handleImageClick(step.image[0], 0)}
                   >
-                    <img
-                      src={step.image[0]}
-                      alt={step.title}
-                      className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </motion.div>
-                )}
-              </div>
+                    <div className="relative">
+                      <img
+                        src={step.image[0]}
+                        alt={step.title}
+                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                       
+                    </div>
+                  </div>
+
+                  {/* Thumbnail Grid */}
+                  {step.image.length > 1 && (
+                    <div className="grid grid-cols-3 gap-2">
+                      {step.image.slice(1).map((img, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{
+                            duration: 0.4,
+                            delay: 1.2 + index * 0.1,
+                          }}
+                          className={`rounded-lg overflow-hidden cursor-pointer group ${
+                            isDarkMode
+                              ? "bg-gray-800/50 border border-gray-700/50"
+                              : "bg-white/80 border border-gray-200/50"
+                          }`}
+                          onClick={() => handleImageClick(img, index + 1)}
+                        >
+                          <div className="relative aspect-square">
+                            <img
+                              src={img}
+                              alt={`${step.title} ${index + 2}`}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                           </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
+              )}
 
               {/* Quick Stats */}
               <motion.div
@@ -420,25 +490,117 @@ const JourneyStepDetail = () => {
               >
                 {renderDetailedContent(step, isDarkMode, navigate)}
               </motion.div>
-
-              {/* Image Gallery */}
-              {step.image && (
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.1 }}
-                >
-                  <ImageGallery
-                    images={step.image}
-                    title={step.title}
-                    isDarkMode={isDarkMode}
-                  />
-                </motion.div>
-              )}
             </div>
           </div>
         </div>
       </motion.section>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {isImageModalOpen && selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={() => setIsImageModalOpen(false)}
+          >
+            {/* Glass/Blurred Background */}
+            <div
+              className={`absolute inset-0 backdrop-blur-lg ${
+                isDarkMode ? "bg-black/70" : "bg-white/70"
+              }`}
+            />
+
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-6xl max-h-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsImageModalOpen(false)}
+                className={`absolute -top-12 right-0 transition-colors z-10 ${
+                  isDarkMode
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                <X size={32} />
+              </button>
+
+              {/* Navigation Arrows */}
+              {step.image && step.image.length > 1 && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrevImage();
+                    }}
+                    className={`absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors z-10 ${
+                      isDarkMode
+                        ? "bg-black/50 text-white hover:bg-black/70"
+                        : "bg-white/50 text-gray-700 hover:bg-white/70"
+                    }`}
+                  >
+                    <ArrowLeft size={24} />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNextImage();
+                    }}
+                    className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors z-10 ${
+                      isDarkMode
+                        ? "bg-black/50 text-white hover:bg-black/70"
+                        : "bg-white/50 text-gray-700 hover:bg-white/70"
+                    }`}
+                  >
+                    <ArrowLeft size={24} className="rotate-180" />
+                  </button>
+                </>
+              )}
+
+              {/* Image */}
+              <img
+                src={selectedImage}
+                alt={step.title}
+                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+              />
+
+              {/* Image Counter */}
+              {step.image && step.image.length > 1 && (
+                <div className="absolute top-4 left-4">
+                  <p
+                    className={`text-sm px-3 py-1 rounded-full inline-block backdrop-blur-sm ${
+                      isDarkMode
+                        ? "bg-black/50 text-white border border-white/20"
+                        : "bg-white/50 text-gray-700 border border-gray-200/50"
+                    }`}
+                  >
+                    {selectedImageIndex + 1} / {step.image.length}
+                  </p>
+                </div>
+              )}
+
+              {/* Title
+              <div className="absolute bottom-4 left-4 right-4 text-center">
+                <p
+                  className={`text-sm px-3 py-1 rounded-full inline-block backdrop-blur-sm ${
+                    isDarkMode
+                      ? "bg-black/50 text-white border border-white/20"
+                      : "bg-white/50 text-gray-700 border border-gray-200/50"
+                  }`}
+                >
+                  {step.title}
+                </p>
+              </div> */}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Floating Action Button */}
       <motion.div
@@ -463,7 +625,9 @@ const JourneyStepDetail = () => {
     </motion.div>
   );
 };
-// Helper function to render quick stats
+
+// ... (rest of the helper functions remain the same - renderQuickStats, getStepStats, renderDetailedContent, InfoItem, ProjectCard, TechBadge)
+
 const renderQuickStats = (step, isDarkMode) => {
   const stats = getStepStats(step);
 
@@ -490,7 +654,6 @@ const renderQuickStats = (step, isDarkMode) => {
   ));
 };
 
-// Helper function to get step-specific stats
 const getStepStats = (step) => {
   const baseStats = [
     {
@@ -1138,6 +1301,7 @@ const renderDetailedContent = (step, isDarkMode, navigate) => {
       );
   }
 };
+
 const InfoItem = ({ label, value, isDarkMode }) => (
   <motion.div
     className={`flex items-center justify-between p-3 rounded-lg border transition-all duration-300 ${

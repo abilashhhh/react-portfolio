@@ -33,12 +33,20 @@ import {
 } from "react-icons/fi";
 
 // Project Images
-import PROJECT_IMG_1 from "../assets/images/Focus.jpg";
-import PROJECT_IMG_2 from "../assets/images/lufffy.jpg";
-import PROJECT_IMG_3 from "../assets/images/luffy2.jpg";
-import PROJECT_IMG_4 from "../assets/images/panda.jpg";
-import PROJECT_IMG_5 from "../assets/images/racecar.jpg";
-import PROJECT_IMG_6 from "../assets/images/racecar1.jpg";
+import eventregapp from "../assets/images/eventregapp.png";
+import DB_CONNECTIONS_UTIL from "../assets/images/dbconnectionsutil.png";
+import weatherForcast from "../assets/images/weatherForcast.png";
+import todolist from "../assets/images/todo.jpg";
+import art from "../assets/images/art.jpg";
+import ecommercewatch from "../assets/images/ecommercewatch.jpg";
+import hospitalManagement from "../assets/images/hospitalManagement.jpg";
+import ncerc1 from "../assets/images/ncerc.jpg";
+import afc1 from "../assets/images/afc1.png";
+import afclogo from "../assets/images/afclogo.png";
+import trendtrove from "../assets/images/trendtrove.png";
+import checkpoint from "../assets/images/checkpoint.png";
+import brototype1 from "../assets/images/brototype1.png";
+import brototype from "../assets/images/brototype.avif";;
 
 // Skills Categories
 export const SKILLS_CATEGORY = [
@@ -195,7 +203,7 @@ export const PROJECTS = [
       "Trend Trove - A comprehensive social media and news feed platform built with Clean Architecture, featuring high-quality video/audio calls, instant messaging, ephemeral stories, and AI-powered image captioning using Clarifai.",
     detailedDescription:
       "A full-featured social media and news feed platform combining real-time news with core social features. Includes high-quality video/audio calls (Zego Cloud), instant messaging, ephemeral stories, and AI-powered image captioning (Clarifai). Integrated Razorpay for secure payments and premium features.",
-    image: PROJECT_IMG_1,
+    image: trendtrove,
     tags: ["TypeScript", "React", "Node.js", "MongoDB", "Socket.io"],
     tagsDetailed: [
       "TypeScript",
@@ -257,7 +265,7 @@ export const PROJECTS = [
       "Zigma Watches - An e-commerce web application for selling smartwatches built using MVC architecture, featuring coupon support, referral systems, order tracking, and secure payments via Razorpay integration.",
     detailedDescription:
       "An online smartwatch store built using MVC architecture offering a smooth shopping experience with features like coupon support, referral systems, order tracking, and secure payments via Razorpay. Includes comprehensive admin tools for sales reporting and inventory management.",
-    image: PROJECT_IMG_2,
+    image: ecommercewatch,
     tags: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap"],
     tagsDetailed: [
       "Node.js",
@@ -321,7 +329,7 @@ export const PROJECTS = [
       "A robust multi-tenant architecture application with isolated customer data through separate MongoDB databases, featuring dynamic database switching, connection pooling, and tenant-specific UI customizations.",
     detailedDescription:
       "Enterprise multi-tenant application designed with robust architecture to isolate customer data by provisioning separate MongoDB databases for each client. Features dynamic database switching, connection pooling, and AG Grid components for optimal performance.",
-    image: PROJECT_IMG_3,
+    image: checkpoint,
     tags: ["React", "AG Grid", "MongoDB", "Node.js", "TypeScript"],
     tagsDetailed: [
       "React",
@@ -367,7 +375,7 @@ export const PROJECTS = [
       "A healthcare platform with dynamic and responsive UI screens, featuring automated workflows for generating dynamic emails and PDFs, and implementing subscription-based dynamic tables for users.",
     detailedDescription:
       "Healthcare application featuring dynamic and responsive UI design with automated workflow systems for event confirmations and notifications through dynamic emails and PDF generation.",
-    image: PROJECT_IMG_4,
+    image: art,
     tags: ["React", "Node.js", "MongoDB", "PDF Generation", "Email Automation"],
     tagsDetailed: [
       "React",
@@ -410,7 +418,7 @@ export const PROJECTS = [
       "A security-first NPM package for parsing, encrypting, and reconstructing database connection strings. Supports MongoDB, PostgreSQL, MySQL, Redis, SQL Server, and Azure CosmosDB with AES-256 encryption.",
     detailedDescription:
       "A robust and security-first utility package designed to parse, encrypt, and reconstruct database connection strings for multiple database types, supporting both cloud and on-premise environments with AES-256 encryption.",
-    image: PROJECT_IMG_5,
+    image: DB_CONNECTIONS_UTIL,
     tags: ["Node.js", "TypeScript", "Security", "NPM", "Database"],
     tagsDetailed: [
       "Node.js",
@@ -459,7 +467,7 @@ export const PROJECTS = [
       "A streamlined application for managing hospital operations with modules for receptionists and doctors, featuring automated token generation, appointment management, and prescription handling with 10-day SLA.",
     detailedDescription:
       "Comprehensive hospital management system with specialized modules for receptionists and doctors, featuring automated token generation based on appointment dates and doctors, with 10-day SLA accounting for holidays.",
-    image: PROJECT_IMG_6,
+    image: hospitalManagement,
     tags: ["React", "Node.js", "MongoDB", "Neutrinos Studio"],
     tagsDetailed: [
       "React",
@@ -511,7 +519,7 @@ export const PROJECTS = [
       "A simple yet effective application designed to manage events with full CRUD functionality, search and filter features for easy event discovery and management.",
     detailedDescription:
       "Event management system with comprehensive CRUD operations, search functionality, and filtering capabilities for efficient event organization and discovery.",
-    image: PROJECT_IMG_1,
+    image: eventregapp,
     tags: ["React", "JavaScript", "CSS3", "CRUD", "Search"],
     tagsDetailed: [
       "React",
@@ -550,7 +558,7 @@ export const PROJECTS = [
       "A feature-rich todo application with drag-and-drop functionality, task categories, due dates, and progress tracking. Built with React and local storage persistence.",
     detailedDescription:
       "Advanced task management application with drag-and-drop interface, categorization system, due date tracking, and visual progress indicators with local storage for data persistence.",
-    image: PROJECT_IMG_1,
+    image: todolist,
     tags: ["React", "JavaScript", "CSS3", "Local Storage", "UI/UX"],
     tagsDetailed: [
       "React",
@@ -594,7 +602,7 @@ export const PROJECTS = [
       "A real-time weather application with location detection, 5-day forecast, interactive charts, and weather alerts using OpenWeather API.",
     detailedDescription:
       "Comprehensive weather application providing real-time updates, extended forecasts, and weather-related news with location-based services and interactive data visualization.",
-    image: PROJECT_IMG_4,
+    image: weatherForcast,
     tags: ["JavaScript", "API", "Chart.js", "Geolocation", "CSS3"],
     tagsDetailed: [
       "JavaScript",
@@ -647,7 +655,7 @@ export const JOURNEY_STEPS = [
     icon: GraduationCap,
     color: "bg-purple-500",
     image: [
-      PROJECT_IMG_6, // Hospital Management System
+      ncerc1, // Hospital Management System
     ],
     detailedInfo: {
       degree: "Bachelor of Technology (B.Tech)",
@@ -700,8 +708,8 @@ export const JOURNEY_STEPS = [
     icon: Code,
     color: "bg-green-500",
     image: [
-      PROJECT_IMG_1, // Trend Trove
-      PROJECT_IMG_2, // Zigma Watches
+      brototype,
+      brototype1,
     ],
     detailedInfo: {
       program: "Full Stack Development - MERN",
@@ -762,9 +770,8 @@ export const JOURNEY_STEPS = [
     icon: Briefcase,
     color: "bg-orange-500",
     image: [
-      PROJECT_IMG_3, // Checkpoint Systems
-      PROJECT_IMG_4, // ART HEALTH
-      PROJECT_IMG_4, // Weather Management Application (using same image as ART HEALTH)
+      afclogo,
+      afc1
     ],
     detailedInfo: {
       role: "Software Engineer",
@@ -835,7 +842,7 @@ export const JOURNEY_STEPS = [
     icon: Package,
     color: "bg-pink-500",
     image: [
-      PROJECT_IMG_5, // db-connections-util
+      DB_CONNECTIONS_UTIL
     ],
     detailedInfo: {
       packageName: "db-connections-util",
@@ -1437,7 +1444,7 @@ export const PROJECT_SLUG_MAPPING = {
 
   // Software Engineer AFC Digital Projects
   "Checkpoint Systems: Multi-tenant SaaS application with isolated customer data":
-    "checkpoint-systems",
+    "checkpoint",
   "ART HEALTH: Healthcare platform with dynamic UI and automated workflows":
     "art-health",
   "Weather Management Application: Real-time weather app with interactive charts":

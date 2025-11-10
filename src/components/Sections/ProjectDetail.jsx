@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
   ExternalLink,
@@ -15,6 +15,7 @@ import {
   Smartphone,
   Globe,
   Layers,
+  X,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { PROJECTS } from "../../utils/data";
@@ -30,6 +31,7 @@ const slugify = (text = "") =>
 const ProjectDetail = () => {
   const { slug } = useParams();
   const { isDarkMode } = useTheme();
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -238,24 +240,6 @@ const ProjectDetail = () => {
           </div>
         </motion.header>
 
-        {/* Project Image */}
-        {project.image && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mb-12"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </motion.div>
-        )}
-
         {/* Project Details Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Main Content - 2/3 width */}
@@ -406,7 +390,33 @@ const ProjectDetail = () => {
 
           {/* Sidebar - 1/3 width */}
           <div className="space-y-6">
-       
+            {/* Project Image Card */}
+            {project.image && (
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                className={`p-6 rounded-2xl ${
+                  isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
+                }`}
+              >
+            
+                <div
+                  className="relative group cursor-pointer rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700"
+                  onClick={() => setIsImageModalOpen(true)}
+                >
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                    }}
+                  />
+                </div>
+              </motion.div>
+            )}
+
             {/* Technologies Card */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -565,6 +575,61 @@ const ProjectDetail = () => {
             </div>
           </motion.section>
         )}
+
+        {/* Image Modal */}
+        <AnimatePresence>
+          {isImageModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              onClick={() => setIsImageModalOpen(false)}
+            >
+              {/* Glass/Blurred Background */}
+              <div
+                className={`absolute inset-0 backdrop-blur-lg ${
+                  isDarkMode ? "bg-black/70" : "bg-white/70"
+                }`}
+              />
+
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                className="relative max-w-4xl max-h-full"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setIsImageModalOpen(false)}
+                  className={`absolute -top-12 right-0 transition-colors z-10 ${
+                    isDarkMode
+                      ? "text-gray-300 hover:text-white"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  <X size={32} />
+                </button>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                />
+                <div className="absolute bottom-4 left-4 right-4 text-center">
+                  <p
+                    className={`text-sm px-3 py-1 rounded-full inline-block backdrop-blur-sm ${
+                      isDarkMode
+                        ? "bg-black/50 text-white border border-white/20"
+                        : "bg-white/50 text-gray-700 border border-gray-200/50"
+                    }`}
+                  >
+                    {project.title}
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
