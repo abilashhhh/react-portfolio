@@ -38,15 +38,34 @@ import DB_CONNECTIONS_UTIL from "../assets/images/dbconnectionsutil.png";
 import weatherForcast from "../assets/images/weatherForcast.png";
 import todolist from "../assets/images/todo.jpg";
 import art from "../assets/images/art.jpg";
-import ecommercewatch from "../assets/images/ecommercewatch.jpg";
 import hospitalManagement from "../assets/images/hospitalManagement.jpg";
 import ncerc1 from "../assets/images/ncerc.jpg";
 import afc1 from "../assets/images/afc1.png";
 import afclogo from "../assets/images/afclogo.png";
+import afclogo2 from "../assets/images/afclogo2.png";
 import trendtrove from "../assets/images/trendtrove.png";
 import checkpoint from "../assets/images/checkpoint.png";
 import brototype1 from "../assets/images/brototype1.png";
-import brototype from "../assets/images/brototype.avif";;
+import brototype from "../assets/images/brototype.avif";
+import btechdegree from "../assets/images/btechdegree.jpg";
+import zigmawatches from "../assets/images/zigmawatches.png";
+
+// Certificate Images import
+import CERT_IMG_1 from "../assets/certificates/wirelessCommunicationCertificate.jpg";
+import CERT_IMG_2 from "../assets/certificates/zephyr.jpg";
+import CERT_IMG_3 from "../assets/certificates/fortuneCampusVisit.jpg";
+import CERT_IMG_4 from "../assets/certificates/J-Gate.jpg";
+import CERT_IMG_5 from "../assets/certificates/4Bootcamp.jpg";
+import CERT_IMG_6 from "../assets/certificates/symbioticrelationships.jpg";
+import CERT_IMG_7 from "../assets/certificates/torcinfotech.jpg";
+import CERT_IMG_8 from "../assets/certificates/tcsResume.jpg";
+import CERT_IMG_9 from "../assets/certificates/electircalpowergeneration.jpg";
+import CERT_IMG_10 from "../assets/certificates/python.jpg";
+import CERT_IMG_11 from "../assets/certificates/spectrum.jpg";
+import CERT_IMG_12 from "../assets/certificates/docker.jpg";
+import CERT_IMG_13 from "../assets/certificates/zohocrm.jpg";
+import CERT_IMG_14 from "../assets/certificates/gittraining.png";
+import CERT_IMG_15 from "../assets/certificates/typescript.png";
 
 // Skills Categories
 export const SKILLS_CATEGORY = [
@@ -265,7 +284,7 @@ export const PROJECTS = [
       "Zigma Watches - An e-commerce web application for selling smartwatches built using MVC architecture, featuring coupon support, referral systems, order tracking, and secure payments via Razorpay integration.",
     detailedDescription:
       "An online smartwatch store built using MVC architecture offering a smooth shopping experience with features like coupon support, referral systems, order tracking, and secure payments via Razorpay. Includes comprehensive admin tools for sales reporting and inventory management.",
-    image: ecommercewatch,
+    image: zigmawatches,
     tags: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap"],
     tagsDetailed: [
       "Node.js",
@@ -654,9 +673,7 @@ export const JOURNEY_STEPS = [
       "Began my journey in Computer Science and Engineering at APJ Abdul Kalam Technological University, building a strong foundation in programming and software development.",
     icon: GraduationCap,
     color: "bg-purple-500",
-    image: [
-      ncerc1, // Hospital Management System
-    ],
+    image: [ncerc1, btechdegree],
     detailedInfo: {
       degree: "Bachelor of Technology (B.Tech)",
       specialization: "Computer Science and Engineering",
@@ -707,10 +724,7 @@ export const JOURNEY_STEPS = [
       "Intensive training in MERN stack technologies, learning modern web development practices, Clean Architecture, and building production-ready applications.",
     icon: Code,
     color: "bg-green-500",
-    image: [
-      brototype,
-      brototype1,
-    ],
+    image: [brototype, brototype1],
     detailedInfo: {
       program: "Full Stack Development - MERN",
       duration: "12 Months",
@@ -764,15 +778,12 @@ export const JOURNEY_STEPS = [
     title: "Software Engineer",
     company: "AFC Digital Pvt Ltd",
     location: "Bengaluru, Karnataka, India",
-    website: "https://www.afcdigital.in/",
+    website: "https://www.afcdigitalinc.com/",
     description:
       "Working as a Software Engineer on enterprise applications with multi-tenant architecture, dynamic UI components, and automated workflows for healthcare and checkpoint systems.",
     icon: Briefcase,
     color: "bg-orange-500",
-    image: [
-      afclogo,
-      afc1
-    ],
+    image: [afclogo2, afc1],
     detailedInfo: {
       role: "Software Engineer",
       department: "Product Development",
@@ -835,15 +846,13 @@ export const JOURNEY_STEPS = [
     year: "2024",
     title: "Published NPM Package: db-connections-util",
     company: "Open Source Contribution",
-    location: "Remote",
+    location: "NPM Package Registry",
     website: "https://www.npmjs.com/package/db-connections-util",
     description:
       "Released db-connections-util, a secure database connection utility supporting multiple database types with AES-256 encryption, available on NPM for the developer community.",
     icon: Package,
     color: "bg-pink-500",
-    image: [
-      DB_CONNECTIONS_UTIL
-    ],
+    image: [DB_CONNECTIONS_UTIL],
     detailedInfo: {
       packageName: "db-connections-util",
       type: "Open Source NPM Package",
@@ -1006,356 +1015,44 @@ export const CONTACT_INFO = [
   },
 ];
 
-// Certificate Images import
-import CERT_IMG_1 from "../assets/certificates/wirelessCommunicationCertificate.jpg";
-import CERT_IMG_2 from "../assets/certificates/zephyr.jpg";
-import CERT_IMG_3 from "../assets/certificates/fortuneCampusVisit.jpg";
-import CERT_IMG_4 from "../assets/certificates/J-Gate.jpg";
-import CERT_IMG_5 from "../assets/certificates/4Bootcamp.jpg";
-import CERT_IMG_6 from "../assets/certificates/symbioticrelationships.jpg";
-import CERT_IMG_7 from "../assets/certificates/torcinfotech.jpg";
-import CERT_IMG_8 from "../assets/certificates/tcsResume.jpg";
-import CERT_IMG_9 from "../assets/certificates/electircalpowergeneration.jpg";
-import CERT_IMG_10 from "../assets/certificates/python.jpg";
-import CERT_IMG_11 from "../assets/certificates/spectrum.jpg";
-import CERT_IMG_12 from "../assets/certificates/docker.jpg";
-import CERT_IMG_13 from "../assets/certificates/zohocrm.jpg";
-import CERT_IMG_14 from "../assets/certificates/gittraining.png";
-import CERT_IMG_15 from "../assets/certificates/typescript.png";
-
 export const CERTIFICATIONS = [
   {
     id: 1,
-    title: "Webinar on 5G Wireless Communications",
-    issuer: "NCERC",
-    year: "2021",
-    date: "May 17, 2021",
+    title: "TypeScript: The New JavaScript for Web Development",
+    issuer: "Simplilearn",
+    year: "2024",
+    date: "May 1, 2024",
     certificateUrl: "#",
-    image: CERT_IMG_1, // wirelessCommunicationCertificate.jpg
-    featured: false,
+    image: CERT_IMG_15,
+    featured: true,
     description:
-      "Actively participated in the Webinar on 5G Wireless Communications organized by IEEE SB NCERC as part of World Telecommunication Day.",
+      "Comprehensive TypeScript course covering type systems, modern JavaScript features, and web development applications.",
     skills: [
-      "5G Technology",
-      "Wireless Communications",
-      "Telecommunications",
-      "Network Infrastructure",
+      "TypeScript",
+      "JavaScript",
+      "Web Development",
+      "Type Systems",
+      "Frontend Development",
     ],
     learnings: [
-      "Understood 5G network architecture and protocols",
-      "Learned about wireless communication advancements",
-      "Explored telecommunications industry trends",
-      "Gained insights into future network technologies",
+      "Mastered TypeScript syntax and type annotations",
+      "Applied object-oriented programming in TypeScript",
+      "Integrated TypeScript with modern frameworks",
+      "Implemented type-safe JavaScript applications",
     ],
     validThrough: null,
-    credentialId: null,
+    credentialId: "5105075",
   },
   {
     id: 2,
-    title: "Industrial Visit - Data Science & AI",
-    issuer: "Zephyr Technologies",
-    year: "2021",
-    date: "2021",
-    certificateUrl: "#",
-    image: CERT_IMG_2, // zephyr.jpg
-    featured: false,
-    description:
-      "Attended One-day Industrial Visit Program at Zephyr Technologies focusing on Data Science, Artificial Intelligence & Machine Learning.",
-    skills: [
-      "Data Science",
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Industrial Exposure",
-    ],
-    learnings: [
-      "Gained practical insights into AI/ML applications in industry",
-      "Understood real-world data science workflows",
-      "Learned about industry best practices in AI development",
-      "Explored career opportunities in data science field",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 3,
-    title: "Campus Industrial Visit",
-    issuer: "Fortune Institute",
-    year: "2022",
-    date: "Jun 23, 2022",
-    certificateUrl: "#",
-    image: CERT_IMG_3, // fortuneCampusVisit.jpg
-    featured: false,
-    description:
-      "Completed curriculum-based campus visit at Fortune Institute of Computer Education as part of industrial exposure program.",
-    skills: [
-      "Industry Exposure",
-      "Curriculum Development",
-      "Educational Technology",
-      "Computer Education",
-    ],
-    learnings: [
-      "Understood computer education institute operations",
-      "Learned about curriculum development processes",
-      "Gained insights into educational technology implementation",
-      "Explored teaching methodologies in computer education",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 4,
-    title: "Webinar on J-Gate Platform",
-    issuer: "NCERC",
-    year: "2021",
-    date: "Apr 27, 2021",
-    certificateUrl: "#",
-    image: CERT_IMG_4, // J-Gate.jpg
-    featured: false,
-    description:
-      "Attended webinar on J-Gate scholarly platform covering electronic journal literature discovery and research tools.",
-    skills: [
-      "Research Methodology",
-      "Academic Databases",
-      "Literature Review",
-      "Scholarly Resources",
-    ],
-    learnings: [
-      "Learned to navigate J-Gate scholarly platform",
-      "Understood electronic journal discovery methods",
-      "Gained insights into academic research tools",
-      "Explored digital library resources",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 5,
-    title: "Industry 4.0 Tech Online Bootcamp",
-    issuer: "NxtWave",
-    year: "2021",
-    date: "Sep 2021",
-    certificateUrl: "#",
-    image: CERT_IMG_5, // 4Bootcamp.jpg
-    featured: false,
-    description:
-      "Intensive bootcamp covering transformative Industry 4.0 technologies including AI, IoT, Data Science, AR/VR, and Blockchain.",
-    skills: [
-      "AI & ML",
-      "IoT",
-      "Data Science",
-      "Blockchain",
-      "Full Stack",
-      "AR & VR",
-      "Cyber Security",
-    ],
-    learnings: [
-      "Explored cutting-edge Industry 4.0 technologies",
-      "Understood AI and machine learning fundamentals",
-      "Learned IoT architecture and applications",
-      "Gained insights into blockchain technology",
-      "Covered full-stack development concepts",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 6,
-    title: "National Workshop on IoT, Cloud Technologies and AI",
-    issuer: "NCERC",
-    year: "2020",
-    date: "Nov 25, 2020",
-    certificateUrl: "#",
-    image: CERT_IMG_6, // symbioticrelationships.jpg
-    featured: false,
-    description:
-      "One-day national level workshop exploring the symbiotic relationship between IoT, Cloud Technologies and Artificial Intelligence.",
-    skills: [
-      "IoT",
-      "Cloud Technologies",
-      "Artificial Intelligence",
-      "Mechatronics",
-      "System Integration",
-    ],
-    learnings: [
-      "Explored integration of IoT with cloud platforms",
-      "Understood AI applications in IoT systems",
-      "Learned cloud computing fundamentals",
-      "Gained insights into smart system design",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 7,
-    title: "Webinar on Electric Vehicles",
-    issuer: "Torc Infotech",
-    year: "2021",
-    date: "Sep 25, 2021",
-    certificateUrl: "#",
-    image: CERT_IMG_7, // torcinfotech.jpg
-    featured: false,
-    description:
-      "Completed comprehensive webinar on Electric Vehicles covering technology, infrastructure, and future trends.",
-    skills: [
-      "Electric Vehicles",
-      "Sustainable Technology",
-      "EV Infrastructure",
-      "Green Technology",
-    ],
-    learnings: [
-      "Understood electric vehicle technology fundamentals",
-      "Learned about EV charging infrastructure",
-      "Explored sustainable transportation solutions",
-      "Gained insights into future mobility trends",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 8,
-    title: "Resume Writing and Cover Letter Mastery",
-    issuer: "TCS",
-    year: "2022",
-    date: "2022",
-    certificateUrl: "#",
-    image: CERT_IMG_8, // tcsResume.jpg
-    featured: false,
-    description:
-      "Comprehensive course on professional resume writing and cover letter creation techniques for career advancement.",
-    skills: [
-      "Resume Writing",
-      "Cover Letters",
-      "Professional Communication",
-      "Career Development",
-      "Job Application",
-    ],
-    learnings: [
-      "Mastered professional resume structure and formatting",
-      "Learned effective cover letter presentation techniques",
-      "Understood do's and don'ts of resume creation",
-      "Developed strategies for highlighting key achievements",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 9,
-    title: "Webinar on Electrical Power Generation in Kerala",
-    issuer: "NCERC",
-    year: "2020",
-    date: "Oct 31, 2020",
-    certificateUrl: "#",
-    image: CERT_IMG_9, // electircalpowergeneration.jpg
-    featured: false,
-    description:
-      "Participated in webinar on Electrical Power Generation Scenario in Kerala covering energy infrastructure and power systems.",
-    skills: [
-      "Power Systems",
-      "Electrical Engineering",
-      "Energy Infrastructure",
-      "Renewable Energy",
-    ],
-    learnings: [
-      "Understood Kerala's power generation landscape",
-      "Learned about electrical power distribution systems",
-      "Explored energy infrastructure challenges",
-      "Gained insights into regional power management",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 10,
-    title: "Python Web Developer",
-    issuer: "L&T EduTech",
-    year: "2023",
-    date: "May 2023",
-    certificateUrl: "#",
-    image: CERT_IMG_10, // python.jpg
-    featured: false,
-    description:
-      "Comprehensive Python web development program covering backend development, database integration, and web frameworks.",
-    skills: [
-      "Python Programming",
-      "SQLite Database",
-      "Web Crawling",
-      "Flask Web Framework",
-      "Backend Development",
-    ],
-    learnings: [
-      "Developed web applications using Python frameworks",
-      "Designed and implemented SQLite database schemas",
-      "Built RESTful APIs and web services",
-      "Mastered web crawling with Beautiful Soup",
-      "Applied Flask framework for web development",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
-  {
-    id: 11,
-    title: "Data Science Internship",
-    issuer: "Spectrum Softtech Solutions Pvt. Ltd.",
-    year: "2021",
-    date: "Nov 2021",
-    certificateUrl: "#",
-    image: CERT_IMG_11, // spectrum.jpg
-    featured: false,
-    description:
-      "Curriculum-based industrial internship in Data Science involving real-world data analysis and machine learning projects.",
-    skills: [
-      "Data Science",
-      "Machine Learning",
-      "Data Analysis",
-      "Python",
-      "Data Visualization",
-    ],
-    learnings: [
-      "Applied data preprocessing and cleaning techniques",
-      "Built and evaluated machine learning models",
-      "Created data visualizations and dashboards",
-      "Worked on real-world data science projects",
-      "Gained industrial experience in data analytics",
-    ],
-    validThrough: "Expired",
-    credentialId: "Spec/STC/70/12/021",
-  },
-  {
-    id: 12,
-    title: "Zoho CRM Certification",
-    issuer: "Zoho",
-    year: "2025",
-    date: "Jul 21, 2025",
-    certificateUrl: "#",
-    image: CERT_IMG_13, // Using fallback project image
-    featured: true,
-    description:
-      "Self-learning course on Zoho CRM covering comprehensive customer relationship management platform features and implementation.",
-    skills: [
-      "Zoho CRM",
-      "Customer Relationship Management",
-      "Sales Automation",
-      "Business Process Management",
-    ],
-    learnings: [
-      "Mastered Zoho CRM platform configuration and customization",
-      "Implemented sales automation and workflow management",
-      "Designed customer relationship management strategies",
-      "Applied business process optimization techniques",
-    ],
-    validThrough: "1 Year",
-    credentialId: null,
-  },
-  {
-    id: 13,
     title: "Docker Essentials: A Developer Introduction",
     issuer: "IBM Cognitive Class",
     year: "2025",
     date: "Jul 26, 2025",
     certificateUrl:
       "https://courses.cognitiveclass.ai/certificates/70b5722ce4f34400af6cf12016d22a8e",
-    image: CERT_IMG_12, // Using fallback project image
-    featured: false,
+    image: CERT_IMG_12,
+    featured: true,
     description:
       "IBM certification covering Docker containerization fundamentals, image management, and container orchestration basics.",
     skills: [
@@ -1376,7 +1073,7 @@ export const CERTIFICATIONS = [
     credentialId: "f12016d22a8e",
   },
   {
-    id: 14,
+    id: 3,
     title: "Git Training",
     issuer: "Simplilearn",
     year: "2024",
@@ -1403,31 +1100,326 @@ export const CERTIFICATIONS = [
     credentialId: "5064488",
   },
   {
-    id: 15,
-    title: "TypeScript: The New JavaScript for Web Development",
-    issuer: "Simplilearn",
-    year: "2024",
-    date: "May 1, 2024",
+    id: 4,
+    title: "Zoho CRM Certification",
+    issuer: "Zoho",
+    year: "2025",
+    date: "Jul 21, 2025",
     certificateUrl: "#",
-    image: CERT_IMG_15,
-    featured: true,
+    image: CERT_IMG_13,
+    featured: false,
     description:
-      "Comprehensive TypeScript course covering type systems, modern JavaScript features, and web development applications.",
+      "Self-learning course on Zoho CRM covering comprehensive customer relationship management platform features and implementation.",
     skills: [
-      "TypeScript",
-      "JavaScript",
-      "Web Development",
-      "Type Systems",
-      "Frontend Development",
+      "Zoho CRM",
+      "Customer Relationship Management",
+      "Sales Automation",
+      "Business Process Management",
     ],
     learnings: [
-      "Mastered TypeScript syntax and type annotations",
-      "Applied object-oriented programming in TypeScript",
-      "Integrated TypeScript with modern frameworks",
-      "Implemented type-safe JavaScript applications",
+      "Mastered Zoho CRM platform configuration and customization",
+      "Implemented sales automation and workflow management",
+      "Designed customer relationship management strategies",
+      "Applied business process optimization techniques",
+    ],
+    validThrough: "1 Year",
+    credentialId: null,
+  },
+  {
+    id: 5,
+    title: "Python Web Developer",
+    issuer: "L&T EduTech",
+    year: "2023",
+    date: "May 2023",
+    certificateUrl: "#",
+    image: CERT_IMG_10,
+    featured: false,
+    description:
+      "Comprehensive Python web development program covering backend development, database integration, and web frameworks.",
+    skills: [
+      "Python Programming",
+      "SQLite Database",
+      "Web Crawling",
+      "Flask Web Framework",
+      "Backend Development",
+    ],
+    learnings: [
+      "Developed web applications using Python frameworks",
+      "Designed and implemented SQLite database schemas",
+      "Built RESTful APIs and web services",
+      "Mastered web crawling with Beautiful Soup",
+      "Applied Flask framework for web development",
     ],
     validThrough: null,
-    credentialId: "5105075",
+    credentialId: null,
+  },
+  {
+    id: 6,
+    title: "Industry 4.0 Tech Online Bootcamp",
+    issuer: "NxtWave",
+    year: "2021",
+    date: "Sep 2021",
+    certificateUrl: "#",
+    image: CERT_IMG_5,
+    featured: false,
+    description:
+      "Intensive bootcamp covering transformative Industry 4.0 technologies including AI, IoT, Data Science, AR/VR, and Blockchain.",
+    skills: [
+      "AI & ML",
+      "IoT",
+      "Data Science",
+      "Blockchain",
+      "Full Stack",
+      "AR & VR",
+      "Cyber Security",
+    ],
+    learnings: [
+      "Explored cutting-edge Industry 4.0 technologies",
+      "Understood AI and machine learning fundamentals",
+      "Learned IoT architecture and applications",
+      "Gained insights into blockchain technology",
+      "Covered full-stack development concepts",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 7,
+    title: "Webinar on Electric Vehicles",
+    issuer: "Torc Infotech",
+    year: "2021",
+    date: "Sep 25, 2021",
+    certificateUrl: "#",
+    image: CERT_IMG_7,
+    featured: false,
+    description:
+      "Completed comprehensive webinar on Electric Vehicles covering technology, infrastructure, and future trends.",
+    skills: [
+      "Electric Vehicles",
+      "Sustainable Technology",
+      "EV Infrastructure",
+      "Green Technology",
+    ],
+    learnings: [
+      "Understood electric vehicle technology fundamentals",
+      "Learned about EV charging infrastructure",
+      "Explored sustainable transportation solutions",
+      "Gained insights into future mobility trends",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 8,
+    title: "Resume Writing and Cover Letter Mastery",
+    issuer: "TCS",
+    year: "2022",
+    date: "2022",
+    certificateUrl: "#",
+    image: CERT_IMG_8,
+    featured: false,
+    description:
+      "Comprehensive course on professional resume writing and cover letter creation techniques for career advancement.",
+    skills: [
+      "Resume Writing",
+      "Cover Letters",
+      "Professional Communication",
+      "Career Development",
+      "Job Application",
+    ],
+    learnings: [
+      "Mastered professional resume structure and formatting",
+      "Learned effective cover letter presentation techniques",
+      "Understood do's and don'ts of resume creation",
+      "Developed strategies for highlighting key achievements",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 9,
+    title: "Webinar on Electrical Power Generation in Kerala",
+    issuer: "NCERC",
+    year: "2020",
+    date: "Oct 31, 2020",
+    certificateUrl: "#",
+    image: CERT_IMG_9,
+    featured: false,
+    description:
+      "Participated in webinar on Electrical Power Generation Scenario in Kerala covering energy infrastructure and power systems.",
+    skills: [
+      "Power Systems",
+      "Electrical Engineering",
+      "Energy Infrastructure",
+      "Renewable Energy",
+    ],
+    learnings: [
+      "Understood Kerala's power generation landscape",
+      "Learned about electrical power distribution systems",
+      "Explored energy infrastructure challenges",
+      "Gained insights into regional power management",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 10,
+    title: "Data Science Internship",
+    issuer: "Spectrum Softtech Solutions Pvt. Ltd.",
+    year: "2021",
+    date: "Nov 2021",
+    certificateUrl: "#",
+    image: CERT_IMG_11,
+    featured: false,
+    description:
+      "Curriculum-based industrial internship in Data Science involving real-world data analysis and machine learning projects.",
+    skills: [
+      "Data Science",
+      "Machine Learning",
+      "Data Analysis",
+      "Python",
+      "Data Visualization",
+    ],
+    learnings: [
+      "Applied data preprocessing and cleaning techniques",
+      "Built and evaluated machine learning models",
+      "Created data visualizations and dashboards",
+      "Worked on real-world data science projects",
+      "Gained industrial experience in data analytics",
+    ],
+    validThrough: "Expired",
+    credentialId: "Spec/STC/70/12/021",
+  },
+  {
+    id: 11,
+    title: "Webinar on 5G Wireless Communications",
+    issuer: "NCERC",
+    year: "2021",
+    date: "May 17, 2021",
+    certificateUrl: "#",
+    image: CERT_IMG_1,
+    featured: false,
+    description:
+      "Actively participated in the Webinar on 5G Wireless Communications organized by IEEE SB NCERC as part of World Telecommunication Day.",
+    skills: [
+      "5G Technology",
+      "Wireless Communications",
+      "Telecommunications",
+      "Network Infrastructure",
+    ],
+    learnings: [
+      "Understood 5G network architecture and protocols",
+      "Learned about wireless communication advancements",
+      "Explored telecommunications industry trends",
+      "Gained insights into future network technologies",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 12,
+    title: "Industrial Visit - Data Science & AI",
+    issuer: "Zephyr Technologies",
+    year: "2021",
+    date: "2021",
+    certificateUrl: "#",
+    image: CERT_IMG_2,
+    featured: false,
+    description:
+      "Attended One-day Industrial Visit Program at Zephyr Technologies focusing on Data Science, Artificial Intelligence & Machine Learning.",
+    skills: [
+      "Data Science",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Industrial Exposure",
+    ],
+    learnings: [
+      "Gained practical insights into AI/ML applications in industry",
+      "Understood real-world data science workflows",
+      "Learned about industry best practices in AI development",
+      "Explored career opportunities in data science field",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 13,
+    title: "Campus Industrial Visit",
+    issuer: "Fortune Institute",
+    year: "2022",
+    date: "Jun 23, 2022",
+    certificateUrl: "#",
+    image: CERT_IMG_3,
+    featured: false,
+    description:
+      "Completed curriculum-based campus visit at Fortune Institute of Computer Education as part of industrial exposure program.",
+    skills: [
+      "Industry Exposure",
+      "Curriculum Development",
+      "Educational Technology",
+      "Computer Education",
+    ],
+    learnings: [
+      "Understood computer education institute operations",
+      "Learned about curriculum development processes",
+      "Gained insights into educational technology implementation",
+      "Explored teaching methodologies in computer education",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 14,
+    title: "Webinar on J-Gate Platform",
+    issuer: "NCERC",
+    year: "2021",
+    date: "Apr 27, 2021",
+    certificateUrl: "#",
+    image: CERT_IMG_4,
+    featured: false,
+    description:
+      "Attended webinar on J-Gate scholarly platform covering electronic journal literature discovery and research tools.",
+    skills: [
+      "Research Methodology",
+      "Academic Databases",
+      "Literature Review",
+      "Scholarly Resources",
+    ],
+    learnings: [
+      "Learned to navigate J-Gate scholarly platform",
+      "Understood electronic journal discovery methods",
+      "Gained insights into academic research tools",
+      "Explored digital library resources",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 15,
+    title: "National Workshop on IoT, Cloud Technologies and AI",
+    issuer: "NCERC",
+    year: "2020",
+    date: "Nov 25, 2020",
+    certificateUrl: "#",
+    image: CERT_IMG_6,
+    featured: false,
+    description:
+      "One-day national level workshop exploring the symbiotic relationship between IoT, Cloud Technologies and Artificial Intelligence.",
+    skills: [
+      "IoT",
+      "Cloud Technologies",
+      "Artificial Intelligence",
+      "Mechatronics",
+      "System Integration",
+    ],
+    learnings: [
+      "Explored integration of IoT with cloud platforms",
+      "Understood AI applications in IoT systems",
+      "Learned cloud computing fundamentals",
+      "Gained insights into smart system design",
+    ],
+    validThrough: null,
+    credentialId: null,
   },
 ];
 

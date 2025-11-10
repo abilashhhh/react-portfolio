@@ -330,7 +330,11 @@ const JourneyStepDetail = () => {
                     : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
                 }`}
               >
-                <MapPin size={18} className="text-green-500" />
+                {step.location !== "NPM Package Registry" ? (
+                  <MapPin size={18} className="text-green-500" />
+                ) : (
+                  <Package size={18} className="text-green-500" />
+                )}
                 <span className="font-medium">{step.location}</span>
               </motion.div>
 
