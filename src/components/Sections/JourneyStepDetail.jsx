@@ -53,6 +53,32 @@ const JourneyStepDetail = () => {
     return () => clearTimeout(timer);
   }, [slug]);
 
+  // Handle keyboard events for image modal
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (!isImageModalOpen) return;
+
+      switch (event.key) {
+        case "Escape":
+          setIsImageModalOpen(false);
+          break;
+        case "ArrowRight":
+          handleNextImage();
+          break;
+        case "ArrowLeft":
+          handlePrevImage();
+          break;
+        default:
+          break;
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isImageModalOpen, selectedImageIndex, step]);
+
   // Handle image click
   const handleImageClick = (image, index = 0) => {
     setSelectedImage(image);
@@ -422,7 +448,7 @@ const JourneyStepDetail = () => {
                         alt={step.title}
                         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                       
+                      
                     </div>
                   </div>
 
@@ -451,7 +477,7 @@ const JourneyStepDetail = () => {
                               alt={`${step.title} ${index + 2}`}
                               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                             />
-                           </div>
+                          </div>
                         </motion.div>
                       ))}
                     </div>

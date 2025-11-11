@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Globe } from "lucide-react";
+import { Eye } from "lucide-react";
 
 const ProjectCard = ({ project, isDarkMode }) => {
   return (
@@ -59,31 +59,19 @@ const ProjectCard = ({ project, isDarkMode }) => {
           ))}
         </div>
         {/* Links - Pushed to bottom */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex items-center justify-center mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+          <button
+            onClick={() => {
+              /* Add your click handler here */
+            }}
             className={`flex items-center gap-1 text-sm font-medium transition-colors ${
               isDarkMode
                 ? "text-blue-400 hover:text-blue-300"
                 : "text-blue-600 hover:text-blue-500"
             }`}
           >
-            <Github size={16} /> Code
-          </a>
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-1 text-sm font-medium transition-colors ${
-              isDarkMode
-                ? "text-green-400 hover:text-green-300"
-                : "text-green-600 hover:text-green-500"
-            }`}
-          >
-            <Globe size={16} /> Live
-          </a>
+            <Eye size={16} /> Click to view in detail
+          </button>
         </div>
       </div>
     </motion.div>

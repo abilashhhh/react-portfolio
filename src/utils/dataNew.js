@@ -596,7 +596,7 @@ export const PROJECTS = [
       "Dynamic content rendering based on user subscription",
       "Responsive design implementation",
     ],
-    role: "Frontend & Backend Developer",
+    role: "Full Stack Developer",
     duration: "2 months",
     status: "",
     projectType: "Professional Project",

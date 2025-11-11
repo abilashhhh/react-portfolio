@@ -51,6 +51,32 @@ const HeroSection = () => {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating Stars */}
+        {[...Array(100)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+            }}
+            className={`absolute rounded-full ${
+              isDarkMode ? "bg-white/30" : "bg-blue-400/40"
+            }`}
+            style={{
+              width: Math.random() * 3 + 1 + "px",
+              height: Math.random() * 3 + 1 + "px",
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -146,13 +172,13 @@ const HeroSection = () => {
                 <span
                   className={`${isDarkMode ? "text-white" : "text-gray-900"}`}
                 >
-                  Building digital
+                  Crafting
                 </span>
-                <span className="ml-2 text-blue-500">experience</span> <br />
+                <span className="ml-2 text-blue-500">Digital</span> <br />
                 <span
                   className={`${isDarkMode ? "text-white" : "text-gray-900"}`}
                 >
-                  that matters.
+                  Excellence.
                 </span>
               </motion.h1>
 
@@ -162,8 +188,8 @@ const HeroSection = () => {
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 } mb-8 max-w-xl mx-auto font-light leading-relaxed`}
               >
-                I create beautiful and functional web experiences. Let's build
-                something amazing together.
+                Transforming ideas into seamless digital experiences with modern
+                technology and innovative solutions.
               </motion.p>
 
               {/* CTA Buttons - Mobile view */}
@@ -225,24 +251,7 @@ const HeroSection = () => {
                 ))}
               </motion.div>
 
-              {/* Tech stack - Mobile view */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-wrap gap-3 justify-center items-center text-sm"
-              >
-                {["React", "Node.js", "TypeScript", "MongoDB"].map((tech) => (
-                  <span
-                    key={tech}
-                    className={`px-4 py-2 rounded-full ${
-                      isDarkMode
-                        ? "bg-gray-800/50 text-gray-400 border border-gray-800"
-                        : "bg-gray-100 text-gray-600 border border-gray-200"
-                    }`}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </motion.div>
+              
             </motion.div>
           </div>
 
@@ -270,15 +279,15 @@ const HeroSection = () => {
                 <span
                   className={`${isDarkMode ? "text-white" : "text-gray-900"}`}
                 >
-                  Building digital
+                  Crafting
                 </span>
                 <br />
-                <span className="text-blue-500">experience</span>
+                <span className="text-blue-500">Digital</span>
                 <br />
                 <span
                   className={`${isDarkMode ? "text-white" : "text-gray-900"}`}
                 >
-                  that matters.
+                  Excellence
                 </span>
               </motion.h1>
 
@@ -288,8 +297,8 @@ const HeroSection = () => {
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 } max-w-lg font-light leading-relaxed`}
               >
-                I create beautiful and functional web experiences. Let's build
-                something amazing together.
+                Transforming ideas into seamless digital experiences with modern
+                technology and innovative solutions.
               </motion.p>
 
               {/* ✅ Download Resume Button - Desktop */}
@@ -350,24 +359,7 @@ const HeroSection = () => {
                 ))}
               </motion.div>
 
-              {/* Tech stack */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-wrap gap-3 items-center text-sm pt-8"
-              >
-                {["React", "Node.js", "TypeScript", "MongoDB"].map((tech) => (
-                  <span
-                    key={tech}
-                    className={`px-4 py-2 rounded-full ${
-                      isDarkMode
-                        ? "bg-gray-800/50 text-gray-400 border border-gray-800"
-                        : "bg-gray-100 text-gray-600 border border-gray-200"
-                    }`}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </motion.div>
+               
             </motion.div>
 
             {/* Profile image - Desktop */}

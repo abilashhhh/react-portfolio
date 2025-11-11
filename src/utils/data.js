@@ -35,6 +35,7 @@ import {
 // Project Images
 import eventregapp from "../assets/images/eventregapp.png";
 import DB_CONNECTIONS_UTIL from "../assets/images/dbconnectionsutil.png";
+import DB_CONNECTIONS_UTIL2 from "../assets/images/dbconnectionsutil2.png";
 import weatherForcast from "../assets/images/weatherForcast.png";
 import todolist from "../assets/images/todo.jpg";
 import art from "../assets/images/art.jpg";
@@ -244,7 +245,7 @@ export const PROJECTS = [
       "Clean Architecture",
     ],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/abilashhhh/TrendTrove-SocialMedia.git",
     featured: true,
     category: "Full Stack",
     features: [
@@ -302,7 +303,7 @@ export const PROJECTS = [
       "Nodemailer",
     ],
     liveUrl: "https://www.zigmawatches.shop",
-    githubUrl: "#",
+    githubUrl: "https://github.com/abilashhhh/ZigmaProject.git",
     featured: true,
     category: "Full Stack",
     features: [
@@ -363,7 +364,7 @@ export const PROJECTS = [
     ],
     liveUrl: "",
     githubUrl: "",
-    featured: false,
+    featured: true,
     category: "Full Stack",
     features: [
       "Multi-tenant architecture with data isolation",
@@ -382,8 +383,8 @@ export const PROJECTS = [
       "Dynamic component rendering",
     ],
     role: "Full Stack Developer",
-    duration: "Ongoing",
-    status: "",
+    // duration: "Completed",
+    status: "Completed",
     projectType: "Professional Project",
   },
   {
@@ -406,8 +407,8 @@ export const PROJECTS = [
       "Dynamic Tables",
       "Workflow Automation",
     ],
-    liveUrl: "",
-    githubUrl: "",
+    // liveUrl: "",
+    // githubUrl: "",
     featured: false,
     category: "Full Stack",
     features: [
@@ -424,9 +425,9 @@ export const PROJECTS = [
       "Dynamic content rendering based on user subscription",
       "Responsive design implementation",
     ],
-    role: "Frontend & Backend Developer",
+    role: "Full Stack Developer",
     duration: "2 months",
-    status: "",
+    status: "Completed",
     projectType: "Professional Project",
   },
   {
@@ -437,7 +438,7 @@ export const PROJECTS = [
       "A security-first NPM package for parsing, encrypting, and reconstructing database connection strings. Supports MongoDB, PostgreSQL, MySQL, Redis, SQL Server, and Azure CosmosDB with AES-256 encryption.",
     detailedDescription:
       "A robust and security-first utility package designed to parse, encrypt, and reconstruct database connection strings for multiple database types, supporting both cloud and on-premise environments with AES-256 encryption.",
-    image: DB_CONNECTIONS_UTIL,
+    image: DB_CONNECTIONS_UTIL2,
     tags: ["Node.js", "TypeScript", "Security", "NPM", "Database"],
     tagsDetailed: [
       "Node.js",
@@ -455,8 +456,8 @@ export const PROJECTS = [
       "Connection Strings",
     ],
     liveUrl: "https://www.npmjs.com/package/db-connections-util",
-    githubUrl: "#",
-    featured: true,
+    githubUrl: "https://github.com/abilashhhh/db-connections-util.git",
+    featured: false,
     category: "Backend",
     features: [
       "Parse and reconstruct database connection strings",
@@ -498,8 +499,8 @@ export const PROJECTS = [
       "Appointment Scheduling",
       "Prescription Management",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
+    // liveUrl: "#",
+    // githubUrl: "#",
     featured: false,
     category: "Full Stack",
     features: [
@@ -549,8 +550,8 @@ export const PROJECTS = [
       "Event Management",
       "Neutrinos Studio",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
+    // liveUrl: "#",
+    // githubUrl: "#",
     featured: false,
     category: "Full Stack",
     features: [
@@ -590,8 +591,8 @@ export const PROJECTS = [
       "Due Dates",
       "Categories",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
+    // liveUrl: "#",
+    githubUrl: "https://github.com/abilashhhh/todoMERN.git",
     featured: false,
     category: "Frontend",
     features: [
@@ -633,8 +634,8 @@ export const PROJECTS = [
       "Forecast",
       "Real-time Updates",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://abilashhhh.github.io/weather_app/",
+    githubUrl: "https://github.com/abilashhhh/weather_app.git",
     featured: false,
     category: "Frontend",
     features: [
@@ -852,7 +853,7 @@ export const JOURNEY_STEPS = [
       "Released db-connections-util, a secure database connection utility supporting multiple database types with AES-256 encryption, available on NPM for the developer community.",
     icon: Package,
     color: "bg-pink-500",
-    image: [DB_CONNECTIONS_UTIL],
+    image: [DB_CONNECTIONS_UTIL2, DB_CONNECTIONS_UTIL],
     detailedInfo: {
       packageName: "db-connections-util",
       type: "Open Source NPM Package",
@@ -1022,7 +1023,8 @@ export const CERTIFICATIONS = [
     issuer: "Simplilearn",
     year: "2024",
     date: "May 1, 2024",
-    certificateUrl: "#",
+    certificateUrl:
+      "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMTE5IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNTEwNTA3NV8xNzE0NTc4Mjk0LnBuZyIsInVzZXJuYW1lIjoiQWJpbGFzaCBOIn0%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F5896%2FTypescript-%3A-The-New-JavaScript-for-Web-Development%2Fcertificate%2Fdownload-skillup&%24web_only=true",
     image: CERT_IMG_15,
     featured: true,
     description:
@@ -1078,7 +1080,8 @@ export const CERTIFICATIONS = [
     issuer: "Simplilearn",
     year: "2024",
     date: "Apr 21, 2024",
-    certificateUrl: "#",
+    certificateUrl:
+      "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI3NTgiLCJjZXJ0aWZpY2F0ZV91cmwiOiJodHRwczpcL1wvY2VydGlmaWNhdGVzLnNpbXBsaWNkbi5uZXRcL3NoYXJlXC90aHVtYl81MDY0NDg4XzE3MTM3MDUzNDcucG5nIiwidXNlcm5hbWUiOiJBYmlsYXNoIE4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F2823%2FGIT%2Fcertificate%2Fdownload-skillup&%24web_only=true",
     image: CERT_IMG_14,
     featured: true,
     description:
@@ -1131,7 +1134,8 @@ export const CERTIFICATIONS = [
     issuer: "L&T EduTech",
     year: "2023",
     date: "May 2023",
-    certificateUrl: "#",
+    certificateUrl:
+      "https://certification.lntedutech.com/?certificationID=jmgxsm_989006788892405&name=Abilash%20N&course=Python%20Web%20Developer",
     image: CERT_IMG_10,
     featured: false,
     description:
@@ -1159,7 +1163,8 @@ export const CERTIFICATIONS = [
     issuer: "NxtWave",
     year: "2021",
     date: "Sep 2021",
-    certificateUrl: "#",
+    certificateUrl:
+      "https://certificates.ccbp.in/4-0-tech-bootcamp?id=XG9JC5M2BF",
     image: CERT_IMG_5,
     featured: false,
     description:
@@ -1209,33 +1214,33 @@ export const CERTIFICATIONS = [
     validThrough: null,
     credentialId: null,
   },
-  {
-    id: 8,
-    title: "Resume Writing and Cover Letter Mastery",
-    issuer: "TCS",
-    year: "2022",
-    date: "2022",
-    certificateUrl: "#",
-    image: CERT_IMG_8,
-    featured: false,
-    description:
-      "Comprehensive course on professional resume writing and cover letter creation techniques for career advancement.",
-    skills: [
-      "Resume Writing",
-      "Cover Letters",
-      "Professional Communication",
-      "Career Development",
-      "Job Application",
-    ],
-    learnings: [
-      "Mastered professional resume structure and formatting",
-      "Learned effective cover letter presentation techniques",
-      "Understood do's and don'ts of resume creation",
-      "Developed strategies for highlighting key achievements",
-    ],
-    validThrough: null,
-    credentialId: null,
-  },
+  // {
+  //   id: 8,
+  //   title: "Resume Writing and Cover Letter Mastery",
+  //   issuer: "TCS",
+  //   year: "2022",
+  //   date: "2022",
+  //   certificateUrl: "#",
+  //   image: CERT_IMG_8,
+  //   featured: false,
+  //   description:
+  //     "Comprehensive course on professional resume writing and cover letter creation techniques for career advancement.",
+  //   skills: [
+  //     "Resume Writing",
+  //     "Cover Letters",
+  //     "Professional Communication",
+  //     "Career Development",
+  //     "Job Application",
+  //   ],
+  //   learnings: [
+  //     "Mastered professional resume structure and formatting",
+  //     "Learned effective cover letter presentation techniques",
+  //     "Understood do's and don'ts of resume creation",
+  //     "Developed strategies for highlighting key achievements",
+  //   ],
+  //   validThrough: null,
+  //   credentialId: null,
+  // },
   {
     id: 9,
     title: "Webinar on Electrical Power Generation in Kerala",
@@ -1268,7 +1273,7 @@ export const CERTIFICATIONS = [
     issuer: "Spectrum Softtech Solutions Pvt. Ltd.",
     year: "2021",
     date: "Nov 2021",
-    certificateUrl: "#",
+    certificateUrl: "https://www.spectrum.net.in/",
     image: CERT_IMG_11,
     featured: false,
     description:

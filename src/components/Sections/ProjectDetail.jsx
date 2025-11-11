@@ -386,6 +386,93 @@ const ProjectDetail = () => {
                 )}
               </motion.section>
             )}
+
+            {/* Additional Project Information */}
+            {(project.role || project.duration || project.status) && (
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className={`p-6 rounded-2xl ${
+                  isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
+                }`}
+              >
+                <h2 className="text-2xl font-bold mb-6">Project Overview</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {project.role && (
+                    <div className="text-center">
+                      <User
+                        size={32}
+                        className={`mx-auto mb-2 ${
+                          isDarkMode ? "text-blue-400" : "text-blue-500"
+                        }`}
+                      />
+                      <p className="text-sm font-medium">Role</p>
+                      <p
+                        className={
+                          isDarkMode ? "text-gray-300" : "text-gray-700"
+                        }
+                      >
+                        {project.role}
+                      </p>
+                    </div>
+                  )}
+                  {project.duration && (
+                    <div className="text-center">
+                      <Clock
+                        size={32}
+                        className={`mx-auto mb-2 ${
+                          isDarkMode ? "text-green-400" : "text-green-500"
+                        }`}
+                      />
+                      <p className="text-sm font-medium">Duration</p>
+                      <p
+                        className={
+                          isDarkMode ? "text-gray-300" : "text-gray-700"
+                        }
+                      >
+                        {project.duration}
+                      </p>
+                    </div>
+                  )}
+                  {project.status && (
+                    <div className="text-center">
+                      <div
+                        className={`w-8 h-8 rounded-full mx-auto mb-2 flex items-center justify-center ${getStatusColor(
+                          project.status
+                        )}`}
+                      />
+                      <p className="text-sm font-medium">Status</p>
+                      <p
+                        className={
+                          isDarkMode ? "text-gray-300" : "text-gray-700"
+                        }
+                      >
+                        {getStatusText(project.status)}
+                      </p>
+                    </div>
+                  )}
+                  {project.projectType && (
+                    <div className="text-center">
+                      <Globe
+                        size={32}
+                        className={`mx-auto mb-2 ${
+                          isDarkMode ? "text-purple-400" : "text-purple-500"
+                        }`}
+                      />
+                      <p className="text-sm font-medium">Type</p>
+                      <p
+                        className={
+                          isDarkMode ? "text-gray-300" : "text-gray-700"
+                        }
+                      >
+                        {project.projectType}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </motion.section>
+            )}
           </div>
 
           {/* Sidebar - 1/3 width */}
@@ -400,7 +487,6 @@ const ProjectDetail = () => {
                   isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
                 }`}
               >
-            
                 <div
                   className="relative group cursor-pointer rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700"
                   onClick={() => setIsImageModalOpen(true)}
@@ -459,122 +545,62 @@ const ProjectDetail = () => {
               </div>
             </motion.div>
 
-            {/* Quick Links */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 }}
-              className={`p-6 rounded-2xl ${
-                isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
-              }`}
-            >
-              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-              <div className="space-y-3">
-                {project.liveUrl && project.liveUrl !== "#" && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-3 p-3 rounded-lg transition-all ${
-                      isDarkMode
-                        ? "bg-gray-700 hover:bg-gray-600 text-white"
-                        : "bg-gray-100 hover:bg-gray-200 text-gray-900"
-                    }`}
-                  >
-                    <ExternalLink size={16} />
-                    Visit Live Site
-                  </a>
-                )}
-                {project.githubUrl && project.githubUrl !== "#" && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-3 p-3 rounded-lg transition-all ${
-                      isDarkMode
-                        ? "bg-gray-700 hover:bg-gray-600 text-white"
-                        : "bg-gray-100 hover:bg-gray-200 text-gray-900"
-                    }`}
-                  >
-                    <Github size={16} />
-                    View Source Code
-                  </a>
-                )}
-              </div>
-            </motion.div>
+            {/* Quick Links - Only show if any links exist */}
+            {(project.liveUrl && project.liveUrl !== "#") ||
+            (project.githubUrl && project.githubUrl !== "#") ? (
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                className={`p-6 rounded-2xl border ${
+                  isDarkMode
+                    ? "bg-gray-800 border-gray-700"
+                    : "bg-white border-gray-200 shadow-sm"
+                }`}
+              >
+                <h3
+                  className={`text-xl font-bold mb-4 ${
+                    isDarkMode ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  Quick Links
+                </h3>
+                <div className="space-y-3">
+                  {project.liveUrl && project.liveUrl !== "#" && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-3 p-3 rounded-lg border transition-all group ${
+                        isDarkMode
+                          ? "bg-gray-700 border-gray-600 hover:bg-gray-600 hover:border-gray-500 text-white"
+                          : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300 text-gray-900"
+                      }`}
+                    >
+                      <ExternalLink size={18} className="flex-shrink-0" />
+                      <span className="font-medium">Visit Live Site</span>
+                    </a>
+                  )}
+                  {project.githubUrl && project.githubUrl !== "#" && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-3 p-3 rounded-lg border transition-all group ${
+                        isDarkMode
+                          ? "bg-gray-700 border-gray-600 hover:bg-gray-600 hover:border-gray-500 text-white"
+                          : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300 text-gray-900"
+                      }`}
+                    >
+                      <Github size={18} className="flex-shrink-0" />
+                      <span className="font-medium">View Source Code</span>
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ) : null}
           </div>
         </div>
-
-        {/* Additional Project Information */}
-        {(project.role || project.duration || project.status) && (
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className={`p-6 rounded-2xl ${
-              isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
-            }`}
-          >
-            <h2 className="text-2xl font-bold mb-6">Project Overview</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {project.role && (
-                <div className="text-center">
-                  <User
-                    size={32}
-                    className={`mx-auto mb-2 ${
-                      isDarkMode ? "text-blue-400" : "text-blue-500"
-                    }`}
-                  />
-                  <p className="text-sm font-medium">Role</p>
-                  <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-                    {project.role}
-                  </p>
-                </div>
-              )}
-              {project.duration && (
-                <div className="text-center">
-                  <Clock
-                    size={32}
-                    className={`mx-auto mb-2 ${
-                      isDarkMode ? "text-green-400" : "text-green-500"
-                    }`}
-                  />
-                  <p className="text-sm font-medium">Duration</p>
-                  <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-                    {project.duration}
-                  </p>
-                </div>
-              )}
-              {project.status && (
-                <div className="text-center">
-                  <div
-                    className={`w-8 h-8 rounded-full mx-auto mb-2 flex items-center justify-center ${getStatusColor(
-                      project.status
-                    )}`}
-                  />
-                  <p className="text-sm font-medium">Status</p>
-                  <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-                    {getStatusText(project.status)}
-                  </p>
-                </div>
-              )}
-              {project.projectType && (
-                <div className="text-center">
-                  <Globe
-                    size={32}
-                    className={`mx-auto mb-2 ${
-                      isDarkMode ? "text-purple-400" : "text-purple-500"
-                    }`}
-                  />
-                  <p className="text-sm font-medium">Type</p>
-                  <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-                    {project.projectType}
-                  </p>
-                </div>
-              )}
-            </div>
-          </motion.section>
-        )}
 
         {/* Image Modal */}
         <AnimatePresence>
