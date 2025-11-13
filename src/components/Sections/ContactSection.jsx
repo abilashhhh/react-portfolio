@@ -20,12 +20,28 @@ const ContactSection = () => {
   const [showModal, setShowModal] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
 
-  const EMAILJS_CONFIG = {
-    SERVICE_ID: "service_70bdw8d",
-    TEMPLATE_ID: "template_prxlm88",
-    PUBLIC_KEY: "nv4-aUVaB09bnuTpP",
-    AUTO_REPLY_TEMPLATE_ID: "template_ixgqjhu",
+   const EMAILJS_CONFIG = {
+    SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
+    TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
+    PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "",
+    AUTO_REPLY_TEMPLATE_ID:
+      import.meta.env.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID || "",
   };
+
+  if (
+    !EMAILJS_CONFIG.SERVICE_ID ||
+    !EMAILJS_CONFIG.TEMPLATE_ID ||
+    !EMAILJS_CONFIG.PUBLIC_KEY ||
+    !EMAILJS_CONFIG.AUTO_REPLY_TEMPLATE_ID
+  ) {
+    // Helpful runtime notice during development if envs are missing
+    // (This will show in the browser console.)
+    // Remove or reduce logging in production as needed.
+    // eslint-disable-next-line no-console
+    console.warn(
+      "One or more EmailJS environment variables are missing. Make sure you have a .env.local with VITE_EMAILJS_* variables."
+    );
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -67,7 +83,7 @@ const ContactSection = () => {
           from_email: formData.email, // User's email
           name: formData.name, // User's name
           message: formData.message, // Full message
-          email: formData.email, 
+          email: formData.email,
           title: "New Contact Form Submission", // Title for the email
           thanks: "Thank you for reaching out!", // Thank you message
         },
