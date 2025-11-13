@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { CERTIFICATIONS } from "../../utils/data";
+import ImageModal from "../../components/ImageModal";
 
 const slugify = (text = "") =>
   text
@@ -29,6 +30,13 @@ const CertificationDetail = () => {
   const { slug } = useParams();
   const { isDarkMode } = useTheme();
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Handle image click
+  const handleImageClick = (index = 0) => {
+    setCurrentImageIndex(index);
+    setIsImageModalOpen(true);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -162,6 +170,7 @@ const CertificationDetail = () => {
               )}
           </div>
         </motion.header>
+
         {/* Certification Image with Modal */}
         {certification.image && (
           <motion.div
@@ -173,33 +182,36 @@ const CertificationDetail = () => {
             <div className="flex flex-col items-center justify-center">
               <div className="relative group cursor-pointer">
                 <div
-                  className={`w-80 h-64 flex items-center justify-center   ${
+                  className={`w-80 h-64 flex items-center justify-center rounded-2xl overflow-hidden ${
                     isDarkMode ? "" : " "
-                  } rounded-2xl overflow-hidden`}
+                  }`}
                 >
                   <img
-                    src={certification.image}
+                    src={
+                      Array.isArray(certification.image)
+                        ? certification.image[0]
+                        : certification.image
+                    }
                     alt={certification.title}
                     className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                    onClick={() => setIsImageModalOpen(true)}
+                    onClick={() => handleImageClick(0)}
                   />
                 </div>
               </div>
               <button
-                onClick={() => setIsImageModalOpen(true)}
-                className={`mt-4 px-4 py-2 rounded-full text-sm font-medium transition-all 
-                  ${
-                    isDarkMode
-                      ? "bg-gray-800 hover:bg-gray-700 text-gray-200"
-                      : "bg-white hover:bg-gray-100 text-gray-700 shadow-sm"
-                  }
-              `}
+                onClick={() => handleImageClick(0)}
+                className={`mt-4 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  isDarkMode
+                    ? "bg-gray-800 hover:bg-gray-700 text-gray-200"
+                    : "bg-white hover:bg-gray-100 text-gray-700 shadow-sm"
+                }`}
               >
                 Click to view larger
               </button>
             </div>
           </motion.div>
         )}
+
         {/* Certification Details */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -412,58 +424,17 @@ const CertificationDetail = () => {
         </motion.div> */}
 
         {/* Image Modal */}
-        <AnimatePresence>
-          {isImageModalOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
-              onClick={() => setIsImageModalOpen(false)}
-            >
-               <div
-                className={`absolute inset-0 backdrop-blur-lg ${
-                  isDarkMode ? "bg-black/70" : "bg-white/70"
-                }`}
-              />
-
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                className="relative max-w-4xl max-h-full"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  onClick={() => setIsImageModalOpen(false)}
-                  className={`absolute -top-12 right-0 transition-colors z-10 ${
-                    isDarkMode
-                      ? "text-gray-300 hover:text-white"
-                      : "text-gray-600 hover:text-gray-900"
-                  }`}
-                >
-                  <X size={32} />
-                </button>
-                <img
-                  src={certification.image}
-                  alt={certification.title}
-                  className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                />
-                <div className="absolute bottom-4 left-4 right-4 text-center">
-                  <p
-                    className={`text-sm px-3 py-1 rounded-full inline-block backdrop-blur-sm ${
-                      isDarkMode
-                        ? "bg-black/50 text-white border border-white/20"
-                        : "bg-white/50 text-gray-700 border border-gray-200/50"
-                    }`}
-                  >
-                    {certification.title}
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <ImageModal
+          images={
+            Array.isArray(certification.image)
+              ? certification.image
+              : [certification.image]
+          }
+          initialIndex={currentImageIndex}
+          isOpen={isImageModalOpen}
+          onClose={() => setIsImageModalOpen(false)}
+          isDarkMode={isDarkMode}
+        />
       </div>
     </div>
   );

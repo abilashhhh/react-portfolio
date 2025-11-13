@@ -224,6 +224,7 @@ export const PROJECTS = [
     detailedDescription:
       "A full-featured social media and news feed platform combining real-time news with core social features. Includes high-quality video/audio calls (Zego Cloud), instant messaging, ephemeral stories, and AI-powered image captioning (Clarifai). Integrated Razorpay for secure payments and premium features.",
     image: trendtrove,
+    imagesInside: [trendtrove],
     tags: ["TypeScript", "React", "Node.js", "MongoDB", "Socket.io"],
     tagsDetailed: [
       "TypeScript",
@@ -286,6 +287,7 @@ export const PROJECTS = [
     detailedDescription:
       "An online smartwatch store built using MVC architecture offering a smooth shopping experience with features like coupon support, referral systems, order tracking, and secure payments via Razorpay. Includes comprehensive admin tools for sales reporting and inventory management.",
     image: zigmawatches,
+    imagesInside: [zigmawatches],
     tags: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap"],
     tagsDetailed: [
       "Node.js",
@@ -350,6 +352,7 @@ export const PROJECTS = [
     detailedDescription:
       "Enterprise multi-tenant application designed with robust architecture to isolate customer data by provisioning separate MongoDB databases for each client. Features dynamic database switching, connection pooling, and AG Grid components for optimal performance.",
     image: checkpoint,
+    imagesInside: [checkpoint],
     tags: ["React", "AG Grid", "MongoDB", "Node.js", "TypeScript"],
     tagsDetailed: [
       "React",
@@ -396,6 +399,7 @@ export const PROJECTS = [
     detailedDescription:
       "Healthcare application featuring dynamic and responsive UI design with automated workflow systems for event confirmations and notifications through dynamic emails and PDF generation.",
     image: art,
+    imagesInside: [art],
     tags: ["React", "Node.js", "MongoDB", "PDF Generation", "Email Automation"],
     tagsDetailed: [
       "React",
@@ -439,6 +443,7 @@ export const PROJECTS = [
     detailedDescription:
       "A robust and security-first utility package designed to parse, encrypt, and reconstruct database connection strings for multiple database types, supporting both cloud and on-premise environments with AES-256 encryption.",
     image: DB_CONNECTIONS_UTIL2,
+    imagesInside: [DB_CONNECTIONS_UTIL, DB_CONNECTIONS_UTIL2],
     tags: ["Node.js", "TypeScript", "Security", "NPM", "Database"],
     tagsDetailed: [
       "Node.js",
@@ -488,6 +493,7 @@ export const PROJECTS = [
     detailedDescription:
       "Comprehensive hospital management system with specialized modules for receptionists and doctors, featuring automated token generation based on appointment dates and doctors, with 10-day SLA accounting for holidays.",
     image: hospitalManagement,
+    imagesInside: [hospitalManagement],
     tags: ["React", "Node.js", "MongoDB", "Neutrinos Studio"],
     tagsDetailed: [
       "React",
@@ -540,6 +546,7 @@ export const PROJECTS = [
     detailedDescription:
       "Event management system with comprehensive CRUD operations, search functionality, and filtering capabilities for efficient event organization and discovery.",
     image: eventregapp,
+    imagesInside: [eventregapp],
     tags: ["React", "JavaScript", "CSS3", "CRUD", "Search"],
     tagsDetailed: [
       "React",
@@ -579,6 +586,7 @@ export const PROJECTS = [
     detailedDescription:
       "Advanced task management application with drag-and-drop interface, categorization system, due date tracking, and visual progress indicators with local storage for data persistence.",
     image: todolist,
+    imagesInside: [todolist],
     tags: ["React", "JavaScript", "CSS3", "Local Storage", "UI/UX"],
     tagsDetailed: [
       "React",
@@ -623,6 +631,7 @@ export const PROJECTS = [
     detailedDescription:
       "Comprehensive weather application providing real-time updates, extended forecasts, and weather-related news with location-based services and interactive data visualization.",
     image: weatherForcast,
+    imagesInside: [weatherForcast],
     tags: ["JavaScript", "API", "Chart.js", "Geolocation", "CSS3"],
     tagsDetailed: [
       "JavaScript",

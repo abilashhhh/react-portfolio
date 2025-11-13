@@ -33,6 +33,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import ImageModal from "../../components/ImageModal";
 
 const JourneyStepDetail = () => {
   const { slug } = useParams();
@@ -41,8 +42,7 @@ const JourneyStepDetail = () => {
   const contentRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const step = JOURNEY_STEPS.find((item) => item.slug === slug);
 
@@ -53,55 +53,10 @@ const JourneyStepDetail = () => {
     return () => clearTimeout(timer);
   }, [slug]);
 
-  // Handle keyboard events for image modal
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (!isImageModalOpen) return;
-
-      switch (event.key) {
-        case "Escape":
-          setIsImageModalOpen(false);
-          break;
-        case "ArrowRight":
-          handleNextImage();
-          break;
-        case "ArrowLeft":
-          handlePrevImage();
-          break;
-        default:
-          break;
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isImageModalOpen, selectedImageIndex, step]);
-
   // Handle image click
-  const handleImageClick = (image, index = 0) => {
-    setSelectedImage(image);
-    setSelectedImageIndex(index);
+  const handleImageClick = (index = 0) => {
+    setCurrentImageIndex(index);
     setIsImageModalOpen(true);
-  };
-
-  // Handle next/previous image in modal
-  const handleNextImage = () => {
-    if (step.image && step.image.length > 1) {
-      const nextIndex = (selectedImageIndex + 1) % step.image.length;
-      setSelectedImage(step.image[nextIndex]);
-      setSelectedImageIndex(nextIndex);
-    }
-  };
-
-  const handlePrevImage = () => {
-    if (step.image && step.image.length > 1) {
-      const prevIndex =
-        (selectedImageIndex - 1 + step.image.length) % step.image.length;
-      setSelectedImage(step.image[prevIndex]);
-      setSelectedImageIndex(prevIndex);
-    }
   };
 
   if (!step) {
@@ -440,7 +395,7 @@ const JourneyStepDetail = () => {
                         ? "bg-gray-800/50 border-gray-700/50 shadow-2xl"
                         : "bg-white/80 border-gray-200/50 shadow-xl"
                     }`}
-                    onClick={() => handleImageClick(step.image[0], 0)}
+                    onClick={() => handleImageClick(0)}
                   >
                     <div className="relative">
                       <img
@@ -448,7 +403,6 @@ const JourneyStepDetail = () => {
                         alt={step.title}
                         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      
                     </div>
                   </div>
 
@@ -469,7 +423,7 @@ const JourneyStepDetail = () => {
                               ? "bg-gray-800/50 border border-gray-700/50"
                               : "bg-white/80 border border-gray-200/50"
                           }`}
-                          onClick={() => handleImageClick(img, index + 1)}
+                          onClick={() => handleImageClick(index + 1)}
                         >
                           <div className="relative aspect-square">
                             <img
@@ -525,112 +479,13 @@ const JourneyStepDetail = () => {
         </div>
       </motion.section>
 
-      {/* Image Modal */}
-      <AnimatePresence>
-        {isImageModalOpen && selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            onClick={() => setIsImageModalOpen(false)}
-          >
-            {/* Glass/Blurred Background */}
-            <div
-              className={`absolute inset-0 backdrop-blur-lg ${
-                isDarkMode ? "bg-black/70" : "bg-white/70"
-              }`}
-            />
-
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-6xl max-h-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setIsImageModalOpen(false)}
-                className={`absolute -top-12 right-0 transition-colors z-10 ${
-                  isDarkMode
-                    ? "text-gray-300 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-              >
-                <X size={32} />
-              </button>
-
-              {/* Navigation Arrows */}
-              {step.image && step.image.length > 1 && (
-                <>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePrevImage();
-                    }}
-                    className={`absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors z-10 ${
-                      isDarkMode
-                        ? "bg-black/50 text-white hover:bg-black/70"
-                        : "bg-white/50 text-gray-700 hover:bg-white/70"
-                    }`}
-                  >
-                    <ArrowLeft size={24} />
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNextImage();
-                    }}
-                    className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors z-10 ${
-                      isDarkMode
-                        ? "bg-black/50 text-white hover:bg-black/70"
-                        : "bg-white/50 text-gray-700 hover:bg-white/70"
-                    }`}
-                  >
-                    <ArrowLeft size={24} className="rotate-180" />
-                  </button>
-                </>
-              )}
-
-              {/* Image */}
-              <img
-                src={selectedImage}
-                alt={step.title}
-                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-              />
-
-              {/* Image Counter */}
-              {step.image && step.image.length > 1 && (
-                <div className="absolute top-4 left-4">
-                  <p
-                    className={`text-sm px-3 py-1 rounded-full inline-block backdrop-blur-sm ${
-                      isDarkMode
-                        ? "bg-black/50 text-white border border-white/20"
-                        : "bg-white/50 text-gray-700 border border-gray-200/50"
-                    }`}
-                  >
-                    {selectedImageIndex + 1} / {step.image.length}
-                  </p>
-                </div>
-              )}
-
-              {/* Title
-              <div className="absolute bottom-4 left-4 right-4 text-center">
-                <p
-                  className={`text-sm px-3 py-1 rounded-full inline-block backdrop-blur-sm ${
-                    isDarkMode
-                      ? "bg-black/50 text-white border border-white/20"
-                      : "bg-white/50 text-gray-700 border border-gray-200/50"
-                  }`}
-                >
-                  {step.title}
-                </p>
-              </div> */}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+       <ImageModal
+        images={step.image || []}
+        initialIndex={currentImageIndex}
+        isOpen={isImageModalOpen}
+        onClose={() => setIsImageModalOpen(false)}
+        isDarkMode={isDarkMode}
+      />
 
       {/* Floating Action Button */}
       <motion.div
