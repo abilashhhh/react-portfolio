@@ -1,15 +1,193 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import {
+  ArrowDown,
+  Mail,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  ZoomIn,
+  ZoomOut,
+  RotateCw,
+  RefreshCcw,
+} from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { useTheme } from "../../context/ThemeContext";
-import abi from "../../assets/images/abi.jpeg";
+import abi from "../../assets/images/abi2.jpeg";
+import abi2 from "../../assets/images/abi.jpeg";
+import abi3 from "../../assets/images/abi3.jpeg";
 import { containerVariants, itemVariants } from "../../utils/helper";
 import RESUME1 from "../../assets/resume/abilash_resume2.pdf";
+import { useState, useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const { isDarkMode } = useTheme();
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, -100]);
+
+  // Carousel state
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [abi, abi2, abi3];
+
+  // Lightbox state
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [rotation, setRotation] = useState(0);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  const imageRef = useRef(null);
+
+  // Auto-advance carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isLightboxOpen) {
+        setCurrentImageIndex((prevIndex) =>
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images.length, isLightboxOpen]);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isLightboxOpen) return;
+
+      switch (e.key) {
+        case "Escape":
+          closeLightbox();
+          break;
+        case "ArrowLeft":
+          prevLightboxImage();
+          break;
+        case "ArrowRight":
+          nextLightboxImage();
+          break;
+        case " ":
+          e.preventDefault();
+          handleReset();
+          break;
+        case "+":
+        case "=":
+          e.preventDefault();
+          handleZoomIn();
+          break;
+        case "-":
+          e.preventDefault();
+          handleZoomOut();
+          break;
+        case "r":
+        case "R":
+          e.preventDefault();
+          handleRotate();
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isLightboxOpen, lightboxImageIndex, zoomLevel]);
+
+  // Lightbox functions
+  const openLightbox = (index) => {
+    setLightboxImageIndex(index);
+    setIsLightboxOpen(true);
+    setZoomLevel(1);
+    setRotation(0);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
+  const nextLightboxImage = () => {
+    setLightboxImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+    handleReset();
+  };
+
+  const prevLightboxImage = () => {
+    setLightboxImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+    handleReset();
+  };
+
+  const handleZoomIn = () => {
+    setZoomLevel((prev) => Math.min(prev + 0.5, 5));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel((prev) => Math.max(prev - 0.5, 1));
+  };
+
+  const handleReset = () => {
+    setZoomLevel(1);
+    setRotation(0);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const handleRotate = () => {
+    setRotation((prev) => (prev + 90) % 360);
+  };
+
+  const handleMouseDown = (e) => {
+    if (zoomLevel > 1) {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y });
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDragging) {
+      setPosition({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleTouchStart = (e) => {
+    if (zoomLevel > 1) {
+      setIsDragging(true);
+      setDragStart({
+        x: e.touches[0].clientX - position.x,
+        y: e.touches[0].clientY - position.y,
+      });
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (isDragging) {
+      setPosition({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeLightbox();
+    }
+  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -132,15 +310,23 @@ const HeroSection = () => {
                 <div className="w-32 h-32 mx-auto relative">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className={`w-full h-32 rounded-2xl overflow-hidden border-4 ${
+                    className={`w-full h-32 rounded-2xl overflow-hidden border-4 cursor-pointer ${
                       isDarkMode ? "border-gray-800" : "border-gray-300"
                     }`}
+                    onClick={() => openLightbox(currentImageIndex)}
                   >
-                    <img
-                      src={abi}
-                      alt="Abi"
-                      className="w-full h-full object-cover"
-                    />
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={currentImageIndex}
+                        src={images[currentImageIndex]}
+                        alt="Abi"
+                        className="w-full h-full object-cover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                      />
+                    </AnimatePresence>
                   </motion.div>
 
                   {/* Decorative ring */}
@@ -151,7 +337,7 @@ const HeroSection = () => {
                       repeat: Infinity,
                       ease: "linear",
                     }}
-                    className="absolute -inset-2 rounded-2xl border border-blue-500/20"
+                    className="absolute -inset-2 rounded-2xl border border-blue-500/20 pointer-events-none"
                   ></motion.div>
                 </div>
               </motion.div>
@@ -197,12 +383,11 @@ const HeroSection = () => {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
               >
-                {/* ✅ Download Resume Button */}
                 <motion.button
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleDownload}
-                  className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-3 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
+                  className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-3 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
                   Download Resume
                 </motion.button>
@@ -250,8 +435,6 @@ const HeroSection = () => {
                   </motion.a>
                 ))}
               </motion.div>
-
-              
             </motion.div>
           </div>
 
@@ -301,7 +484,6 @@ const HeroSection = () => {
                 technology and innovative solutions.
               </motion.p>
 
-              {/* ✅ Download Resume Button - Desktop */}
               <motion.div
                 variants={itemVariants}
                 className="flex gap-4 items-center"
@@ -310,7 +492,7 @@ const HeroSection = () => {
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleDownload}
-                  className="bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-4 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
+                  className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-full px-8 py-4 text-sm uppercase tracking-wider font-medium transition-all duration-300 shadow-lg shadow-blue-500/30"
                 >
                   Download Resume
                 </motion.button>
@@ -358,8 +540,6 @@ const HeroSection = () => {
                   </motion.a>
                 ))}
               </motion.div>
-
-               
             </motion.div>
 
             {/* Profile image - Desktop */}
@@ -370,17 +550,25 @@ const HeroSection = () => {
               <div className="relative">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className={`w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-4 ${
+                  className={`w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-4 cursor-pointer ${
                     isDarkMode ? "border-gray-800" : "border-gray-300"
                   } shadow-2xl ${
                     isDarkMode ? "shadow-black/50" : "shadow-gray-400/30"
                   }`}
+                  onClick={() => openLightbox(currentImageIndex)}
                 >
-                  <img
-                    src={abi}
-                    alt="Abi"
-                    className="w-full h-full object-cover"
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentImageIndex}
+                      src={images[currentImageIndex]}
+                      alt="Abi"
+                      className="w-full h-full object-cover"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </AnimatePresence>
                 </motion.div>
 
                 {/* Decorative ring */}
@@ -391,7 +579,7 @@ const HeroSection = () => {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="absolute -inset-4 rounded-3xl border-2 border-blue-500/20"
+                  className="absolute -inset-4 rounded-3xl border-2 border-blue-500/20 pointer-events-none"
                 ></motion.div>
 
                 {/* Floating badges */}
@@ -466,6 +654,175 @@ const HeroSection = () => {
           />
         </motion.div>
       </motion.section>
+
+      {/* Enhanced Lightbox */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={handleBackdropClick}
+          >
+            <div
+              className={`absolute inset-0 backdrop-blur-lg ${
+                isDarkMode ? "bg-black/80" : "bg-white/90"
+              }`}
+            />
+
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-6xl max-h-full w-full h-full flex items-center justify-center"
+            >
+              {/* Close button */}
+              <button
+                onClick={closeLightbox}
+                className={`absolute top-4 right-4 z-50 p-3 rounded-full backdrop-blur-sm transition-all ${
+                  isDarkMode
+                    ? "bg-black/50 text-white hover:bg-black/70"
+                    : "bg-white/50 text-gray-800 hover:bg-white/70"
+                }`}
+              >
+                <X size={24} />
+              </button>
+
+              {/* Navigation buttons */}
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevLightboxImage}
+                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 p-4 rounded-full backdrop-blur-sm transition-all z-10 ${
+                      isDarkMode
+                        ? "bg-black/50 text-white hover:bg-black/70"
+                        : "bg-white/50 text-gray-800 hover:bg-white/70"
+                    }`}
+                  >
+                    <ChevronLeft size={28} />
+                  </button>
+                  <button
+                    onClick={nextLightboxImage}
+                    className={`absolute right-4 top-1/2 transform -translate-y-1/2 p-4 rounded-full backdrop-blur-sm transition-all z-10 ${
+                      isDarkMode
+                        ? "bg-black/50 text-white hover:bg-black/70"
+                        : "bg-white/50 text-gray-800 hover:bg-white/70"
+                    }`}
+                  >
+                    <ChevronRight size={28} />
+                  </button>
+                </>
+              )}
+
+              {/* Zoom controls */}
+              <div
+                className={`absolute top-4 left-1 flex  p-1 rounded-2xl backdrop-blur-sm z-10 ${
+                  isDarkMode
+                    ? "bg-black/50 text-white"
+                    : "bg-white/50 text-gray-800"
+                }`}
+              >
+                <button
+                  onClick={handleZoomOut}
+                  disabled={zoomLevel <= 1}
+                  className={`p-2 rounded-lg transition-all ${
+                    zoomLevel <= 1
+                      ? "opacity-50 cursor-not-allowed"
+                      : isDarkMode
+                      ? "hover:bg-gray-700"
+                      : "hover:bg-gray-200"
+                  }`}
+                >
+                  <ZoomOut size={20} />
+                </button>
+                <button
+                  onClick={handleZoomIn}
+                  disabled={zoomLevel >= 5}
+                  className={`p-2 rounded-lg transition-all ${
+                    zoomLevel >= 5
+                      ? "opacity-50 cursor-not-allowed"
+                      : isDarkMode
+                      ? "hover:bg-gray-700"
+                      : "hover:bg-gray-200"
+                  }`}
+                >
+                  <ZoomIn size={20} />
+                </button>
+                <button
+                  onClick={handleRotate}
+                  className={`p-2 rounded-lg transition-all ${
+                    isDarkMode ? "hover:bg-gray-700" : "hover:bg-gray-200"
+                  }`}
+                >
+                  <RotateCw size={20} />
+                </button>
+                <button
+                  onClick={handleReset}
+                  className={`p-2 rounded-lg transition-all ${
+                    isDarkMode ? "hover:bg-gray-700" : "hover:bg-gray-200"
+                  }`}
+                >
+                  <RefreshCcw size={20} />
+                </button>
+              </div>
+
+              {/* Image counter */}
+              {images.length > 1 && (
+                <div
+                  className={`absolute top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-full backdrop-blur-sm z-10 ${
+                    isDarkMode
+                      ? "bg-black/50 text-white"
+                      : "bg-white/50 text-gray-800"
+                  }`}
+                >
+                  {lightboxImageIndex + 1} / {images.length}
+                </div>
+              )}
+
+              {/* Zoom level indicator */}
+              <div
+                className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-full backdrop-blur-sm z-10 ${
+                  isDarkMode
+                    ? "bg-black/50 text-white"
+                    : "bg-white/50 text-gray-800"
+                }`}
+              >
+                {Math.round(zoomLevel * 100)}%
+              </div>
+
+              {/* Image container */}
+              <motion.div
+                ref={imageRef}
+                className="relative w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing"
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleMouseUp}
+                style={{
+                  cursor: zoomLevel > 1 ? "grab" : "default",
+                }}
+              >
+                <motion.img
+                  src={images[lightboxImageIndex]}
+                  alt="Abi"
+                  className="max-w-full max-h-full object-contain select-none"
+                  style={{
+                    transform: `scale(${zoomLevel}) rotate(${rotation}deg) translate(${position.x}px, ${position.y}px)`,
+                    transition: isDragging ? "none" : "transform 0.2s ease",
+                  }}
+                  draggable={false}
+                />
+              </motion.div>
+
+             
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

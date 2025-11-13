@@ -836,8 +836,7 @@ export const JOURNEY_STEPS = [
       ],
       projects: [
         "Checkpoint Systems: Multi-tenant SaaS application with isolated customer data",
-        "ART HEALTH: Healthcare platform with dynamic UI and automated workflows",
-        "Weather Management Application: Real-time weather app with interactive charts",
+        "ART HEALTH: Healthcare platform with dynamic UI and automated workflows"
       ],
     },
   },

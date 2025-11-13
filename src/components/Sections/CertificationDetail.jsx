@@ -371,7 +371,7 @@ const CertificationDetail = () => {
         )}
 
         {/* Additional Content Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
@@ -409,7 +409,7 @@ const CertificationDetail = () => {
               )}
             </ul>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Image Modal */}
         <AnimatePresence>

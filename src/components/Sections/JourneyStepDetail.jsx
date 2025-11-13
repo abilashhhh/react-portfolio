@@ -1379,7 +1379,7 @@ const ProjectCard = ({
       <div className="flex-1">
         <p className="text-sm leading-relaxed">{project}</p>
         {isClickable && (
-          <div className="flex items-center gap-1 mt-2 text-blue-500 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="flex items-center gap-1 mt-2 text-blue-500 text-xs opacity-80 group-hover:opacity-100 transition-opacity duration-300">
             <span>View project details</span>
             <ArrowUpRight size={12} />
           </div>
