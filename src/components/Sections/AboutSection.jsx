@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { JOURNEY_STEPS, PASSIONS } from "../../utils/data";
 import { containerVariants, itemVariants } from "../../utils/helper";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const { isDarkMode } = useTheme();
@@ -14,33 +14,15 @@ const AboutSection = () => {
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
-      {/* Animated Background Elements */}
+      {/* Static Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className={`absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
+        <div
+          className={`absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-10 ${
             isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className={`absolute -bottom-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
+        <div
+          className={`absolute -bottom-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-10 ${
             isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
@@ -51,7 +33,7 @@ const AboutSection = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
           className="text-center mb-20"
         >
@@ -78,29 +60,40 @@ const AboutSection = () => {
           <div>
             {/* My Mission */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-              className={`p-8 rounded-2xl mb-12 transition-all duration-500 ease-in-out hover:-translate-y-1 ${
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true, amount: 0.2 }}
+              className={`p-8 rounded-2xl mb-12 ${
                 isDarkMode
-                  ? "bg-linear-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
-                  : "bg-linear-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
+                  ? "bg-gradient-to-br from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg"
+                  : "bg-gradient-to-br from-white to-gray-100 shadow-md"
               }`}
             >
               <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2,
+                  ease: "easeOut",
+                }}
                 className="text-2xl font-semibold mb-5"
               >
                 My Mission
               </motion.h3>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.3,
+                  ease: "easeOut",
+                }}
                 className={`text-base leading-relaxed mb-5 ${
                   isDarkMode ? "text-gray-300" : "text-gray-700"
                 }`}
@@ -112,9 +105,13 @@ const AboutSection = () => {
               </motion.p>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.4,
+                  ease: "easeOut",
+                }}
                 className={`text-base leading-relaxed ${
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 }`}
@@ -129,33 +126,49 @@ const AboutSection = () => {
 
             {/* What I Love Building */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.2 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true, amount: 0.1 }}
             >
-              <h3 className="text-2xl font-semibold mb-6">
+              <motion.h3
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1,
+                  ease: "easeOut",
+                }}
+                className="text-2xl font-semibold mb-6"
+              >
                 What I Love Building
-              </h3>
+              </motion.h3>
 
               <div className="grid sm:grid-cols-2 gap-6">
                 {PASSIONS.map((passion, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className={`p-6 rounded-xl transition-all duration-500 ease-in-out hover:-translate-y-2 ${
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className={`p-6 rounded-xl ${
                       isDarkMode
-                        ? "bg-linear-to-b from-[#101a2f] to-[#0d1528] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
-                        : "bg-linear-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
+                        ? "bg-gradient-to-br from-[#101a2f] to-[#0d1528] border border-gray-700/30 shadow-lg"
+                        : "bg-gradient-to-br from-white to-gray-100 shadow-md"
                     }`}
                   >
                     <div className="flex items-center">
                       {/* Icon on the left */}
                       <div
-                        className={`w-12 h-12 rounded-full flex items-center justify-center shadow-sm transition-transform duration-300 ease-in-out hover:scale-110 ${
+                        className={`w-12 h-12 rounded-full flex items-center justify-center ${
                           isDarkMode ? "bg-blue-500/20" : "bg-blue-100"
                         }`}
                       >
@@ -188,9 +201,23 @@ const AboutSection = () => {
           </div>
 
           {/* Right Column: Developer Journey */}
-          <motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <motion.h3
-              variants={itemVariants}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.2,
+                ease: "easeOut",
+              }}
               className="text-2xl font-semibold mb-10 pl-10"
             >
               My Developer Journey
@@ -199,29 +226,33 @@ const AboutSection = () => {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.2 }}
               variants={containerVariants}
-              className="relative border-l-2 border-blue-500/60 pr-6 transition-all duration-700 ease-in-out"
+              className="relative border-l-2 border-blue-500/40 pr-6"
             >
               {JOURNEY_STEPS.map((step, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="mb-5 relative group"
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: index * 0.1,
+                  }}
+                  className="mb-5 relative"
                 >
                   <div
-                    className={`ml-7 absolute -left-[46px] w-10 h-10 flex items-center justify-center rounded-full shadow-md ring-4 ring-blue-500/20 transition-transform duration-300 ease-in-out group-hover:scale-110 ${step.color}`}
+                    className={`ml-7 absolute -left-[46px] w-10 h-10 flex items-center justify-center rounded-full shadow-md ring-4 ring-blue-500/20 ${step.color}`}
                   >
                     <step.icon size={18} className="text-white" />
                   </div>
 
                   <Link to={`/journey/${step.slug}`}>
                     <div
-                      className={`ml-10 relative p-5 rounded-xl transition-all duration-500 cursor-pointer hover:-translate-y-1 ${
+                      className={`ml-10 relative p-5 rounded-xl cursor-pointer ${
                         isDarkMode
-                          ? "bg-linear-to-b from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20"
-                          : "bg-white shadow-md hover:border-blue-400 hover:shadow-lg hover:shadow-blue-400/20"
+                          ? "bg-gradient-to-br from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg"
+                          : "bg-white shadow-md"
                       }`}
                     >
                       <div className="flex items-center justify-between mb-2">
@@ -261,7 +292,7 @@ const AboutSection = () => {
                         {step.description}
                       </p>
 
-                      <div className="mt-3 flex items-center text-xs text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="mt-3 flex items-center text-xs text-blue-500 opacity-80 hover:opacity-100 transition-opacity duration-300">
                         <span>Click to learn more</span>
                         <svg
                           className="w-3 h-3 ml-1"

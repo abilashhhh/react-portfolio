@@ -215,38 +215,7 @@ const JourneyStepDetail = () => {
               />
               <span className="font-medium">Back to About</span>
             </Link>
-            <div className="flex items-center gap-4">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="/projects"
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isDarkMode
-                      ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
-                      : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
-                  }`}
-                >
-                  View All Projects
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="/"
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isDarkMode
-                      ? "bg-gray-800/80 hover:bg-gray-700/90 text-gray-200 backdrop-blur-sm border border-gray-700/50"
-                      : "bg-white/80 hover:bg-white text-gray-700 backdrop-blur-sm border border-gray-200/50 shadow-lg"
-                  }`}
-                >
-                  Home
-                </Link>
-              </motion.div>
-            </div>
+            
           </motion.div>
 
           {/* Main Header Content */}

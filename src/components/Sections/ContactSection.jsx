@@ -20,7 +20,7 @@ const ContactSection = () => {
   const [showModal, setShowModal] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
 
-   const EMAILJS_CONFIG = {
+  const EMAILJS_CONFIG = {
     SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
     TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
     PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "",
@@ -34,13 +34,7 @@ const ContactSection = () => {
     !EMAILJS_CONFIG.PUBLIC_KEY ||
     !EMAILJS_CONFIG.AUTO_REPLY_TEMPLATE_ID
   ) {
-    // Helpful runtime notice during development if envs are missing
-    // (This will show in the browser console.)
-    // Remove or reduce logging in production as needed.
-    // eslint-disable-next-line no-console
-    console.warn(
-      "One or more EmailJS environment variables are missing. Make sure you have a .env.local with VITE_EMAILJS_* variables."
-    );
+    console.warn("One or more EmailJS environment variables are missing.");
   }
 
   const handleInputChange = (e) => {
@@ -110,33 +104,15 @@ const ContactSection = () => {
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
-      {/* Animated Background Elements */}
+      {/* Static Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className={`absolute -top-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
+        <div
+          className={`absolute -top-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-10 ${
             isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className={`absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
+        <div
+          className={`absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-10 ${
             isDarkMode ? "bg-blue-500" : "bg-blue-300"
           }`}
         />
@@ -147,7 +123,7 @@ const ContactSection = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
           className="text-center mb-20"
         >
@@ -173,24 +149,24 @@ const ContactSection = () => {
           {/* Left Section (Contact Information & Social Links) */}
           <div className="flex-1">
             {/* Contact Information */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-10 mb-24">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-16">
               {CONTACT_INFO.map((contact, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`p-6 rounded-xl transition-all duration-500 ease-in-out hover:-translate-y-2 ${
+                  className={`p-6 rounded-xl ${
                     isDarkMode
-                      ? "bg-linear-to-b from-[#101a2f] to-[#0d1528] border border-gray-700/30 shadow-lg hover:shadow-blue-500/10"
-                      : "bg-linear-to-b from-white to-gray-100 shadow-md hover:shadow-lg"
+                      ? "bg-gradient-to-br from-[#101a2f] to-[#0d1528] border border-gray-700/30 shadow-lg"
+                      : "bg-gradient-to-br from-white to-gray-100 shadow-md"
                   }`}
                 >
                   <div className="flex items-center">
                     {/* Icon on the left */}
                     <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center shadow-sm transition-transform duration-300 ease-in-out hover:scale-110 ${
+                      className={`w-12 h-12 rounded-full flex items-center justify-center ${
                         isDarkMode ? "bg-blue-500/20" : "bg-blue-100"
                       }`}
                     >
@@ -223,21 +199,28 @@ const ContactSection = () => {
             </div>
 
             {/* Social Links */}
-            <div className="text-center mb-24">
+            <div className="text-center mb-16">
               <motion.h3
-                variants={itemVariants}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
                 className="text-2xl font-semibold mb-6"
               >
                 Connect with Me
               </motion.h3>
               <div className="flex justify-center gap-6">
                 {SOCIAL_LINKS.map((social, index) => (
-                  <motion.div key={index} className="relative group">
+                  <div key={index} className="relative group">
                     <motion.a
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                      viewport={{ once: true }}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out ${
+                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
                         social.bgColor
                       } ${isDarkMode ? "text-white" : "text-gray-900"}`}
                     >
@@ -245,7 +228,7 @@ const ContactSection = () => {
                     </motion.a>
 
                     {/* Tooltip */}
-                    <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-bottom-12 transition-all duration-300 ease-out pointer-events-none">
+                    <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none">
                       <div
                         className={`px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${
                           isDarkMode
@@ -262,7 +245,7 @@ const ContactSection = () => {
                         />
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -271,13 +254,23 @@ const ContactSection = () => {
           {/* Right Section (Contact Form) */}
           <div className="flex-1">
             <motion.h3
-              variants={itemVariants}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
               className="text-2xl font-semibold mb-6 text-center"
             >
               Send a Message
             </motion.h3>
 
-            <form onSubmit={handleFormSubmit} className="space-y-6">
+            <motion.form
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              onSubmit={handleFormSubmit}
+              className="space-y-6"
+            >
               <div>
                 <label htmlFor="name" className="block text-sm font-medium">
                   Your Name
@@ -360,7 +353,7 @@ const ContactSection = () => {
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </div>
-            </form>
+            </motion.form>
           </div>
         </div>
 
@@ -373,15 +366,6 @@ const ContactSection = () => {
           />
         )}
       </div>
-
-      {/* Background */}
-      <div
-        className={`absolute inset-0 -z-10 transition-colors duration-700 ease-in-out ${
-          isDarkMode
-            ? "bg-linear-to-b from-gray-950 via-gray-900 to-gray-950"
-            : "bg-linear-to-b from-gray-50 via-white to-gray-50"
-        }`}
-      />
     </section>
   );
 };
