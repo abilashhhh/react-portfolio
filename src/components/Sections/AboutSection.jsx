@@ -14,18 +14,80 @@ const AboutSection = () => {
         isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
-      {/* Static Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className={`absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-10 ${
-            isDarkMode ? "bg-blue-500" : "bg-blue-300"
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-[120px] opacity-20 ${
+            isDarkMode
+              ? "bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500"
+              : "bg-gradient-to-r from-blue-300 via-purple-300 to-cyan-300"
           }`}
         />
+
+        {/* Animated Orb 1 */}
+        <motion.div
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className={`absolute top-1/3 left-1/4 w-48 h-48 rounded-full blur-[80px] opacity-15 ${
+            isDarkMode ? "bg-cyan-500" : "bg-cyan-300"
+          }`}
+        />
+
+        {/* Animated Orb 2 */}
+        <motion.div
+          animate={{
+            x: [0, -25, 0],
+            y: [0, 15, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className={`absolute bottom-1/3 right-1/4 w-52 h-52 rounded-full blur-[90px] opacity-15 ${
+            isDarkMode ? "bg-purple-500" : "bg-purple-300"
+          }`}
+        />
+
+        {/* Subtle Grid Overlay */}
         <div
-          className={`absolute -bottom-20 -right-20 w-80 h-80 rounded-full blur-3xl opacity-10 ${
-            isDarkMode ? "bg-blue-500" : "bg-blue-300"
+          className={`absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] ${
+            isDarkMode ? "opacity-20" : "opacity-10"
           }`}
         />
+
+        {/* Animated Particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className={`absolute w-1 h-1 rounded-full ${
+                isDarkMode ? "bg-blue-400/30" : "bg-blue-500/20"
+              }`}
+              animate={{
+                y: [0, -100, 0],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 4,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+                ease: "easeInOut",
+              }}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -67,10 +129,10 @@ const AboutSection = () => {
                 ease: "easeOut",
               }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`p-8 rounded-2xl mb-12 ${
+              className={`p-8 rounded-2xl mb-12 backdrop-blur-sm border ${
                 isDarkMode
-                  ? "bg-gradient-to-br from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg"
-                  : "bg-gradient-to-br from-white to-gray-100 shadow-md"
+                  ? "bg-gray-900/40 border-gray-700/30 shadow-2xl"
+                  : "bg-white/70 border-gray-200/50 shadow-xl"
               }`}
             >
               <motion.h3
@@ -159,10 +221,10 @@ const AboutSection = () => {
                       ease: "easeOut",
                     }}
                     viewport={{ once: true, amount: 0.2 }}
-                    className={`p-6 rounded-xl ${
+                    className={`p-6 rounded-xl backdrop-blur-sm border ${
                       isDarkMode
-                        ? "bg-gradient-to-br from-[#101a2f] to-[#0d1528] border border-gray-700/30 shadow-lg"
-                        : "bg-gradient-to-br from-white to-gray-100 shadow-md"
+                        ? "bg-gray-900/40 border-gray-700/30 shadow-lg"
+                        : "bg-white/70 border-gray-200/50 shadow-md"
                     }`}
                   >
                     <div className="flex items-center">
@@ -249,10 +311,10 @@ const AboutSection = () => {
 
                   <Link to={`/journey/${step.slug}`}>
                     <div
-                      className={`ml-10 relative p-5 rounded-xl cursor-pointer ${
+                      className={`ml-10 relative p-5 rounded-xl cursor-pointer backdrop-blur-sm border ${
                         isDarkMode
-                          ? "bg-gradient-to-br from-[#0d1628] to-[#0c1322] border border-gray-700/30 shadow-lg"
-                          : "bg-white shadow-md"
+                          ? "bg-gray-900/40 border-gray-700/30 shadow-lg"
+                          : "bg-white/70 border-gray-200/50 shadow-md"
                       }`}
                     >
                       <div className="flex items-center justify-between mb-2">

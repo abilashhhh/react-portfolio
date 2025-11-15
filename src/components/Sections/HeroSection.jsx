@@ -723,7 +723,8 @@ const HeroSection = () => {
                         isDarkMode ? "text-gray-300" : "text-gray-700"
                       }`}
                     >
-                      Available for work
+                      Let's Connect
+                      {/* Available for work */}
                     </span>
                   </div>
                 </motion.div>

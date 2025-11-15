@@ -19,6 +19,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ZoomIn,
+  Target,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { PROJECTS } from "../../utils/data";
@@ -45,26 +46,25 @@ const ProjectDetail = () => {
   const project = PROJECTS.find((p) => slug === slugify(p.slug)) || null;
 
   // Helper function to get images array (handles both single image and array)
-const getProjectImages = () => {
-  if (!project) return [];
+  const getProjectImages = () => {
+    if (!project) return [];
 
-  // If imagesInside exists and is non-empty
-  if (project.imagesInside) {
-    if (Array.isArray(project.imagesInside)) {
-      return project.imagesInside;
+    // If imagesInside exists and is non-empty
+    if (project.imagesInside) {
+      if (Array.isArray(project.imagesInside)) {
+        return project.imagesInside;
+      }
+      return [project.imagesInside];
     }
-    return [project.imagesInside];
-  }
 
-  // Otherwise, fallback to single 'image'
-  if (project.image) {
-    return [project.image];
-  }
+    // Otherwise, fallback to single 'image'
+    if (project.image) {
+      return [project.image];
+    }
 
-  // Default empty array
-  return [];
-};
-
+    // Default empty array
+    return [];
+  };
 
   const projectImages = getProjectImages();
   const hasMultipleImages = projectImages.length > 1;
@@ -283,6 +283,40 @@ const getProjectImages = () => {
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Main Content - 2/3 width */}
           <div className="lg:col-span-2 space-y-8">
+            {/* My Contributions Section - Show first if present */}
+            {project.myContributions && project.myContributions.length > 0 && (
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className={`p-6 rounded-2xl ${
+                  isDarkMode ? "bg-gray-800" : "bg-white shadow-sm"
+                }`}
+              >
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                  <Target className="text-orange-500" size={24} />
+                  My Contributions
+                </h2>
+                <div className="space-y-4">
+                  {project.myContributions.map((contribution, index) => (
+                    <div
+                      key={index}
+                      className={`flex items-start gap-3 p-4 rounded-lg ${
+                        isDarkMode ? "bg-gray-700" : "bg-orange-50"
+                      }`}
+                    >
+                      <div
+                        className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                          isDarkMode ? "bg-orange-400" : "bg-orange-500"
+                        }`}
+                      />
+                      <span className="flex-1">{contribution}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.section>
+            )}
+
             {/* Features Section */}
             {project.features && project.features.length > 0 && (
               <motion.section
@@ -547,8 +581,6 @@ const getProjectImages = () => {
                         +{projectImages.length - 1}
                       </div>
                     )}
-
-                    
                   </div>
 
                   {/* Additional Images Grid */}

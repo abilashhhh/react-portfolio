@@ -46,20 +46,6 @@ const ProjectsSection = () => {
           />
         </motion.div>
 
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className={`absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            isDarkMode ? "bg-blue-500" : "bg-blue-300"
-          }`}
-        />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">

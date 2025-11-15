@@ -47,9 +47,24 @@ import afclogo2 from "../assets/images/afclogo2.png";
 import trendtrove from "../assets/images/trendtrove.png";
 import checkpoint from "../assets/images/checkpoint.png";
 import brototype1 from "../assets/images/brototype1.png";
-import brototype from "../assets/images/brototype.avif";
+import brototype from "../assets/images/brototo.png";
 import btechdegree from "../assets/images/btechdegree.jpg";
 import zigmawatches from "../assets/images/zigmawatches.png";
+
+import AFC2 from "../assets/images/AFC2.JPG";
+import AFC3 from "../assets/images/AFC3.JPG";
+import AFC4 from "../assets/images/AFC4.jpeg";
+import AFC5 from "../assets/images/AFC5.jpeg";
+import AFC6 from "../assets/images/AFC6.jpeg";
+import AFC7 from "../assets/images/AFC7.jpeg";
+import BROTO1 from "../assets/images/BROTO1.jpeg";
+import BROTO2 from "../assets/images/BROTO2.jpeg";
+import BROTO3 from "../assets/images/BROTO3.jpeg";
+import nehru from "../assets/images/nehru.jpeg";
+import nehru2 from "../assets/images/nehru2.jpeg";
+import nehruGrad from "../assets/images/nehrugrad.jpeg";
+import trendTrove2 from "../assets/images/trendtrove copy.png";
+import zigma from "../assets/images/zigma.png";
 
 // Certificate Images import
 import CERT_IMG_1 from "../assets/certificates/wirelessCommunicationCertificate.jpg";
@@ -67,6 +82,10 @@ import CERT_IMG_12 from "../assets/certificates/docker.jpg";
 import CERT_IMG_13 from "../assets/certificates/zohocrm.jpg";
 import CERT_IMG_14 from "../assets/certificates/gittraining.png";
 import CERT_IMG_15 from "../assets/certificates/typescript.png";
+
+import CERT_IMG_17 from "../assets/images/nehrucert1.jpeg";
+import CERT_IMG_16 from "../assets/images/ieee-standrds.PNG";
+import CERT_IMG_18 from "../assets/images/agebased.jpeg";
 
 // Skills Categories
 export const SKILLS_CATEGORY = [
@@ -224,7 +243,7 @@ export const PROJECTS = [
     detailedDescription:
       "A full-featured social media and news feed platform combining real-time news with core social features. Includes high-quality video/audio calls (Zego Cloud), instant messaging, ephemeral stories, and AI-powered image captioning (Clarifai). Integrated Razorpay for secure payments and premium features.",
     image: trendtrove,
-    imagesInside: [trendtrove],
+    imagesInside: [trendtrove, trendTrove2],
     tags: ["TypeScript", "React", "Node.js", "MongoDB", "Socket.io"],
     tagsDetailed: [
       "TypeScript",
@@ -287,7 +306,7 @@ export const PROJECTS = [
     detailedDescription:
       "An online smartwatch store built using MVC architecture offering a smooth shopping experience with features like coupon support, referral systems, order tracking, and secure payments via Razorpay. Includes comprehensive admin tools for sales reporting and inventory management.",
     image: zigmawatches,
-    imagesInside: [zigmawatches],
+    imagesInside: [zigmawatches, zigma],
     tags: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap"],
     tagsDetailed: [
       "Node.js",
@@ -348,9 +367,9 @@ export const PROJECTS = [
     title: "Checkpoint Systems - Multi-tenant SaaS",
     slug: "checkpoint",
     description:
-      "A robust multi-tenant architecture application with isolated customer data through separate MongoDB databases, featuring dynamic database switching, connection pooling, and tenant-specific UI customizations.",
+      "A robust multi-tenant architecture application with isolated customer data through separate MongoDB databases. My contributions included dynamic database switching, connection pooling, and AG Grid implementations.",
     detailedDescription:
-      "Enterprise multi-tenant application designed with robust architecture to isolate customer data by provisioning separate MongoDB databases for each client. Features dynamic database switching, connection pooling, and AG Grid components for optimal performance.",
+      "Enterprise multi-tenant application designed with robust architecture to isolate customer data by provisioning separate MongoDB databases for each client. In this large-scale project, I was responsible for implementing dynamic database switching, connection pooling for performance optimization, and developing AG Grid components for data presentation.",
     image: checkpoint,
     imagesInside: [checkpoint],
     tags: ["React", "AG Grid", "MongoDB", "Node.js", "TypeScript"],
@@ -385,8 +404,15 @@ export const PROJECTS = [
       "Secure data isolation",
       "Dynamic component rendering",
     ],
+    myContributions: [
+      "Designed and implemented the dynamic database switching mechanism that routes requests to appropriate client databases",
+      "Developed connection pooling system that reduced database connection overhead by 40%",
+      "Built reusable AG Grid components with custom cell renderers and filters for data presentation",
+      "Created tenant-specific UI customization system allowing branding and layout variations per client",
+      "Optimized database queries and implemented caching strategies for better performance",
+    ],
     role: "Full Stack Developer",
-    // duration: "Completed",
+    duration: "3 months",
     status: "Completed",
     projectType: "Professional Project",
   },
@@ -395,24 +421,34 @@ export const PROJECTS = [
     title: "ART HEALTH - Insurance Portal",
     slug: "art-health",
     description:
-      "A healthcare platform with dynamic and responsive UI screens, featuring automated workflows for generating dynamic emails and PDFs, and implementing subscription-based dynamic tables for users.",
+      "A health insurance platform where I developed dynamic UI screens, automated email/PDF workflows, and selection-based dynamic tables as part of a larger development team.",
     detailedDescription:
-      "Healthcare application featuring dynamic and responsive UI design with automated workflow systems for event confirmations and notifications through dynamic emails and PDF generation.",
+      "Health insurance application featuring dynamic and responsive UI design with automated workflow systems. Within this enterprise project, I specifically worked on developing responsive UI screens, implementing automated email and PDF generation systems for event confirmations, and building selection-based dynamic tables for user plans. Also contributed to various backend functionalities and frontend components.",
     image: art,
     imagesInside: [art],
-    tags: ["React", "Node.js", "MongoDB", "PDF Generation", "Email Automation"],
-    tagsDetailed: [
-      "React",
+    tags: [
+      "Angular",
       "Node.js",
-      "MongoDB",
+      "SQL",
+      "PDF Generation",
+      "Email Automation",
+      "Strapi",
+      "Neutrinos Studio",
+      "Neutrinos Reels",
+    ],
+    tagsDetailed: [
+      "Angular",
+      "Node.js",
+      "SQL",
       "PDF Generation",
       "Email Automation",
       "Responsive Design",
       "Dynamic Tables",
-      "Workflow Automation",
+      "Document Generation",
+      "Strapi",
+      "Neutrinos Studio",
+      "Neutrinos Reels",
     ],
-    // liveUrl: "",
-    // githubUrl: "",
     featured: false,
     category: "Full Stack",
     features: [
@@ -429,13 +465,92 @@ export const PROJECTS = [
       "Dynamic content rendering based on user subscription",
       "Responsive design implementation",
     ],
+    myContributions: [
+      "Developed 15+ responsive UI screens using Angular with complex form validations and dynamic form controls",
+      "Implemented automated email system that sends personalized policy documents and renewal reminders",
+      "Built PDF generation workflows that create customized insurance certificates and policy documents",
+      "Created dynamic data tables with filtering, sorting, and pagination for policy management",
+      "Integrated with Strapi CMS for dynamic content management and API endpoints",
+      "Optimized SQL queries reducing page load times by 30% through query optimization and indexing",
+    ],
     role: "Full Stack Developer",
-    duration: "2 months",
+    duration: "6 months",
     status: "Completed",
     projectType: "Professional Project",
   },
   {
     id: 5,
+    title: "ART LIFE - Insurance Portal",
+    slug: "art-life",
+    description:
+      "A life insurance platform where I developed complex UI screens, backend APIs for document management, and notification systems as part of an ongoing enterprise project.",
+    detailedDescription:
+      "Life insurance application featuring complex UI screens with dynamic interfaces. In this ongoing enterprise project, my specific responsibilities include developing dynamic UI screens based on selected plans and classes, implementing Alfresco document upload APIs, building comprehensive email and SMS notification flows, and developing all listing and filtering APIs for quotes, policies, and NSTP with proposal summary functionality.",
+    image: art,
+    imagesInside: [art],
+    tags: [
+      "Angular",
+      "Node.js",
+      "Alfresco",
+      "PDF Generation",
+      "Email Automation",
+      "SMS Flows",
+      "Strapi",
+      "Neutrinos Studio",
+      "API Development",
+      "Document Management",
+    ],
+    tagsDetailed: [
+      "Angular",
+      "Node.js",
+      "Alfresco Integration",
+      "PDF Generation",
+      "Email Automation",
+      "SMS Flows",
+      "Document Management",
+      "REST APIs",
+      "Dynamic UI",
+      "Plan Illustration",
+      "Strapi",
+      "Neutrinos Studio",
+      "Filtering Systems",
+      "Policy Administration",
+    ],
+    featured: false,
+    category: "Full Stack",
+    features: [
+      "Complex dynamic UI screens based on plan selection",
+      "Plan illustration tables and class-based interfaces",
+      "Alfresco document upload and management system",
+      "Comprehensive email and SMS notification flows",
+      "PDF document generation workflows",
+      "Quote, policy, and NSTP listing APIs",
+      "Advanced filtering systems for insurance data",
+      "Proposal summary generation",
+    ],
+    technicalHighlights: [
+      "Dynamic UI rendering based on insurance plans and classes",
+      "Enterprise document management with Alfresco integration",
+      "Multi-channel notification system (Email & SMS)",
+      "Complex filtering and search capabilities",
+      "Scalable API architecture for insurance operations",
+      "Automated document generation workflows",
+    ],
+    myContributions: [
+      "Developing complex dynamic UI screens with plan-specific components and real-time premium calculations",
+      "Implementing Alfresco document management system for secure document storage and retrieval",
+      "Building comprehensive notification system with email templates and SMS integration for policy updates",
+      "Creating RESTful APIs for quote management with advanced filtering and search capabilities",
+      "Developing policy administration system with status tracking and document workflow management",
+      "Implementing proposal summary generation with dynamic content based on selected insurance products",
+    ],
+    role: "Full Stack Developer",
+    duration: "2 months (Ongoing)",
+    status: "In Progress",
+    projectType: "Professional Project",
+  },
+  {
+    id: 6,
     title: "db-connections-util - NPM Package",
     slug: "db-connections-util",
     description:
@@ -485,7 +600,7 @@ export const PROJECTS = [
     projectType: "Personal Project",
   },
   {
-    id: 6,
+    id: 7,
     title: "Hospital Management System",
     slug: "hospital-management-system",
     description:
@@ -505,8 +620,6 @@ export const PROJECTS = [
       "Appointment Scheduling",
       "Prescription Management",
     ],
-    // liveUrl: "#",
-    // githubUrl: "#",
     featured: false,
     category: "Full Stack",
     features: [
@@ -538,7 +651,7 @@ export const PROJECTS = [
     projectType: "Personal Project",
   },
   {
-    id: 7,
+    id: 8,
     title: "Event Registration System",
     slug: "event-registration-system",
     description:
@@ -557,8 +670,6 @@ export const PROJECTS = [
       "Event Management",
       "Neutrinos Studio",
     ],
-    // liveUrl: "#",
-    // githubUrl: "#",
     featured: false,
     category: "Full Stack",
     features: [
@@ -578,7 +689,7 @@ export const PROJECTS = [
     projectType: "Personal Project",
   },
   {
-    id: 8,
+    id: 9,
     title: "Smart Task Manager",
     slug: "smart-task-manager",
     description:
@@ -599,7 +710,6 @@ export const PROJECTS = [
       "Due Dates",
       "Categories",
     ],
-    // liveUrl: "#",
     githubUrl: "https://github.com/abilashhhh/todoMERN.git",
     featured: false,
     category: "Frontend",
@@ -623,7 +733,7 @@ export const PROJECTS = [
     projectType: "Personal Project",
   },
   {
-    id: 9,
+    id: 10,
     title: "Weather Management Application",
     slug: "weather-management-application",
     description:
@@ -683,7 +793,7 @@ export const JOURNEY_STEPS = [
       "Began my journey in Computer Science and Engineering at APJ Abdul Kalam Technological University, building a strong foundation in programming and software development.",
     icon: GraduationCap,
     color: "bg-purple-500",
-    image: [ncerc1, btechdegree],
+    image: [ncerc1, btechdegree, nehru, nehruGrad],
     detailedInfo: {
       degree: "Bachelor of Technology (B.Tech)",
       specialization: "Computer Science and Engineering",
@@ -734,7 +844,7 @@ export const JOURNEY_STEPS = [
       "Intensive training in MERN stack technologies, learning modern web development practices, Clean Architecture, and building production-ready applications.",
     icon: Code,
     color: "bg-green-500",
-    image: [brototype, brototype1],
+    image: [brototype, brototype1, BROTO1, BROTO2, BROTO3],
     detailedInfo: {
       program: "Full Stack Development - MERN",
       duration: "12 Months",
@@ -793,59 +903,71 @@ export const JOURNEY_STEPS = [
       "Working as a Software Engineer on enterprise applications with multi-tenant architecture, dynamic UI components, and automated workflows for healthcare and checkpoint systems.",
     icon: Briefcase,
     color: "bg-orange-500",
-    image: [afclogo2, afc1],
+    image: [afclogo2, afc1, AFC2, AFC3, AFC4, AFC5, AFC6, AFC7],
     detailedInfo: {
       role: "Software Engineer",
       department: "Product Development",
       type: "Full-time Position",
       duration: "Present",
       highlights: [
-        "Developing enterprise-level multi-tenant applications from scratch",
-        "Built dynamic form builders with drag-and-drop functionality for custom workflows",
-        "Implemented automated workflow systems for complex business processes",
-        "Created reusable component libraries for improved scalability and maintainability",
-        "Working on healthcare management systems and checkpoint solutions",
-        "Collaborating with cross-functional teams using Agile/Scrum methodology",
-        "Optimized application performance for handling large datasets (10,000+ records)",
-        "Mentoring junior developers and conducting thorough code reviews",
-        "Implemented CI/CD pipelines for automated testing and deployment",
-        "Participated in architecture discussions and technical decision-making",
+        "Developing enterprise-level insurance applications with multi-tenant architecture",
+        "Built dynamic UI screens with complex form validations and responsive designs",
+        "Implemented automated email and PDF generation workflows for insurance documents",
+        "Created selection-based dynamic tables for policy and quote management",
+        "Working on both health and life insurance platforms with complex business logic",
+        "Integrated Alfresco for enterprise document management and storage",
+        "Developed comprehensive backend APIs for insurance operations",
+        "Implemented multi-channel notification systems (Email & SMS)",
+        "Built advanced filtering and search capabilities for large datasets",
+        "Collaborated with cross-functional teams in Agile environment",
       ],
       responsibilities: [
-        "Full-stack development using React.js, Node.js, and modern frameworks",
-        "Designing and implementing RESTful APIs with proper documentation",
-        "Database design and optimization with PostgreSQL and MongoDB",
-        "Implementing secure authentication and role-based authorization systems",
-        "Writing clean, maintainable, and testable code following best practices",
-        "Participating in sprint planning, daily standups, and retrospectives",
-        "Deploying and monitoring applications in production environments",
-        "Debugging and resolving production issues with minimal downtime",
-        "Creating technical documentation for features and APIs",
-        "Collaborating with designers, QA, and product managers",
+        "Full-stack development using Angular, Node.js, and SQL databases",
+        "Designing and implementing RESTful APIs for insurance operations",
+        "Developing dynamic UI components based on insurance plans and classes",
+        "Implementing automated document generation workflows (PDF, emails)",
+        "Building and optimizing database queries for insurance data",
+        "Integrating with third-party services (Alfresco, Strapi, notification services)",
+        "Creating responsive and accessible user interfaces",
+        "Writing clean, maintainable code with proper documentation",
+        "Participating in code reviews and team knowledge sharing",
+        "Debugging and resolving production issues",
       ],
       technologies: [
-        "React.js & TypeScript",
+        "Angular & TypeScript",
+        "React & TypeScript",
         "Node.js & Express.js",
-        "PostgreSQL & MongoDB",
-        "Redis for Caching",
-        "Docker & Kubernetes",
-        "AWS Services (EC2, S3, RDS)",
-        "Git, GitHub, Jira",
-        "Jest & React Testing Library",
-        "Nginx & Load Balancing",
-        "Microservices Architecture",
+        "SQL Databases",
+        "Alfresco Integration",
+        "Strapi CMS",
+        "Neutrinos Studio",
+        "PDF Generation Libraries",
+        "Email Automation",
+        "SMS Integration",
+        "RESTful APIs",
       ],
       achievements: [
-        "Reduced API response time by 40% through query optimization and caching",
-        "Built a dynamic form builder that's now used across 3 different products",
-        "Successfully delivered 5+ major features within tight deadlines",
-        "Improved code coverage from 30% to 80% through comprehensive testing",
-        "Resolved critical production bugs with 99.9% uptime maintained",
-        "Implemented automated workflows saving 10+ hours of manual work per week",
+        "Developed dynamic UI screens for complex insurance plan selections",
+        "Implemented automated PDF generation system for policy documents",
+        "Built comprehensive email and SMS notification workflows",
+        "Created all listing APIs (quotes, policies, NSTP) with advanced filtering",
+        "Integrated Alfresco for secure document management",
+        "Developed proposal summary generation with dynamic content",
+        "Built selection-based dynamic tables for user plan management",
+        "Implemented responsive designs for cross-device compatibility",
       ],
       projects: [
-        "Checkpoint Systems: Multi-tenant SaaS application with isolated customer data",
-        "ART HEALTH: Healthcare platform with dynamic UI and automated workflows"
+        "ART HEALTH: Health insurance platform",
+        "ART LIFE: Life insurance platform",
+        "Checkpoint Systems: Multi-tenant SaaS application with isolated customer databases",
+      ],
+      keyContributions: [
+        "Led the development of dynamic UI components for insurance plan selection",
+        "Implemented backend services for document management using Alfresco",
+        "Built automated notification systems reducing manual follow-ups by 80%",
+        "Developed RESTful APIs handling complex insurance business logic",
+        "Created reusable components improving development speed by 30%",
+        "Optimized database queries improving application performance by 40%",
       ],
     },
   },
@@ -1434,6 +1556,86 @@ export const CERTIFICATIONS = [
     validThrough: null,
     credentialId: null,
   },
+  {
+    id: 16,
+    title: "Paper Presentation - Age Based Content Restriction",
+    issuer: "ICICAEHPAM",
+    year: "2023",
+    date: "April 27-29, 2023",
+    certificateUrl: "#",
+    image: CERT_IMG_18, 
+    featured: false,
+    description:
+      "Presented a research paper titled 'Age Based Content Restriction' at International Conference on Innovation, Creativity and Computing Applications (ICICAEHPAM) 2023, organized by Nehru Group of Institutions in association with OSIET and Samarkand State University.",
+    skills: [
+      "Research Presentation",
+      "Content Filtering",
+      "Innovation",
+      "Academic Research",
+      "Publication Standards",
+    ],
+    learnings: [
+      "Gained exposure to international research platforms",
+      "Improved technical paper writing and presentation skills",
+      "Understood research evaluation criteria in global conferences",
+      "Interacted with global academicians and researchers",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+  {
+    id: 17,
+    title: "Technical Talk on International Standards",
+    issuer: "NCERC",
+    year: "2021",
+    date: "2021",
+    certificateUrl: "#",
+    image: CERT_IMG_16, 
+    featured: false,
+    description:
+      "Participated in IEEE’s Technical Talk on International Standards focusing on global compliance, IEEE standards, and modern engineering regulations.",
+    skills: [
+      "IEEE Standards",
+      "Quality Compliance",
+      "International Engineering Standards",
+      "Technical Documentation",
+    ],
+    learnings: [
+      "Learned about major global IEEE standards",
+      "Understood international engineering compliance requirements",
+      "Explored technical documentation best practices",
+      "Gained insights into standardization processes",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
+
+  {
+    id: 18,
+    title: "Data Analytics: Exploiting the Power That Is Data",
+    issuer: "MES Institute",
+    year: "2020",
+    date: "Oct 18, 2020",
+    certificateUrl: "#",
+    image: CERT_IMG_17,
+    featured: false,
+    description:
+      "Completed webinar on Data Analytics focusing on data-driven decision making, data handling, and real-world data processing techniques.",
+    skills: [
+      "Data Analytics",
+      "Data Processing",
+      "Data Interpretation",
+      "Problem Solving",
+    ],
+    learnings: [
+      "Understood fundamentals of data analytics",
+      "Learned real-world data interpretation techniques",
+      "Explored applications of analytics in decision-making",
+      "Gained insights into modern data processing tools",
+    ],
+    validThrough: null,
+    credentialId: null,
+  },
 ];
 
 export const PROJECT_SLUG_MAPPING = {
@@ -1448,10 +1650,10 @@ export const PROJECT_SLUG_MAPPING = {
     "zigma-watches",
 
   // Software Engineer AFC Digital Projects
-  "Checkpoint Systems: Multi-tenant SaaS application with isolated customer data":
+  "Checkpoint Systems: Multi-tenant SaaS application with isolated customer databases":
     "checkpoint",
-  "ART HEALTH: Healthcare platform with dynamic UI and automated workflows":
-    "art-health",
+  "ART HEALTH: Health insurance platform": "art-health",
+  "ART LIFE: Life insurance platform": "art-life",
   "Weather Management Application: Real-time weather app with interactive charts":
     "weather-management-application",
 

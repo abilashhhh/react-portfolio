@@ -12,8 +12,8 @@ const Home = () => {
     <>
       <div className="pt-4 sm:pt-8 md:pt-12 lg:pt-5">
         <HeroSection />
-        <ProjectSection />
         <AboutSection />
+        <ProjectSection />
         <SkillSection />
         <CertificationsSection />
         <ContactSection />
