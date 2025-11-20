@@ -82,7 +82,7 @@ import CERT_IMG_12 from "../assets/certificates/docker.jpg";
 import CERT_IMG_13 from "../assets/certificates/zohocrm.jpg";
 import CERT_IMG_14 from "../assets/certificates/gittraining.png";
 import CERT_IMG_15 from "../assets/certificates/typescript.png";
-
+import CERT_IMG_19 from "../assets/images/react-hackerrank.jpg";
 import CERT_IMG_17 from "../assets/images/nehrucert1.jpeg";
 import CERT_IMG_16 from "../assets/images/ieee-standrds.PNG";
 import CERT_IMG_18 from "../assets/images/agebased.jpeg";
@@ -1205,6 +1205,34 @@ export const CERTIFICATIONS = [
     credentialId: "f12016d22a8e",
   },
   {
+    id: 19,
+    title: "Frontend Developer (React)",
+    issuer: "HackerRank",
+    year: "2025",
+    date: "Nov 20, 2025",
+    certificateUrl:
+      "https://www.hackerrank.com/certificates/iframe/da7861971d24",
+    image: CERT_IMG_19,
+    featured: true,
+    description:
+      "Role-based certification validating React skills, frontend fundamentals, and practical UI development capabilities.",
+    skills: [
+      "React",
+      "JavaScript",
+      "Frontend Development",
+      "Component Architecture",
+      "State Management",
+    ],
+    learnings: [
+      "Built optimized and modular React components",
+      "Applied state and props effectively in real-world scenarios",
+      "Implemented best practices in component architecture",
+      "Solved role-based frontend problems under timed conditions",
+    ],
+    validThrough: null,
+    credentialId: "DA7861971D24",
+  },
+  {
     id: 3,
     title: "Git Training",
     issuer: "Simplilearn",
@@ -1213,7 +1241,7 @@ export const CERTIFICATIONS = [
     certificateUrl:
       "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI3NTgiLCJjZXJ0aWZpY2F0ZV91cmwiOiJodHRwczpcL1wvY2VydGlmaWNhdGVzLnNpbXBsaWNkbi5uZXRcL3NoYXJlXC90aHVtYl81MDY0NDg4XzE3MTM3MDUzNDcucG5nIiwidXNlcm5hbWUiOiJBYmlsYXNoIE4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F2823%2FGIT%2Fcertificate%2Fdownload-skillup&%24web_only=true",
     image: CERT_IMG_14,
-    featured: true,
+    featured: false,
     description:
       "Professional Git version control training covering repository management, branching strategies, and collaborative workflows.",
     skills: [
@@ -1563,7 +1591,7 @@ export const CERTIFICATIONS = [
     year: "2023",
     date: "April 27-29, 2023",
     certificateUrl: "#",
-    image: CERT_IMG_18, 
+    image: CERT_IMG_18,
     featured: false,
     description:
       "Presented a research paper titled 'Age Based Content Restriction' at International Conference on Innovation, Creativity and Computing Applications (ICICAEHPAM) 2023, organized by Nehru Group of Institutions in association with OSIET and Samarkand State University.",
@@ -1590,7 +1618,7 @@ export const CERTIFICATIONS = [
     year: "2021",
     date: "2021",
     certificateUrl: "#",
-    image: CERT_IMG_16, 
+    image: CERT_IMG_16,
     featured: false,
     description:
       "Participated in IEEE’s Technical Talk on International Standards focusing on global compliance, IEEE standards, and modern engineering regulations.",
