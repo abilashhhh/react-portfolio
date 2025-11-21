@@ -38,11 +38,19 @@ const CertificationsPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Get unique issuers
-  const issuers = useMemo(
-    () => ["All", ...new Set(CERTIFICATIONS.map((cert) => cert.issuer))],
-    []
-  );
+  // Get issuers with more than one certification
+  const issuers = useMemo(() => {
+    const issuerCounts = CERTIFICATIONS.reduce((acc, cert) => {
+      acc[cert.issuer] = (acc[cert.issuer] || 0) + 1;
+      return acc;
+    }, {});
+
+    // Include "All" and only issuers with more than one certification
+    return [
+      "All",
+      ...Object.keys(issuerCounts).filter((issuer) => issuerCounts[issuer] > 1),
+    ];
+  }, []);
 
   // Pre-process certifications data for faster search
   const preProcessedCerts = useMemo(
@@ -199,46 +207,48 @@ const CertificationsPage = () => {
             </div>
           </motion.div>
 
-          {/* Issuer Filter */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap justify-center items-center gap-3 mt-8"
-          >
-            <div className="flex items-center gap-2 text-sm">
-              <Filter size={16} />
-              <span className="font-medium">Filter by:</span>
-            </div>
-            {issuers.map((issuer) => (
-              <button
-                key={issuer}
-                onClick={() => handleIssuerChange(issuer)}
-                className={`px-4 py-2 rounded-full text-sm transition-all duration-300 whitespace-nowrap ${
-                  selectedIssuer === issuer
-                    ? isDarkMode
-                      ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25"
-                      : "bg-blue-500 text-white shadow-lg shadow-blue-400/25"
-                    : isDarkMode
-                    ? "bg-gray-800 hover:bg-gray-700 text-white"
-                    : "bg-white hover:bg-gray-100 text-gray-900 shadow-sm"
-                }`}
-              >
-                {issuer}
-              </button>
-            ))}
-            {(selectedIssuer !== "All" || searchQuery) && (
-              <button
-                onClick={clearFilters}
-                className={`px-4 py-2 rounded-full text-sm transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
-                  isDarkMode
-                    ? "bg-gray-700 hover:bg-gray-600 text-white"
-                    : "bg-gray-200 hover:bg-gray-300 text-gray-700"
-                }`}
-              >
-                <X size={14} />
-                Clear Filters
-              </button>
-            )}
-          </motion.div>
+          {/* Issuer Filter - Only show if there are multiple issuers with more than one cert */}
+          {issuers.length > 1 && (
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap justify-center items-center gap-3 mt-8"
+            >
+              <div className="flex items-center gap-2 text-sm">
+                <Filter size={16} />
+                <span className="font-medium">Filter by issuer:</span>
+              </div>
+              {issuers.map((issuer) => (
+                <button
+                  key={issuer}
+                  onClick={() => handleIssuerChange(issuer)}
+                  className={`px-4 py-2 rounded-full text-sm transition-all duration-300 whitespace-nowrap ${
+                    selectedIssuer === issuer
+                      ? isDarkMode
+                        ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25"
+                        : "bg-blue-500 text-white shadow-lg shadow-blue-400/25"
+                      : isDarkMode
+                      ? "bg-gray-800 hover:bg-gray-700 text-white"
+                      : "bg-white hover:bg-gray-100 text-gray-900 shadow-sm"
+                  }`}
+                >
+                  {issuer}
+                </button>
+              ))}
+              {(selectedIssuer !== "All" || searchQuery) && (
+                <button
+                  onClick={clearFilters}
+                  className={`px-4 py-2 rounded-full text-sm transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
+                    isDarkMode
+                      ? "bg-gray-700 hover:bg-gray-600 text-white"
+                      : "bg-gray-200 hover:bg-gray-300 text-gray-700"
+                  }`}
+                >
+                  <X size={14} />
+                  Clear Filters
+                </button>
+              )}
+            </motion.div>
+          )}
 
           {/* Active Filters Info */}
           {(selectedIssuer !== "All" || searchQuery) && (
